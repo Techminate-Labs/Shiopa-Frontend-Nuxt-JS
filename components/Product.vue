@@ -1,11 +1,12 @@
 <template>
-  <figure class="relative">
-    <h3 class="absolute bottom-8 -left-4 font-bold text-2xl text-gray-900 z-10">Category 1</h3>
+  <figure class="max-w-max relative block m-auto">
     <img
       alt="Photo of the countryside with mist."
-      src="/placeholders/placeholder-228-500x650.jpg"
+      src="/placeholders/placeholder-658-500x650.jpg"
       class="opacity-50 z-0 max-w-xs"
     />
+    <p class="font-bold text-2xl text-gray-800">Product 1</p>
+    <p class="text-xl text-gray-900">$3.00</p>
     <figcaption class="text-xs">Photo of the countryside with mist.</figcaption>
   </figure>
 </template>
