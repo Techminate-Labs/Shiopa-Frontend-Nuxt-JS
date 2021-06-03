@@ -1,6 +1,9 @@
 <template>
-  <div class="container">
+  <div>
     <NavBar />
+    <ProductInfo />
+    <ProductDescription />
+    <Footer />
   </div>
 </template>
 

@@ -13,7 +13,7 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
-export default class Hero extends Vue {
+export default class Category extends Vue {
 
 }
 </script>

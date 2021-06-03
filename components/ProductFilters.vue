@@ -15,7 +15,7 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
-export default class NavBar extends Vue {
+export default class ProductFilters extends Vue {
 
 }
 </script>
