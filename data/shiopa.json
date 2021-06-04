@@ -1,0 +1,103 @@
+{
+    "category":[
+        {
+            "id":1,
+            "parent_id":0,
+            "name":"Mobile",
+            "slug":"mobile",
+            "image":"default.jpg"
+        },
+        {
+            "id":2,
+            "parent_id":0,
+            "name":"Laptop",
+            "slug":"laptop",
+            "image":"default.jpg"
+        },
+        {
+            "id":3,
+            "parent_id":1,
+            "name":"Apple",
+            "slug":"apple",
+            "image":"default.jpg"
+        },
+        {
+            "id":4,
+            "parent_id":1,
+            "name":"Samsung",
+            "slug":"samsung",
+            "image":"default.jpg"
+        },
+        {
+            "id":5,
+            "parent_id":2,
+            "name":"Dell",
+            "slug":"dell",
+            "image":"default.jpg"
+        }
+    ],
+
+    "product":[
+        {
+            "id":1,
+            "category_id":3,
+            "section":"latest",
+            "name":"Iphone Max",
+            "slug":"iphone-max",
+            "image":"default.jpg",
+            "price":800,
+            "stock":5,
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id":2,
+            "category_id":3,
+            "section":"latest",
+            "name":"Iphone 8",
+            "slug":"iphone-8",
+            "image":"default.jpg",
+            "price":600,
+            "stock":7,
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id":1,
+            "category_id":4,
+            "section":"latest",
+            "name":"Samsung S10",
+            "slug":"samsung-s10",
+            "image":"default.jpg",
+            "price":900,
+            "stock":10,
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id":1,
+            "category_id":5,
+            "section":"latest",
+            "name":"Dell GT100",
+            "slug":"dell-gt100",
+            "image":"default.jpg",
+            "price":1050,
+            "stock":4,
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id":1,
+            "category_id":5,
+            "section":"latest",
+            "name":"Dell Gaming",
+            "slug":"dell-gaming",
+            "image":"default.jpg",
+            "price":1700,
+            "stock":3,
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        }
+
+    ]
+}

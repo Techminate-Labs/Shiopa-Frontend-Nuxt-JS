@@ -1,0 +1,3 @@
+npm install json-server
+
+json-server --watch data/shiopa.json
