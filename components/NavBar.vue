@@ -1,9 +1,9 @@
 <template>
-  <div class="sticky z-40 w-screen bg-gray-100 py-3 px-4">
+  <div class="bg-gray-100 py-3 px-4 z-40">
     <div class="container mx-auto flex flex-row flex-nowrap justify-between">
-      <span class="mr-2 font-bold text-3xl">Shiopa</span>
+      <NuxtLink to="/" class="mr-2 font-bold text-3xl">Shiopa</NuxtLink>
       <ul class="self-center">
-        <li>Page</li>
+        <li><NuxtLink to="/products">Products</NuxtLink></li>
       </ul>
     </div>
   </div>

@@ -1,11 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <ProductFilters />
-    <div class="flex flex-wrap mx-2">
-      <Product />
-      <Product />
-    </div>
+    <SingleCategory />
     <Footer />
   </div>
 </template>
