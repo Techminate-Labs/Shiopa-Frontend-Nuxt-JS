@@ -1,8 +1,11 @@
 <template>
   <div>
     <NavBar />
-    <Hero />
-    <Categories />
+    <ProductFilters />
+    <div class="flex flex-wrap mx-2">
+      <Product />
+      <Product />
+    </div>
     <Footer />
   </div>
 </template>

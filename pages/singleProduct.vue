@@ -1,8 +1,8 @@
 <template>
   <div>
     <NavBar />
-    <Hero />
-    <Categories />
+    <ProductInfo />
+    <ProductDescription />
     <Footer />
   </div>
 </template>

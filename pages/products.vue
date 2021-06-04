@@ -1,9 +1,6 @@
 <template>
   <div>
     <NavBar />
-    <Hero />
-    <Categories />
-    <Footer />
   </div>
 </template>
 
