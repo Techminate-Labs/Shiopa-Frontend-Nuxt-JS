@@ -1,6 +1,7 @@
 <template>
   <div>
     <NavBar />
+    <Categories :categories="categories" />
   </div>
 </template>
 

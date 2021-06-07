@@ -1,14 +1,41 @@
 <template>
-  <div class="bg-gray-300 p-8">
-    <h2 class="text-4xl">Categories</h2>
-    <Category />
+  <div class="container mx-auto xl:px-16 my-32">
+    <div class="flex flex-row flex-wrap justify-center md:justify-start">
+      <div v-for="(category, index) in categories" class="max-w-max md:w-1/2 lg:w-1/3 xl:w-1/4">
+        <a :href="'/categories/' + category.slug" class="block relative">
+          <img
+            :src="'/placeholders/' + category.image"
+            class="z-0"
+          />
+          <h3 class="absolute bottom-4 left-4 text-white text-2xl">{{category.name}}</h3>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import Vue, { PropOptions } from 'vue'
 
-@Component
-export default class Categories extends Vue {
-
+interface Category {
+  id: number
+  parent_id: number
+  name: string
+  slug: string
+  image: string
 }
+
+export default Vue.extend({
+  name: 'Categories',
+  data() {
+    return {
+      categories: []
+    }
+  },
+  async fetch() {
+    this.categories = await fetch(
+      'http://localhost:3000/category'
+    ).then(res => res.json()).catch(err => console.log(err))
+  },
+  computed: {}
+})
 </script>

@@ -1,9 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <Hero />
-    <Categories />
-    <Footer />
+    <Products :products="products" />
   </div>
 </template>
 
@@ -11,7 +9,16 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-
+  data() {
+    return {
+      products: []
+    }
+  },
+  async fetch() {
+    this.products = await fetch(
+      'http://localhost:3000/product'
+    ).then(res => res.json()).catch(err => console.log(err))
+  }
 })
 </script>
 
