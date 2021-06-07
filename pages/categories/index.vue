@@ -1,6 +1,16 @@
 <template>
   <div>
-    <NavBar />
+    <transition
+      enter-active-class="transition-opacity ease-linear duration-200"
+      enter-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition-opacity ease-linear duration-200"
+      leave-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" />
+    </transition>
+    <NavBar @showMobileMenu="showMobileMenu = true" v-show="!showMobileMenu" />
     <Categories :categories="categories" />
   </div>
 </template>
@@ -8,7 +18,13 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+    data() {
+    return {
+      showMobileMenu: false
+    }
+  }
+})
 </script>
 
 <style>
