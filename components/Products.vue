@@ -1,46 +1,28 @@
 <template>
-  <div>
-    <h2>Products</h2>
-    <div v-for="product in products">
-    
-      <img
-        :src="'/placeholders/' + product.image"
-        class="z-0 max-w-xs"
-      />
-      <p>{{product.name}}</p>
-      <p class="text-xl text-gray-900">${{product.price}}</p>
-
+  <div class="container mx-auto xl:px-16 my-16">
+    <h2 class="text-center mb-8 text-3xl">Products</h2>
+    <div class="flex flex-row flex-wrap justify-center md:justify-start">
+      <div v-for="product in products" class="max-w-max md:w-1/2 lg:w-1/3 xl:w-1/4 block relative">
+        <img
+          :src="'/placeholders/' + product.image"
+        />
+        <p>{{product.name}}</p>
+        <p class="text-xl text-gray-900">${{product.price}}</p>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import Vue, { PropOptions } from 'vue'
+import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
-interface Product {
-  id: number
-  category_id: number
-  section: string
-  name: string
-  slug: string
-  image: string
-  price: number
-  stock: number
-  description: string
-  additional_info: string
+@Component
+export default class Products extends Vue {
+  @Prop({ required: true }) readonly products!: Object
+  // props: {
+  //   products: {
+  //     type: Object,
+  //     required: true
+  //   } as PropOptions<Product>
+  // }
 }
-
-export default Vue.extend({
-  name: 'Products',
-
-  props: {
-    products: {
-      type: Object,
-      required: true
-    } as PropOptions<Product>
-  },
-
-  data () {},
-
-  computed: {}
-})
 </script>
