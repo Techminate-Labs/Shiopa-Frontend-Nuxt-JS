@@ -34,7 +34,7 @@ export default Vue.extend({
 
   props: {
     products: {
-      type: Array,
+      type: Object,
       required: true
     } as PropOptions<Product>
   },
