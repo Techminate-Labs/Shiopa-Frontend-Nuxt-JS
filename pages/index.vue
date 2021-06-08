@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Hero />
+    <Slider />
     <Categories />
     <Footer />
   </div>
