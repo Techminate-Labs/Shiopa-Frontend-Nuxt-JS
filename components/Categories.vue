@@ -17,14 +17,6 @@
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
 
-interface Category {
-  id: number
-  parent_id: number
-  name: string
-  slug: string
-  image: string
-}
-
 export default Vue.extend({
   name: 'Categories',
   data() {
@@ -34,7 +26,7 @@ export default Vue.extend({
   },
   async fetch() {
     this.categories = await fetch(
-      'http://localhost:3000/category'
+      'http://localhost:8000/category'
     ).then(res => res.json()).catch(err => console.log(err))
   },
   computed: {}

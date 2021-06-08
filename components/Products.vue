@@ -17,12 +17,8 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class Products extends Vue {
+
   @Prop({ required: true }) readonly products!: Object
-  // props: {
-  //   products: {
-  //     type: Object,
-  //     required: true
-  //   } as PropOptions<Product>
-  // }
+  
 }
 </script>
