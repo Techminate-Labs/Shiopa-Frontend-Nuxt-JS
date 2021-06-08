@@ -9,7 +9,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData({ $http }: any) {
-    const products = await $http.$get('http://localhost:3000/product')
+    const products = await $http.$get('http://localhost:8000/product')
     return { products }
   }
 })

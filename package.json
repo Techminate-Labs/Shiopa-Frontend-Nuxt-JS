@@ -7,7 +7,7 @@
         "build": "nuxt build",
         "start": "nuxt start",
         "generate": "nuxt generate",
-        "serve": "json-server --watch data/shiopa.json"
+        "serve": "json-server --watch data/shiopa.json --port 8000"
     },
     "dependencies": {
         "@nuxt/http": "^0.6.4",
