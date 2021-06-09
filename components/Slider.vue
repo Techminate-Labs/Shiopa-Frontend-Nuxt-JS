@@ -34,8 +34,9 @@ export default Vue.extend({
       let slider = document.querySelector('#slider');
       let activeSlide = document.querySelector('.active')
       let nextSibling = activeSlide.nextSibling
+      let prevSibling = activeSlide.previousSibling
 
-      if (nextSibling !== null && nextSibling.nextSibling !== null){
+      if (nextSibling !== null && nextSibling.nextSibling !== null && prevSibling == null){
         activeSlide.classList.add('slide-prev')
         activeSlide.classList.remove('active')
 
@@ -43,13 +44,15 @@ export default Vue.extend({
         nextSibling.classList.remove('slide-next')
 
         nextSibling.nextSibling.classList.add('slide-next')
-        nextSibling.nextSibling.classList.remove('slide-prev')
+        slider.lastChild.classList.remove('slide-prev')
       } else if (nextSibling.nextSibling == null) {
         activeSlide.classList.add('slide-prev')
         activeSlide.classList.remove('active')
 
         nextSibling.classList.add('active')
+        nextSibling.classList.remove('slide-next')
 
+        slider.firstChild.classList.remove('slide-prev')
         slider.firstChild.classList.add('slide-next')
       } else {
         activeSlide.classList.remove('active')
@@ -87,17 +90,16 @@ export default Vue.extend({
 }
 
 .slide.slide-prev {
-  transform: translateX(-100%) scale(50%);
+  transform: translateX(-500%) scale(50%);
   opacity: 0;
 }
 
 .slide.slide-next {
-  transform: translateX(100%) scale(0%);
+  transform: translateX(500%) scale(50%);
   opacity: 0;
 }
 
 .slide {
-  transform: translateX(-100%) scale(50%);
   opacity: 0;
 }
 
