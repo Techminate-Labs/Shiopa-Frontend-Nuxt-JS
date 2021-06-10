@@ -1,6 +1,6 @@
 <template>
-  <div class="h-96 md:h-screen w-screen flex relative pb-16">
-    <transition name="slide" mode="out-in" class="bg-gray-900">
+  <div class="h-96 md:h-screen bg-gray-900 w-screen flex relative pb-16">
+    <transition name="slide" mode="out-in">
       <div v-for="i in [currentIndex]" :key="i" id="slider" class="absolute flex inset-0 w-auto h-auto transform translate-x-0">
         <img :src="'/placeholders/' + currentImg.image" class="object-cover w-screen md:h-full" />
       </div>
@@ -10,56 +10,58 @@
   </div>
 </template>
 <script lang="ts">
-import Vue, { PropOptions } from 'vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-export default Vue.extend({
-  name: 'Slider',
-  data() {
-    return {
-      sliders: [],
-      timer: null,
-      currentIndex: 0
-    }
-  },
-  async fetch() {
+@Component
+export default class Slider extends Vue{
+
+  sliders: string[] = []
+  timer: unknown = null
+  currentIndex: number = 0
+
+  async fetch(): Promise<any> {
     this.sliders = await fetch(
       'http://localhost:8000/slider'
     ).then(res => res.json()).catch(err => console.log(err))
-  },
-  mounted: function () {
-    this.startSlide();
-  },
-  methods: {
-    startSlide: function() {
-      this.timer = setInterval(this.nextSlide, 8000);
-    },
-    nextSlide() {
-      this.currentIndex += 1;
-    },
-    prevSlide() {
-      this.currentIndex -= 1;
-    }
-  },
-  computed: {
-    currentImg: function() {
-      return this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
-    }
   }
-})
+
+  mounted() {
+    this.startSlide();
+  }
+
+  startSlide(): void {
+    this.timer = setInterval(this.nextSlide, 8000);
+  }
+  nextSlide(): void {
+    this.currentIndex += 1;
+  }
+  prevSlide(): void {
+    this.currentIndex -= 1;
+  }
+
+  get currentImg(): any {
+    return this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
+  }
+}
 </script>
 
 <style scoped>
 
 @keyframes slide-enter {
-  0% { opacity: 0; transform: translateX(100%); }
-  100% { opacity: 1; transform: translateX(0%); }
+  0% { opacity: 0; transform: translateX(100%) scale(80%); }
+  100% { opacity: 1; transform: translateX(0%) scale(100%); }
+}
+
+@keyframes slide-leave {
+  0% { opacity: 1; transform: translateX(0%) scale(100%); }
+  100% { opacity: 0; transform: translateX(-100%) scale(80%); }
 }
 
 .slide-enter-active {
-  animation: slide-enter .5s;
+  animation: slide-enter .4s;
 }
 .slide-leave-active {
-  animation: slide-enter .5s reverse;
+  animation: slide-leave .4s;
 }
 
 </style>
