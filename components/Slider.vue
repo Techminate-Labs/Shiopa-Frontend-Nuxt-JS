@@ -1,8 +1,10 @@
 <template>
   <div class="h-96 md:h-screen w-screen flex relative pb-16">
-    <div id="slider" class="absolute flex bg-gray-900 inset-0 w-auto h-auto transform translate-x-0 transition-all ease-in-out duration-1000">
-      <img v-for="(slider, index) in sliders" :key="index" :src="'/placeholders/' + slider.image" class="object-cover w-screen md:h-full transition-all ease-in-out duration-1000 slide" />
-    </div>
+    <transition name="slide" mode="out-in" class="bg-gray-900">
+      <div v-for="i in [currentIndex]" :key="i" id="slider" class="absolute flex inset-0 w-auto h-auto transform translate-x-0">
+        <img :src="'/placeholders/' + currentImg.image" class="object-cover w-screen md:h-full" />
+      </div>
+    </transition>
     <div @click="prevSlide()" class="cursor-pointer absolute bottom-0 left-0 bg-white w-16 h-16 md:mb-16 border-r border-gray-400 flex items-center justify-center text-black hover:bg-gray-100">&#x276E;</div>
     <div @click="nextSlide()" class="cursor-pointer absolute bottom-0 left-0 bg-white w-16 h-16 md:mb-16 ml-16 flex items-center justify-center text-black hover:bg-gray-100">&#x276F;</div>
   </div>
@@ -14,7 +16,9 @@ export default Vue.extend({
   name: 'Slider',
   data() {
     return {
-      sliders: []
+      sliders: [],
+      timer: null,
+      currentIndex: 0
     }
   },
   async fetch() {
@@ -22,58 +26,23 @@ export default Vue.extend({
       'http://localhost:8000/slider'
     ).then(res => res.json()).catch(err => console.log(err))
   },
-  mounted: () => {
-    const slider = document.querySelector('#slider')
-    const firstSlide = slider.children[0]
-    firstSlide.classList.add('active')
-    firstSlide.nextSibling.classList.add('slide-next');
-    slider.lastChild.classList.add('slide-prev');
+  mounted: function () {
+    this.startSlide();
   },
   methods: {
+    startSlide: function() {
+      this.timer = setInterval(this.nextSlide, 8000);
+    },
     nextSlide() {
-      let slider = document.querySelector('#slider');
-      let activeSlide = document.querySelector('.active')
-      let nextSibling = activeSlide.nextSibling
-      let prevSibling = activeSlide.previousSibling
-
-      if (nextSibling !== null && nextSibling.nextSibling !== null && prevSibling == null){
-        activeSlide.classList.add('slide-prev')
-        activeSlide.classList.remove('active')
-
-        nextSibling.classList.add('active')
-        nextSibling.classList.remove('slide-next')
-
-        nextSibling.nextSibling.classList.add('slide-next')
-        slider.lastChild.classList.remove('slide-prev')
-      } else if (nextSibling.nextSibling == null) {
-        activeSlide.classList.add('slide-prev')
-        activeSlide.classList.remove('active')
-
-        nextSibling.classList.add('active')
-        nextSibling.classList.remove('slide-next')
-
-        slider.firstChild.classList.remove('slide-prev')
-        slider.firstChild.classList.add('slide-next')
-      } else {
-        activeSlide.classList.remove('active')
-        slider.firstChild.classList.add('active')
-      }
-
+      this.currentIndex += 1;
     },
     prevSlide() {
-      let slider = document.querySelector('#slider');
-      let activeSlide = document.querySelector('.active')
-      let previousSibling = activeSlide.previousSibling
-
-      if (previousSibling !== null){
-        previousSibling.classList.add('active')
-        activeSlide.classList.add('slide-prev')
-        activeSlide.classList.remove('active')
-      } else {
-        slider.lastChild.classList.add('active');
-        activeSlide.classList.remove('active')
-      }
-
+      this.currentIndex -= 1;
+    }
+  },
+  computed: {
+    currentImg: function() {
+      return this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
     }
   }
 })
@@ -81,26 +50,16 @@ export default Vue.extend({
 
 <style scoped>
 
-.slide.active {
-  transform: translateX(0%) scale(100%);
-  opacity: 1;
-  position: absolute;
-  left: 0;
-  height: 100%;
+@keyframes slide-enter {
+  0% { opacity: 0; transform: translateX(100%); }
+  100% { opacity: 1; transform: translateX(0%); }
 }
 
-.slide.slide-prev {
-  transform: translateX(-500%) scale(50%);
-  opacity: 0;
+.slide-enter-active {
+  animation: slide-enter .5s;
 }
-
-.slide.slide-next {
-  transform: translateX(500%) scale(50%);
-  opacity: 0;
-}
-
-.slide {
-  opacity: 0;
+.slide-leave-active {
+  animation: slide-enter .5s reverse;
 }
 
 </style>
