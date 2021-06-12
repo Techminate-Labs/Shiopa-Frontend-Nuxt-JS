@@ -1,25 +1,22 @@
 <template>
   <div class="container md:mx-auto flex justify-center h-screen">
-    <h1 class="text-4xl self-center">Category</h1>
+      {{category.name}}
+      {{category.image}}
   </div>
 </template>
 <script lang="ts">
-import Vue, { PropOptions } from 'vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-interface SingleCategory {
-  id: number
-  parent_id: number
-  name: string
-  slug: string
-  image: string
+@Component
+export default class SingleCategory extends Vue{
+
+  category: string[] = []
+
+  async fetch(): Promise<any> {
+    this.category = await fetch(
+      `http://localhost:8000/category/${this.$nuxt.context.params.id}`
+    ).then(res => res.json()).catch(err => console.log(err))
+  }
+
 }
-
-export default Vue.extend({
-  name: 'Categories',
-  data() {
-    return {
-    }
-  },
-  computed: {}
-})
 </script>

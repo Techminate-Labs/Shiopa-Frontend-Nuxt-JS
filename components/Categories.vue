@@ -3,7 +3,7 @@
   <h2 class="text-center mb-8 text-3xl">Categories</h2>
     <div class="flex flex-row flex-wrap justify-center md:justify-start">
       <div v-for="(category, index) in categories" :key="index" class="max-w-max md:w-1/2 lg:w-1/3 xl:w-1/4">
-        <a :href="'/categories/' + category.slug" class="block relative">
+        <a :href="'/categories/' + category.id" class="block relative">
           <img
             :src="'/placeholders/' + category.image"
             class="z-0"

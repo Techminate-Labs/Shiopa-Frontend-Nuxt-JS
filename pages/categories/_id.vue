@@ -1,8 +1,6 @@
 <template>
   <div>
-    <NavBar />
     <SingleCategory />
-    <Footer />
   </div>
 </template>
 

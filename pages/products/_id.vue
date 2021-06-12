@@ -1,16 +1,19 @@
 <template>
   <div>
-    <NavBar />
-    <ProductInfo />
-    <ProductDescription />
-    <Footer />
+    <ProductInfo :product="product" />
+    <ProductDescription :product="product" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  async asyncData({ params, $http }: any) {
+    const product = await $http.$get(`http://localhost:8000/product/${params.id}`)
+    return { product }
+  }
+})
 </script>
 
 <style>
