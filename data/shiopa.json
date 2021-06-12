@@ -4,35 +4,35 @@
             "parent_id": 0,
             "name": "Mobile",
             "slug": "mobile",
-            "image": "default_category.jpg"
+            "image": "phone_1000w.png"
         },
         {
             "id": 2,
             "parent_id": 0,
             "name": "Laptop",
             "slug": "laptop",
-            "image": "default_category.jpg"
+            "image": "laptop_1000w.png"
         },
         {
             "id": 3,
             "parent_id": 1,
             "name": "Apple",
             "slug": "apple",
-            "image": "default_category.jpg"
+            "image": "apple_1000w.png"
         },
         {
             "id": 4,
             "parent_id": 1,
             "name": "Samsung",
             "slug": "samsung",
-            "image": "default_category.jpg"
+            "image": "samsung_1000w.png"
         },
         {
             "id": 5,
             "parent_id": 2,
             "name": "Dell",
             "slug": "dell",
-            "image": "default_category.jpg"
+            "image": "dell_1000w.png"
         }
     ],
 
