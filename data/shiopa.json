@@ -113,6 +113,23 @@
             "image": "slider_3.jpg",
             "alt": "Description of slider image"
         }
-    ]
+    ],
+    "shopslider": [{
+        "id": 1,
+        "image": "slider_1.jpg",
+        "alt": "Description of slider image"
+    },
+    {
+        "id": 2,
+        "image": "slider_2.jpg",
+        "alt": "Description of slider image"
+    },
+    {
+        "id": 3,
+        "image": "slider_3.jpg",
+        "alt": "Description of slider image"
+    }
+]
+
 
 }
