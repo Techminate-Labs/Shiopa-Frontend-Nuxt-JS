@@ -7,7 +7,13 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+import Categories from '@/components/storefront/categories/Categories.vue'
+
+export default Vue.extend({
+  components: {
+    Categories
+  }
+})
 </script>
 
 <style>
