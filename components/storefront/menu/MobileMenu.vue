@@ -28,9 +28,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator'
 export default class NavBar extends Vue {
 
   @Emit('closeMobileMenu')
-  closeMobileMenu(): void {
-    console.log('closing')
-  }
+  closeMobileMenu(): void {}
 
 }
 </script>
