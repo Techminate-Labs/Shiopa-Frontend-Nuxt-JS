@@ -1,11 +1,19 @@
 <template>
-  <div class="h-96 md:h-screen bg-gray-900 w-screen flex relative pb-16">
+  <div class="h-96 md:h-screen bg-gray-200 w-screen flex relative pb-16">
     <transition name="slide" mode="out-in">
-      <div v-for="i in [currentIndex]" :key="i" id="slider" class="absolute flex inset-0 w-auto h-auto transform translate-x-0">
-        <img :src="'/placeholders/' + currentImg.image" class="object-cover w-screen md:h-full" />
+      <div v-for="i in [currentIndex]" :key="i" id="slider" class="absolute flex flex-col md:flex-row inset-0 w-auto h-auto transform translate-x-0">
+        <img :src="'/placeholders/' + currentImg.image" class="object-contain m-6 md:w-3/4 lg:w-1/2 h-3/4 md:h-auto" />
+        <div class="ml-36 mb-2 md:mx-16 lg:mx-32 flex flex-col justify-center">
+          <p class="font-bold text-2xl md:text-4xl">{{currentImg.name}}</p>
+          <a class="text-xl md:text-2xl hover:underline" :href="'/categories/' + currentImg.category_id">{{currentImg.category_name}}</a>
+        </div>
       </div>
     </transition>
-
+    <ol class="z-20 absolute bottom-0 left-1/2 transform -translate-x-1/2">
+      <li class="inline-block mr-3" v-for="(slider, index) in sliders" :key="index">
+        <label @click="handleSliderChange(index)" class="carousel-bullet cursor-pointer block text-4xl text-white checked:bg-blue-600 hover:text-blue-700">•</label>
+      </li>
+    </ol>
     <div @click="prevSlide()" class="slider-arrow border-r border-gray-400 flex items-center justify-center text-black hover:bg-gray-100">&#x276E;</div>
     <div @click="nextSlide()" class="slider-arrow ml-16 flex items-center justify-center text-black hover:bg-gray-100">&#x276F;</div>
   </div>
@@ -21,8 +29,12 @@ export default class Slider extends Vue{
   currentIndex: number = 0
   currentImg: object = {
     id: 1,
-    image: 'slider_1.jpg',
-    alt: 'Description of slider image'
+    category_id: "3",
+    category_name: "Furniture",
+    product_id: "6",
+    name: "Gray Classic Sofa",
+    image: "sofa_1000w.png",
+    alt: "Description of slider image"
   }
 
   async fetch(): Promise<any> {
@@ -45,6 +57,10 @@ export default class Slider extends Vue{
   prevSlide(): void {
     this.currentIndex -= 1;
     this.currentImg = this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
+  }
+  handleSliderChange(index: number): void {
+    this.currentIndex = index;
+    this.currentImg = this.sliders[index];
   }
 }
 </script>
