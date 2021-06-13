@@ -18,12 +18,19 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import NavBar from '@/components/storefront/menu/NavBar.vue'
+import MobileMenu from '@/components/storefront/menu/MobileMenu.vue'
+
 export default Vue.extend({
+  components: {
+    NavBar,
+    MobileMenu
+  },
   data() {
     return {
       showMobileMenu: false
     }
-  }
+  },
 })
 </script>
 

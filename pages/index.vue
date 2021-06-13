@@ -5,7 +5,21 @@
     <Footer />
   </div>
 </template>
+<script>
+import Vue from 'vue'
 
+import Slider from '@/components/Slider.vue'
+import Categories from '@/components/storefront/categories/Categories.vue'
+import Footer from '@/components/storefront/footer/Footer.vue'
+
+export default Vue.extend({
+  components: {
+    Slider,
+    Categories,
+    Footer,
+  }
+})
+</script>
 <style>
 /* Sample `apply` at-rules with Tailwind CSS
 .container {

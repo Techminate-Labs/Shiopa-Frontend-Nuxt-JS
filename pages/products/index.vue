@@ -7,7 +7,12 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import Products from '@/components/storefront/products/Products.vue'
+
 export default Vue.extend({
+  components: {
+    Products
+  },
   async asyncData({ $http }: any) {
     const products = await $http.$get('http://localhost:8000/product')
     return { products }

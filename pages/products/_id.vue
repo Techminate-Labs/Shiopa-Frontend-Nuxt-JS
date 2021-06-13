@@ -8,7 +8,14 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import ProductInfo from '@/components/storefront/products/ProductInfo.vue'
+import ProductDescription from '@/components/storefront/products/ProductDescription.vue'
+
 export default Vue.extend({
+  components: {
+    ProductInfo,
+    ProductDescription
+  },
   async asyncData({ params, $http }: any) {
     const product = await $http.$get(`http://localhost:8000/product/${params.id}`)
     return { product }

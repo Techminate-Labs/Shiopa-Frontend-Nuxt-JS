@@ -16,9 +16,14 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component
 export default class Slider extends Vue{
 
-  sliders: string[] = []
+  sliders: object[] = []
   timer: unknown = null
   currentIndex: number = 0
+  currentImg: object = {
+    id: 1,
+    image: 'slider_1.jpg',
+    alt: 'Description of slider image'
+  }
 
   async fetch(): Promise<any> {
     this.sliders = await fetch('http://localhost:8000/slider')
@@ -35,15 +40,11 @@ export default class Slider extends Vue{
   }
   nextSlide(): void {
     this.currentIndex += 1;
+    this.currentImg = this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
   }
   prevSlide(): void {
     this.currentIndex -= 1;
-  }
-
-  get currentImg(): any {
-    if (this.sliders){
-      return this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
-    }
+    this.currentImg = this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
   }
 }
 </script>
