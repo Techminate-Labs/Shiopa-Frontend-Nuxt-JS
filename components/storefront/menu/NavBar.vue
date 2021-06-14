@@ -3,6 +3,7 @@
     <nav class="block container mx-auto flex flex-row flex-nowrap justify-between" aria-label="Desktop navigation">
       <NuxtLink to="/" class="mr-2 font-bold text-3xl">Shiopa</NuxtLink>
       <ul class="self-center flex flex-nowrap">
+        <li class="ml-4 self-center hidden md:block"><NuxtLink to="/Shop">Shops</NuxtLink></li>
         <li class="ml-4 self-center hidden md:block"><NuxtLink to="/products">Products</NuxtLink></li>
         <li class="ml-4 self-center hidden md:block"><NuxtLink to="/categories">Categories</NuxtLink></li>
         <li class="ml-4 self-center">

@@ -1,34 +1,35 @@
 <template>
-  <div class="overflow-hidden">
-    <Slider />
-    <Categories />
-    <Footer />
+  <div>
+    <ProductInfo :product="product" />
+    <ProductDescription :product="product" />
   </div>
 </template>
-<script>
+
+<script lang="ts">
 import Vue from 'vue'
 
-import Slider from '@/components/Slider.vue'
-import Categories from '@/components/storefront/categories/Categories.vue'
-import Footer from '@/components/storefront/footer/Footer.vue'
+import ProductInfo from '@/components/storefront/products/ProductInfo.vue'
+import ProductDescription from '@/components/storefront/products/ProductDescription.vue'
 
 export default Vue.extend({
   components: {
-    Slider,
-    Categories,
-    Footer,
+    ProductInfo,
+    ProductDescription
+  },
+  async asyncData({ params, $http }: any) {
+    const product = await $http.$get(`http://localhost:8000/product/${params.id}`)
+    return { product }
   }
 })
 </script>
+
 <style>
 /* Sample `apply` at-rules with Tailwind CSS
 .container {
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.slider-arrow {
-  @apply cursor-pointer absolute bottom-0 left-0 bg-white w-16 h-16 md:mb-16
-}
 
 
 </style>
+

@@ -1,11 +1,13 @@
 <template>
    <div>
-      <slider/>
+      <Slider/>
+      <FilterComponent/>
    </div>
 </template>
 
 <script>
- import slider from '@/components/storefront/shop/slider'
+ import Slider from '@/components/storefront/shops/Slider'
+ import FilterComponent from '@/components/storefront/shops/FilterComponent'
  export default {
   data(){
     return{
@@ -14,7 +16,8 @@
     }
   },
   components:{
-    slider,
+    Slider,
+    FilterComponent
  
   },
  }
