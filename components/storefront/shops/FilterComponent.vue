@@ -19,17 +19,38 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
             </svg>
-          <a :to="{ name: 'Essentials' }" class="text-gray-900 text-xl font-medium hover:text-yellow-600" @click="open = !open">Filter</a>
+            <a :to="{ name: 'Essentials' }" class="text-gray-900 text-xl font-medium hover:text-yellow-600" @click="open = !open">Filter</a>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
-        <!-- Breadcrumbs -->
+           <!-- Breadcrumbs -->
 
-            <a :to="{ name: 'Interior' }" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600"><span>Order by:Default</span>
-            </a>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
+           <div x-data="{ dropdownOpen: true }" class="relative">
+              <div :to="{ name: 'Interior' }" @click="dropdownOpen = !dropdownOpen" class="relative z-10 inline-block  p-2 focus:outline-none  px-2 text-xl font-medium hover:text-yellow-600"><span>Order by:Default</span>
+              </div>     
+              <div v-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
+                <div v-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                  <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                      Default
+                  </a>
+                  <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                      popularity
+                  </a>
+                  <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                      Average rating
+                  </a>
+                  <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                      Newness
+                  </a>
+                  <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                      Price:Low to High
+                  </a>
+                  <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                      Price:High to Low
+                  </a>
+             </div>
+          </div>
+            <!---End dropdown--->
           </div>
         </div>
       </section>
@@ -132,6 +153,7 @@ export default {
    data() {
     return {
       open: false,
+      dropdownOpen: false
     }
 
   }
