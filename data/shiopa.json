@@ -100,6 +100,7 @@
     ],
     "slider": [{
             "id": 1,
+            "active": true,
             "category_id": "3",
             "category_name": "Furniture",
             "product_id": "6",
@@ -109,6 +110,7 @@
         },
         {
             "id": 2,
+            "active": false,
             "category_id": "3",
             "category_name": "Clocks",
             "product_id": "7",
@@ -118,6 +120,7 @@
         },
         {
             "id": 3,
+            "active": false,
             "category_id": "3",
             "category_name": "Jewelry",
             "product_id": "8",

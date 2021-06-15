@@ -12,6 +12,7 @@
     </transition>
     <NavBar @showMobileMenu="showMobileMenu = true" v-show="!showMobileMenu" />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
@@ -20,11 +21,13 @@ import Vue from 'vue'
 
 import NavBar from '@/components/storefront/menu/NavBar.vue'
 import MobileMenu from '@/components/storefront/menu/MobileMenu.vue'
+import Footer from '@/components/storefront/footer/Footer.vue'
 
 export default Vue.extend({
   components: {
     NavBar,
-    MobileMenu
+    MobileMenu,
+    Footer
   },
   data() {
     return {
