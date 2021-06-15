@@ -1,13 +1,13 @@
 <template>
    <div>
-      <Slider/>
-      <FilterComponent/>
-      <ProductComponent/>
+      <Slider :sliders="sliders" />
+      <FilterComponent />
+      <ProductComponent />
    </div>
 </template>
 
-<script>
- import Slider from '@/components/storefront/shops/Slider'
+<script lang="ts">
+ import Slider from '@/components/Slider.vue'
  import FilterComponent from '@/components/storefront/shops/FilterComponent'
  import ProductComponent from '@/components/storefront/shops/ProductComponent'
  export default {
@@ -21,8 +21,11 @@
     Slider,
     FilterComponent,
     ProductComponent
- 
   },
+  async asyncData({ $http }: any) {
+    const sliders = await $http.$get('http://localhost:8000/slider')
+    return { sliders }
+  }
  }
 </script>
 

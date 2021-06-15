@@ -1,24 +1,23 @@
 <template>
   <div>
-    <ProductInfo :product="product" />
-    <ProductDescription :product="product" />
+    <Slider :sliders="sliders" />
+    <Categories />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-
-import ProductInfo from '@/components/storefront/products/ProductInfo.vue'
-import ProductDescription from '@/components/storefront/products/ProductDescription.vue'
+import Categories from '@/components/storefront/categories/Categories.vue'
+import Slider from '@/components/Slider.vue'
 
 export default Vue.extend({
   components: {
-    ProductInfo,
-    ProductDescription
+    Categories,
+    Slider
   },
-  async asyncData({ params, $http }: any) {
-    const product = await $http.$get(`http://localhost:8000/product/${params.id}`)
-    return { product }
+  async asyncData({ $http }: any) {
+    const sliders = await $http.$get('http://localhost:8000/slider')
+    return { sliders }
   }
 })
 </script>

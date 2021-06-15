@@ -1,5 +1,5 @@
 <template>
-  <div class="h-96 md:h-screen bg-gray-200 w-screen flex relative pb-16">
+  <div class="h-96 bg-gray-200 flex relative">
     <transition name="slide" mode="out-in">
       <div v-for="i in [currentIndex]" :key="i" id="slider" class="absolute flex flex-col md:flex-row inset-0 w-auto h-auto transform translate-x-0">
         <img :src="'/placeholders/' + currentImg.image" class="object-contain m-6 md:w-3/4 lg:w-1/2 h-3/4 md:h-auto" />
@@ -11,36 +11,31 @@
     </transition>
     <ol class="z-20 absolute bottom-0 left-1/2 transform -translate-x-1/2">
       <li class="inline-block mr-3" v-for="(slider, index) in sliders" :key="index">
-        <label @click="handleSliderChange(index)" class="carousel-bullet cursor-pointer block text-4xl text-white checked:bg-blue-600 hover:text-blue-700">•</label>
+        <label @click="handleSliderChange(index)" :class="slider.active ? 'text-blue-600' : ''" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
       </li>
     </ol>
-    <div @click="prevSlide()" class="slider-arrow border-r border-gray-400 flex items-center justify-center text-black hover:bg-gray-100">&#x276E;</div>
-    <div @click="nextSlide()" class="slider-arrow ml-16 flex items-center justify-center text-black hover:bg-gray-100">&#x276F;</div>
+    <div @click="prevSlide()" :class="currentIndex === 0 ? 'hidden' : 'block'" class="slider-arrow absolute left-0 top-1/2 ml-4 text-4xl cursor-pointer flex items-center justify-center text-black hover:text-gray-800">&#x276E;</div>
+    <div @click="nextSlide()" :class="currentIndex === (sliders.length - 1) ? 'hidden' : 'block'" class="slider-arrow absolute right-0 top-1/2 mr-4 text-4xl cursor-pointer flex items-center justify-center text-black hover:text-gray-800">&#x276F;</div>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class Slider extends Vue{
 
-  sliders: object[] = []
+  @Prop({ required: true }) readonly sliders!: Object
   timer: unknown = null
   currentIndex: number = 0
   currentImg: object = {
     id: 1,
+    active: true,
     category_id: "3",
     category_name: "Furniture",
     product_id: "6",
     name: "Gray Classic Sofa",
     image: "sofa_1000w.png",
     alt: "Description of slider image"
-  }
-
-  async fetch(): Promise<any> {
-    this.sliders = await fetch('http://localhost:8000/slider')
-      .then(res => res.json())
-      .catch(err => console.log(err))
   }
 
   mounted() {
@@ -53,14 +48,26 @@ export default class Slider extends Vue{
   nextSlide(): void {
     this.currentIndex += 1;
     this.currentImg = this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
+    this.handleSliderChange(Math.abs(this.currentIndex) % this.sliders.length)
   }
   prevSlide(): void {
     this.currentIndex -= 1;
     this.currentImg = this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
+    this.handleSliderChange(Math.abs(this.currentIndex) % this.sliders.length)
+  }
+  handleIndexChange(index){
+    this.currentIndex = index;
+    this.currentImg = this.sliders[this.currentIndex];
   }
   handleSliderChange(index: number): void {
-    this.currentIndex = index;
-    this.currentImg = this.sliders[index];
+    this.handleIndexChange(index);
+    this.sliders.forEach((slider: object) => {
+      if (slider.active === true){
+        slider.active = !slider.active
+      } else if ((slider.id - 1) === index) {
+        slider.active = !slider.active
+      }
+    })
   }
 }
 </script>
