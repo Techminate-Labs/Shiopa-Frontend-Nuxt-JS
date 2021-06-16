@@ -24,7 +24,7 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 @Component
 export default class Slider extends Vue{
 
-  @Prop({ required: true }) readonly sliders!: Object
+  @Prop({ required: true }) readonly sliders!: object[]
   timer: unknown = null
   currentIndex: number = 0
   currentImg: object = {
@@ -55,13 +55,13 @@ export default class Slider extends Vue{
     this.currentImg = this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
     this.handleSliderChange(Math.abs(this.currentIndex) % this.sliders.length)
   }
-  handleIndexChange(index){
+  handleIndexChange(index: number){
     this.currentIndex = index;
     this.currentImg = this.sliders[this.currentIndex];
   }
   handleSliderChange(index: number): void {
     this.handleIndexChange(index);
-    this.sliders.forEach((slider: object) => {
+    this.sliders.forEach((slider: any) => {
       if (slider.active === true){
         slider.active = !slider.active
       } else if ((slider.id - 1) === index) {
