@@ -3,7 +3,7 @@
     <transition name="slide" mode="out-in">
       <div v-for="i in [currentIndex]" :key="i" id="slider" class="absolute flex flex-col md:flex-row inset-0 w-auto h-auto transform translate-x-0">
         <img :src="'/placeholders/' + currentImg.image" class="object-contain m-6 md:w-3/4 lg:w-1/2 h-3/4 md:h-auto" />
-        <div class="ml-36 mb-2 md:mx-16 lg:mx-32 flex flex-col justify-center">
+        <div class="ml-8 mb-6 md:mx-16 lg:mx-32 flex flex-col justify-center">
           <p class="font-bold text-2xl md:text-4xl">{{currentImg.name}}</p>
           <a class="text-xl md:text-2xl hover:underline" :href="'/categories/' + currentImg.category_id">{{currentImg.category_name}}</a>
         </div>
@@ -24,7 +24,7 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 @Component
 export default class Slider extends Vue{
 
-  @Prop({ required: true }) readonly sliders!: Object
+  @Prop({ required: true }) readonly sliders!: object[]
   timer: unknown = null
   currentIndex: number = 0
   currentImg: object = {
@@ -55,13 +55,13 @@ export default class Slider extends Vue{
     this.currentImg = this.sliders[Math.abs(this.currentIndex) % this.sliders.length];
     this.handleSliderChange(Math.abs(this.currentIndex) % this.sliders.length)
   }
-  handleIndexChange(index){
+  handleIndexChange(index: number){
     this.currentIndex = index;
     this.currentImg = this.sliders[this.currentIndex];
   }
   handleSliderChange(index: number): void {
     this.handleIndexChange(index);
-    this.sliders.forEach((slider: object) => {
+    this.sliders.forEach((slider: any) => {
       if (slider.active === true){
         slider.active = !slider.active
       } else if ((slider.id - 1) === index) {
