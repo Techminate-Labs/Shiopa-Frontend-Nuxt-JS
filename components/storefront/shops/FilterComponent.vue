@@ -7,7 +7,7 @@
             <div class="container px-4 mx-auto">
                   <a href="/" class="hover:underline text-xl font-medium text-yellow-600">All</a>
                   <a  href="cart/Bags" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Accessories<span class="px-1"><sup>2</sup></span></a>
-                  <a href=" Decoration/Decoration" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Dining<span class="px-1"><sup>6</sup></span></a>
+                  <a href="Decoration/Decoration" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Dining<span class="px-1"><sup>6</sup></span></a>
                   <a href="Essential/Essentials" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Furniture<span class="px-1"><sup>6</sup></span></a>
                   <a href="Interior/Interior" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Lighting<span class="px-1"><sup>6</sup></span></a>
                   <a href="Interior/Interior" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Living<span class="px-1"><sup>12</sup></span></a>
