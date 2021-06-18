@@ -5,6 +5,15 @@
         <div class="container px-5 py-10 mx-auto flex items-center md:flex-row flex-col">
           <div class="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
             <div class="container px-4 mx-auto">
+                  <a href="/" class="hover:underline text-xl font-medium text-yellow-600">All</a>
+                  <a  href="cart/Bags" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Accessories<span class="px-1"><sup>2</sup></span></a>
+                  <a href="Decoration/Decoration" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Dining<span class="px-1"><sup>6</sup></span></a>
+                  <a href="Essential/Essentials" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Furniture<span class="px-1"><sup>6</sup></span></a>
+                  <a href="Interior/Interior" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Lighting<span class="px-1"><sup>6</sup></span></a>
+                  <a href="Interior/Interior" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Living<span class="px-1"><sup>12</sup></span></a>
+                  <a href="Interior/Interior" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Posters<span class="px-1"><sup>5</sup></span></a>
+                  <a href="Interior/Interior" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Technics<span class="px-1"><sup>4</sup></span></a>
+              </div>
               <ul>
                 <li href="/" class="text-xl inline font-medium text-yellow-600 cursor-pointer hover:underline ">All</li>
                 <li v-for="(category, index) in categories" :key="index" class="inline text-gray-900 px-2 text-xl font-medium cursor-pointer hover:text-yellow-600">{{category.name}}<span class="px-1"><sup>2</sup></span></li>
