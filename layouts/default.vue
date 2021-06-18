@@ -8,7 +8,7 @@
       leave-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" />
+      <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
     </transition>
     <NavBar @showMobileMenu="showMobileMenu = true" v-show="!showMobileMenu" />
     <Nuxt />
@@ -31,8 +31,14 @@ export default Vue.extend({
   },
   data() {
     return {
-      showMobileMenu: false
+      showMobileMenu: false,
+      categories: []
     }
+  },
+  async fetch() {
+    this.categories = await fetch(
+      'http://localhost:8000/category'
+    ).then(res => res.json()).catch(err => console.log(err))
   },
 })
 </script>

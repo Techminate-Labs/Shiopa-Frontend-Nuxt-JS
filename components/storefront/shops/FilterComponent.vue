@@ -14,6 +14,11 @@
                   <a href="Interior/Interior" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Posters<span class="px-1"><sup>5</sup></span></a>
                   <a href="Interior/Interior" class="text-gray-900 px-2 text-xl font-medium hover:text-yellow-600">Technics<span class="px-1"><sup>4</sup></span></a>
               </div>
+              <ul>
+                <li href="/" class="text-xl inline font-medium text-yellow-600 cursor-pointer hover:underline ">All</li>
+                <li v-for="(category, index) in categories" :key="index" class="inline text-gray-900 px-2 text-xl font-medium cursor-pointer hover:text-yellow-600">{{category.name}}<span class="px-1"><sup>2</sup></span></li>
+              </ul>
+            </div>
           </div>
           <div class="relative flex md:ml-auto md:mr-0 mx-auto items-center flex-shrink-0 space-x-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -153,9 +158,14 @@ export default {
    data() {
     return {
       open: false,
-      dropdownOpen: false
+      dropdownOpen: false,
+      categories: []
     }
-
+  },
+    async fetch() {
+    this.categories = await fetch(
+      'http://localhost:8000/category'
+    ).then(res => res.json()).catch(err => console.log(err))
   }
 }
 </script>
