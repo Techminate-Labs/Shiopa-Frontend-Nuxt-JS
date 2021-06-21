@@ -16,7 +16,7 @@
     </div>
     <hr class="max-w-sm mx-auto mt-8">
     <ProductDescription v-if="isDescription" :product="product" />
-    <Reviews v-if="!isDescription" />
+    <Reviews :product="product" v-if="!isDescription" />
   </div>
 </template>
 

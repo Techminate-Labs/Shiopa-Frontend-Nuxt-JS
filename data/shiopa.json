@@ -144,7 +144,24 @@
             "image": "slider_3.jpg",
             "alt": "Description of slider image"
         }
-    ]
+    ],
+    "product_review": [{
+        "id": 1,
+        "product_id": 1,
+        "username": "johndoe",
+        "comment": "This is a nice product, 10/10 would buy it again!",
+        "rating": 5,
+        "created_at": "2021-06-21T16:26:39+00:00",
+        "updated_at": "2021-06-21T16:26:39+00:00"
+    }, {
+        "id": 2,
+        "product_id": 3,
+        "username": "janedoe",
+        "comment": "Great customer service, nice product quality. Would love some discount for my next purchase :-)",
+        "rating": 4,
+        "created_at": "2021-06-18T09:52:11+00:00",
+        "updated_at": "2021-06-18T09:52:11+00:00"
+    }]
 
 
 }
