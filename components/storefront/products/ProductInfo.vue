@@ -4,14 +4,18 @@
       <img
         alt="Photo of the countryside with mist."
         :src="'/placeholders/' + product.image"
-        class="z-0 md:max-w-xs"
+        class="z-0 md:max-w-xl"
       />
     </figure>
     <div class="max-w-sm md:ml-4">
-      <h1>{{product.name}}</h1>
-      <p>${{product.price}}</p>
-      <p class="text-justify">{{product.additional_info}}</p>
-      <div><button class="px-3 py-2 bg-gray-900 text-white rounded">ADD TO CART</button></div>
+      <h1 class="text-4xl font-bold my-4">{{product.name}}</h1>
+      <p class="text-2xl my-4">${{product.price}}</p>
+      <hr>
+      <p class="text-justify my-4">{{product.additional_info}}</p>
+      <hr>
+      <div class="my-4">
+        <button class="px-6 py-2 bg-gray-900 text-white text-xl rounded">ADD TO CART</button>
+      </div>
     </div>
   </div>
 </template>
