@@ -1,7 +1,22 @@
 <template>
   <div>
     <ProductInfo :product="product" />
-    <ProductDescription :product="product" />
+    <div class="text-center">
+      <h2
+        @click="!isDescription ? isDescription = !isDescription : null"
+        :class="isDescription ? 'font-bold' : ''" class="inline cursor-pointer max-w-min text-center text-lg ">
+        Description
+      </h2>
+      <span>/</span>
+      <h2
+        @click="isDescription ? isDescription = !isDescription : null"
+        :class="isDescription ? '' : 'font-bold'" class="inline cursor-pointer max-w-min text-center text-lg">
+        Reviews
+      </h2>
+    </div>
+    <hr class="max-w-sm mx-auto mt-8">
+    <ProductDescription v-if="isDescription" :product="product" />
+    <Reviews v-if="!isDescription" />
   </div>
 </template>
 
@@ -10,11 +25,18 @@ import Vue from 'vue'
 
 import ProductInfo from '@/components/storefront/products/ProductInfo.vue'
 import ProductDescription from '@/components/storefront/products/ProductDescription.vue'
+import Reviews from '@/components/storefront/shops/Reviews.vue'
 
 export default Vue.extend({
   components: {
     ProductInfo,
-    ProductDescription
+    ProductDescription,
+    Reviews
+  },
+  data(){
+    return {
+      isDescription: true
+    }
   },
   async asyncData({ params, $http }: any) {
     const product = await $http.$get(`http://localhost:8000/product/${params.id}`)

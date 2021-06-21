@@ -1,6 +1,5 @@
 <template>
-  <div class="container mx-auto my-10">
-    <h2 class="max-w-max mx-auto mb-2 text-lg font-bold">Description / Reviews</h2>
+  <div class="container mx-auto my-8 max-w-max">
     <p class="text-justify">{{product.description}}</p>
   </div>
 </template>
