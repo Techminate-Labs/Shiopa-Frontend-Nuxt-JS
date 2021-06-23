@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row flex-wrap container max-w-max px-4 my-10 md:mx-auto">
-    <figure class="max-w-max relative block md:mr-4">
+  <div class="flex flex-row flex-wrap justify-center container max-w-max px-4 my-10 md:mx-auto">
+    <figure class="md:max-w-max relative block md:mr-4">
       <img
         alt="Photo of the countryside with mist."
         :src="'/placeholders/' + product.image"

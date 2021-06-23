@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto my-8 max-w-max">
+  <div class="container mx-auto my-8 max-w-max px-4">
     <p class="text-justify">{{product.description}}</p>
   </div>
 </template>
