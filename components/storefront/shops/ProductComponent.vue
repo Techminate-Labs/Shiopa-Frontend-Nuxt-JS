@@ -5,10 +5,10 @@
         <div class="flex flex-wrap -m-4">
           <div v-for="(product, index) in products" :key="index" class="lg:w-1/4 md:w-1/2 p-4 w-full">
               <div class="relative ">
-                <a :href="'/products/' + product.id" class="absolute inset-0 z-10 bg-white  opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
+                <a :href="product.get_absolute_url" class="absolute inset-0 z-10 bg-white  opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                   <div class="relative ">
                       <a class="block relative h-70 rounded overflow-hidden">
-                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" :src="'/placeholders/' + product.image">
+                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" :src="product.main_image_url">
                       </a>
                       <div class="flex flex-wrap">
                           <div class="mt-4">
@@ -26,7 +26,7 @@
                 <a href="#" class="relative">
                   <div class="">
                       <a class="block relative h-70 rounded overflow-hidden">
-                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" :src="'/placeholders/' + product.image">
+                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" :src="product.main_image_url">
                       </a>
                       <div class="flex flex-wrap">
                         <div class="mt-4">
