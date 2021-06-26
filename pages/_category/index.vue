@@ -1,22 +1,22 @@
 <template>
   <div>
-    <Products :products="products"/>
+    <ProductComponent :products="products"/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import Products from '@/components/storefront/products/Products.vue'
+import ProductComponent from '@/components/storefront/shops/ProductComponent.vue'
 
 export default Vue.extend({
   components: {
-    Products
+    ProductComponent
   },
   async asyncData({ params, $http }: any) {
-    const allProducts = await $http.$get(`http://localhost:8000/product`)
-    const category_id = Number(params.id);
-    const products = allProducts.filter((product: any) => product.category_id == category_id)
+    const category_slug = params.category
+    const category = await $http.$get(`https://shopia-backend.herokuapp.com/api/v1/products/` + category_slug)
+    const products = category.products
     return { products }
   }
 })

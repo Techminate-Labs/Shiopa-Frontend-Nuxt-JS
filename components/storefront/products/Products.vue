@@ -6,7 +6,7 @@
         <div v-for="product in products" :key="product.id" class="max-w-max md:w-1/2 lg:w-1/3 xl:w-1/4 block relative">
           <a :href="'/products/' + product.id">
             <img
-              :src="'/placeholders/' + product.image"
+              :src="product.main_image_url"
             />
             <p>{{product.name}}</p>
             <p class="text-xl text-gray-900">${{product.price}}</p>
