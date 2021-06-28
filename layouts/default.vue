@@ -10,9 +10,9 @@
     >
       <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
     </transition>
-    <NavBar @showMobileMenu="showMobileMenu = true" v-show="!showMobileMenu" />
+    <NavBar class="px-32" @showMobileMenu="showMobileMenu = true" v-show="!showMobileMenu" />
     <Nuxt />
-    <Footer />
+    <Footer :categories="categories" />
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default Vue.extend({
   },
   async fetch() {
     this.categories = await fetch(
-      'http://localhost:8000/category'
+      'https://shopia-backend.herokuapp.com/api/v1/all-categories'
     ).then(res => res.json()).catch(err => console.log(err))
   },
 })

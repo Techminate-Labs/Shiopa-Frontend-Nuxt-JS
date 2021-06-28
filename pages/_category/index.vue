@@ -1,5 +1,6 @@
 <template>
   <div>
+    <FilterComponent :products="products" />
     <ProductComponent :products="products"/>
   </div>
 </template>
@@ -8,10 +9,12 @@
 import Vue from 'vue'
 
 import ProductComponent from '@/components/storefront/shops/ProductComponent.vue'
+import FilterComponent from '@/components/storefront/shops/FilterComponent.vue'
 
 export default Vue.extend({
   components: {
-    ProductComponent
+    ProductComponent,
+    FilterComponent
   },
   async asyncData({ params, $http }: any) {
     const category_slug = params.category
