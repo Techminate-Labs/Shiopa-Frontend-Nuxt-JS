@@ -1,7 +1,7 @@
 <template>
   <div>
-    <section class="text-gray-600 body-font">
-      <div class="container px-5 pt-5 mx-auto">
+    <section class="max-w-screen-xl mx-auto text-gray-600 body-font">
+      <div class="px-5 pt-5">
         <div class="flex flex-wrap -m-4">
           <div v-for="(product, index) in products" :key="index" class="lg:w-1/4 md:w-1/2 p-4 w-full">
               <div class="relative ">

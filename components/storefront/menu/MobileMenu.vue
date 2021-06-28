@@ -5,7 +5,7 @@
     <div class="flex mt-8">
       <ul class="overflow-y-auto">
         <li class="text-2xl font-light self-center hover:text-green-700" @click="closeMobileMenu" v-for="(category, index) in categories" :key="index">
-          <NuxtLink :to="'/categories/' + category.id">{{category.name}}</NuxtLink>
+          <NuxtLink :to="category.get_absolute_url">{{category.name}}</NuxtLink>
         </li>
       </ul>
       <div class="absolute top-0 right-0 pt-6 pr-6">

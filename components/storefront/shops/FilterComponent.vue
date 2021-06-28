@@ -1,14 +1,14 @@
 <template>
-  <div class="bg-gray-100 px-0 py-4">
+  <div class="max-w-screen-xl mx-auto py-4">
     <!-- Breadcrumbs -->
     <section class="text-gray-600 body-font">
       <!-- category flex -->
-      <div class="container px-5 py-10 mx-auto flex items-center md:flex-row flex-col">
+      <div class="px-5 py-10 mx-auto flex items-center md:flex-row flex-col">
         <div class="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
-          <div class="container px-4 mx-auto">
+          <div class="px-4 mx-auto">
             <ul>
               <li href="/" class="text-xl inline font-medium text-yellow-600 cursor-pointer hover:underline">All</li>
-              <li v-for="(category, index) in categories" :key="index" class="inline text-gray-900 px-2 text-xl font-medium cursor-pointer hover:text-yellow-600">{{category.name}}<span class="px-1"><sup>2</sup></span></li>
+              <li v-for="(category, index) in categories" :key="index" class="inline text-gray-900 px-2 text-xl font-medium cursor-pointer hover:text-yellow-600">{{category.name}}<span class="px-1"><sup>{{category.products.length}}</sup></span></li>
             </ul>
           </div>
         </div>
@@ -47,13 +47,13 @@
                 </a>
               </div>
             </div>  
-          <!---End dropdown--->
+          <!-- End dropdown -->
           </div>
         </div>
       </div>
       <!-- category flex end -->
     </section>
-    <!---filter--->
+    <!-- filter -->
     <div class="px-16 py-4">
       <div v-if="open" class="container px-25 py-10 inline-block border-2 border-gray-200 absoulate w-full mt-5 bg-gray-100 border-t mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col  flex-grow md:pr-10 mb-2 md:text-left text-center">
         <div class="lg:w-1/6 md:w-1/2 w-full flex-shrink-0 md:mx-0 md:mt-0 mt-10 pl-2">
@@ -142,7 +142,7 @@
       </div>
     </div>
   </div>
-  <!---filter----> 
+  <!-- end filter--> 
 </template>
 
 <script>
@@ -156,7 +156,8 @@ export default {
   },
     async fetch() {
     this.categories = await fetch(
-      'http://localhost:8000/category'
+      // 'http://localhost:8000/category'
+      'https://shopia-backend.herokuapp.com/api/v1/all-categories'
     ).then(res => res.json()).catch(err => console.log(err))
   }
 }

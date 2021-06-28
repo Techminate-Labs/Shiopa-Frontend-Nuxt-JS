@@ -1,5 +1,5 @@
 <template>
-  <div class="container md:mx-auto ">
+  <div class="max-w-screen-xl md:mx-auto ">
     <div v-for="(product, index) in selectedProducts" :key="index">
         {{product.name}}
         test
