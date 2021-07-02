@@ -10,7 +10,7 @@
     >
       <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
     </transition>
-    <NavBar class="px-32" @showMobileMenu="showMobileMenu = true" v-show="!showMobileMenu" />
+    <NavBar @showMobileMenu="showMobileMenu = true" v-show="!showMobileMenu" />
     <Nuxt />
     <Footer :categories="categories" />
   </div>
