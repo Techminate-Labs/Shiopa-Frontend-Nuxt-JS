@@ -2,9 +2,18 @@
   <div class="z-40">
     <nav class="fixed w-full bg-gray-100 z-40 inset-0 p-10" aria-label="Mobile navigation">
     <h2 class="block text-5xl font-extrabold">Menu</h2>
-    <div class="flex mt-8">
-      <ul class="overflow-y-auto">
-        <li class="text-2xl font-light self-center hover:text-green-700" @click="closeMobileMenu" v-for="(category, index) in categories" :key="index">
+    <div class="flex flex-col mt-8 overflow-y-auto">
+      <ul class="mb-4 ml-2">
+        <li class="menu-link" @click="closeMobileMenu">
+          <NuxtLink to="/">Home</NuxtLink>
+        </li>
+        <li class="menu-link" @click="closeMobileMenu">
+          <NuxtLink to="/shop">Shop</NuxtLink>
+        </li>
+      </ul>
+      <h3 class="block text-2xl">Categories</h3>
+      <ul class="mb-4 ml-2">
+        <li class="menu-link" @click="closeMobileMenu" v-for="(category, index) in categories" :key="index">
           <NuxtLink :to="category.get_absolute_url">{{category.name}}</NuxtLink>
         </li>
       </ul>
@@ -30,3 +39,9 @@ export default class NavBar extends Vue {
 
 }
 </script>
+
+<style scoped>
+.menu-link {
+  @apply text-2xl font-light self-center hover:text-green-700;
+}
+</style>
