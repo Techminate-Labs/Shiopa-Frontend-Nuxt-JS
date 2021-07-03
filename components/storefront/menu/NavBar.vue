@@ -43,5 +43,6 @@ export default class NavBar extends Vue {
   @Emit('showCart')
   showCart(): void {}
 
+
 }
 </script>
