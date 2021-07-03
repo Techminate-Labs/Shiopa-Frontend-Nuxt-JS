@@ -1,16 +1,18 @@
 <template>
   <div>
-    <transition
-      enter-active-class="transition-opacity ease-linear duration-300"
-      enter-class="opacity-0"
-      enter-to-class="opacity-100"
-      leave-active-class="transition-opacity ease-linear duration-300"
-      leave-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
-    </transition>
-    <NavBar @showMobileMenu="showMobileMenu = true" v-show="!showMobileMenu" />
+    <div>
+      <transition name="left">
+        <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
+      </transition>
+      <transition name="opacity">
+        <div v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" class="bg-gray-900 w-full h-screen opacity-90 fixed z-30"></div>
+      </transition>
+    </div>
+    <NavBar
+      @showMobileMenu="showMobileMenu = true"
+      @showCart="showCart = !showCart"
+    />
+    <Cart v-show="showCart" />
     <Nuxt />
     <Footer :categories="categories" />
   </div>
@@ -21,25 +23,29 @@ import Vue from 'vue'
 
 import NavBar from '@/components/storefront/menu/NavBar.vue'
 import MobileMenu from '@/components/storefront/menu/MobileMenu.vue'
+import Cart from '@/components/storefront/cart/Cart.vue'
 import Footer from '@/components/storefront/footer/Footer.vue'
 
 export default Vue.extend({
   components: {
     NavBar,
     MobileMenu,
+    Cart,
     Footer
   },
   data() {
     return {
       showMobileMenu: false,
-      categories: []
+      showCart: false,
+      categories: [],
+      cart: []
     }
   },
   async fetch() {
     this.categories = await fetch(
       'https://shopia-backend.herokuapp.com/api/v1/all-categories'
     ).then(res => res.json()).catch(err => console.log(err))
-  },
+  }
 })
 </script>
 
@@ -97,5 +103,28 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+.left-enter-active {
+  transition: all .3s ease;
+}
+.left-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition-delay: .2s;
+}
+.left-enter, .left-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+  z-index: 999;
+}
+
+.opacity-enter-active {
+  transition: all .3s ease;
+  transition-delay: .15s;
+}
+.opacity-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.opacity-enter, .opacity-leave-to {
+  opacity: 0;
 }
 </style>
