@@ -1,11 +1,11 @@
 <template>
    <div>
-      <LoginComponent />
+      <RegisterComponent />
    </div>
 </template>
 
 <script lang="ts">
- import LoginComponent from '@/components/storefront/accounts/LoginComponent.vue'
+ import RegisterComponent from '@/components/storefront/accounts/RegisterComponent.vue'
  export default {
   data(){
     return{
@@ -13,7 +13,7 @@
     }
   },
   components:{
-    LoginComponent,
+    RegisterComponent
   },
   
  }
