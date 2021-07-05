@@ -1,11 +1,11 @@
 <template>
    <div>
-      <LoginComponent />
+      <CartComponents />
    </div>
 </template>
 
 <script lang="ts">
- import LoginComponent from '@/components/storefront/accounts/LoginComponent.vue'
+ import CartComponents from '@/components/storefront/shops/CartComponents.vue'
  export default {
   data(){
     return{
@@ -13,9 +13,8 @@
     }
   },
   components:{
-    LoginComponent,
+    CartComponents,
   },
-  
  }
 </script>
 
