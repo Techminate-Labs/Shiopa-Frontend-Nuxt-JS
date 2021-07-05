@@ -13,7 +13,8 @@
         "@nuxt/http": "^0.6.4",
         "axios": "^0.21.1",
         "core-js": "^3.9.1",
-        "nuxt": "^2.15.3"
+        "nuxt": "^2.15.3",
+        "nuxt-typed-vuex": "^0.2.0"
     },
     "devDependencies": {
         "@nuxt/types": "^2.15.3",

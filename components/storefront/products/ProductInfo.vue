@@ -14,18 +14,33 @@
       <p class="text-justify my-4">{{product.additional_info}}</p>
       <hr>
       <div class="my-4">
-        <button class="px-6 py-2 bg-gray-900 text-white text-xl rounded">ADD TO CART</button>
+        <button @click="addProductToCart(product.id, 1)" class="px-6 py-2 bg-gray-900 text-white text-xl rounded">ADD TO CART</button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { Prop, Vue, Component } from 'nuxt-property-decorator'
+import { Prop, Vue, Component, namespace } from 'nuxt-property-decorator'
+const cart = namespace('cart')
 
 @Component
 export default class ProductInfo extends Vue {
 
-  @Prop({ required: true }) readonly product!: Object
+  @Prop({ required: true }) readonly product!: object
+
+  public localData: object = {}
+  public items!: []
+
+  public addProductToCart(product_id: number, quantity: number): void {
+    console.log('add to cart clicked')
+    this.localData = {
+      id: 0,
+      product_id: product_id,
+      quantity: quantity
+    }
+    this.$accessor.addToCart(this.localData as any[])
+    console.log(this.$store.state.cart)
+  }
 
 }
 </script>

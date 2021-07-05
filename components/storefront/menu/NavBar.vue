@@ -10,7 +10,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="self-center h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
-            <div class="absolute -bottom-2 -right-2"><span class="block text-center text-white h-6 w-6 px-2 min-w-max bg-gray-800 font-mono rounded-full">0</span></div>
+            <div class="absolute -bottom-2 -right-2"><span class="block text-center text-white h-6 w-6 px-2 min-w-max bg-gray-800 font-mono rounded-full">{{cartTotalLength}}</span></div>
           </div>
         </li>
         <li class="ml-4 md:ml-8 self-center order-last">
@@ -37,11 +37,30 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator'
 @Component
 export default class NavBar extends Vue {
 
+  public cart: Object[] = []
+
   @Emit('showMobileMenu')
   showMobileMenu(): void {}
 
   @Emit('showCart')
   showCart(): void {}
+
+  mounted() {
+    this.cart = this.$store.state.cart
+    console.log(this.cart)
+  }
+
+  get cartTotalLength(): number {
+    if (this.cart.length){
+      let totalLength = 0
+      for (let i = 0; i < this.cart.length; i++) {
+          totalLength += 1
+      }
+      return totalLength
+    } else {
+      return 0
+    }
+  }
 
 }
 </script>
