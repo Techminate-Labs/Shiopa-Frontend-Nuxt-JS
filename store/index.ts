@@ -25,12 +25,14 @@ export const getters = {
 export const mutations = mutationTree(state, {
   initialiseStore(state: RootState) {
     console.log('initalized')
-    if (localStorage.getItem('cart')) {
+    // console.log(state.cart)
+    // let w: any = JSON.parse(localStorage.getItem('localStorage') as any)
+    // console.log(w)
+    try {
       state.cart = JSON.parse(localStorage.getItem('cart') as any)
-    } else {
+    } catch {
       localStorage.setItem('cart', JSON.stringify(state.cart) as string)
     }
-
   },
 
   setEmail(state, newValue: string) {
@@ -51,7 +53,11 @@ export const actions = actionTree(
       commit('setEmail', 'a@a.com')
     },
 
-    async nuxtServerInit(_vuexContext, nuxtContext: Context) { },
+    async nuxtServerInit(_vuexContext, nuxtContext: Context) {
+
+      nuxtContext.store.app.context.$accessor.initialiseStore()
+
+    },
   }
 )
 
