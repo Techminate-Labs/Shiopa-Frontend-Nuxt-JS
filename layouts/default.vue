@@ -45,6 +45,9 @@ export default Vue.extend({
     this.categories = await fetch(
       'https://shopia-backend.herokuapp.com/api/v1/all-categories'
     ).then(res => res.json()).catch(err => console.log(err))
+  },
+  mounted(){
+    this.$store.commit('initialiseStore')
   }
 })
 </script>

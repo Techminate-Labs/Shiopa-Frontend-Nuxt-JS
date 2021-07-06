@@ -5,8 +5,9 @@ import * as submodule from './submodule'
 
 export const state = () => ({
   email: '',
-  cart: [],
-  item: {},
+  cart: {
+    items: [],
+  },
 })
 
 type RootState = ReturnType<typeof state>
@@ -19,17 +20,13 @@ interface ProductItem {
 export const getters = {
   email: (state: RootState) => state.email,
   fullEmail: (state: RootState) => state.email,
-  cart: (state: RootState) => state.cart,
+  cart: (state: RootState) => state.cart
 }
 
 export const mutations = mutationTree(state, {
-  initialiseStore(state: RootState) {
-    console.log('initalized')
-    // console.log(state.cart)
-    // let w: any = JSON.parse(localStorage.getItem('localStorage') as any)
-    // console.log(w)
+  initialiseStore(state) {
     try {
-      state.cart = JSON.parse(localStorage.getItem('cart') as any)
+      state.cart = JSON.parse(localStorage.getItem('cart') as string)
     } catch {
       localStorage.setItem('cart', JSON.stringify(state.cart) as string)
     }
@@ -39,9 +36,18 @@ export const mutations = mutationTree(state, {
     state.email = newValue
   },
 
-  addToCart(state: RootState, data: ProductItem[]) {
-    state.cart.push(data as never)
-    localStorage.setItem('cart', JSON.stringify(state.cart))
+  addToCart(state: RootState, item: ProductItem) {
+    console.log('state.cart', state.cart)
+    console.log('item', item)
+    if (state.cart) {
+      state.cart.items.push(item as never)
+    } else {
+      state.cart = {
+        items: []
+      }
+      state.cart.items.push(item as never)
+    }
+
   },
 
 })
@@ -53,11 +59,11 @@ export const actions = actionTree(
       commit('setEmail', 'a@a.com')
     },
 
-    async nuxtServerInit(_vuexContext, nuxtContext: Context) {
-
-      nuxtContext.store.app.context.$accessor.initialiseStore()
-
+    async addToCart(context, payload) {
+      context.commit('addToCart', payload)
     },
+
+    async nuxtServerInit(_vuexContext, nuxtContext: Context) { },
   }
 )
 

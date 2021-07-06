@@ -1,3 +1,5 @@
 export const state = () => ({
-  cart: []
+  cart: {
+    items: []
+  }
 })

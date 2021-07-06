@@ -21,7 +21,7 @@
 </template>
 <script lang="ts">
 import { Prop, Vue, Component, namespace } from 'nuxt-property-decorator'
-const cart = namespace('cart')
+// const cart = namespace('cart')
 
 @Component
 export default class ProductInfo extends Vue {
@@ -38,8 +38,7 @@ export default class ProductInfo extends Vue {
       product_id: product_id,
       quantity: quantity
     }
-    this.$accessor.addToCart(this.localData as any[])
-    console.log(this.$store.state.cart)
+    this.$store.dispatch('addToCart', this.localData)
   }
 
 }
