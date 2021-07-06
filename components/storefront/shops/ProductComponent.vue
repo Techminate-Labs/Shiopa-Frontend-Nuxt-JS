@@ -13,7 +13,7 @@
                       <div class="flex flex-wrap">
                           <div class="mt-4">
                               <h1 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{product.name}}</h1>
-                              <button class="text-gray-900">Add to Cart</button>
+                              <button class="text-gray-900"><nuxt-link to="cart" class="underline font-semibold">Add to Cart</nuxt-link></button>
                           </div>
                           <span class="text-gray-400  inline-flex items-center  ml-auto leading-none text-sm pr-3 py-1 ">
                               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
