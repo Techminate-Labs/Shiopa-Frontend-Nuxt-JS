@@ -34,10 +34,22 @@
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator'
 
+interface Cart {
+  items: CartItem[]
+}
+
+interface CartItem {
+  product_id: number,
+  quantity: number
+}
+
 @Component
 export default class NavBar extends Vue {
 
-  public cart: Object[] = []
+
+  public cart: Cart = {
+    items: []
+  }
 
   @Emit('showMobileMenu')
   showMobileMenu(): void {}
@@ -46,20 +58,17 @@ export default class NavBar extends Vue {
   showCart(): void {}
 
   mounted() {
+    this.$store.commit('initialiseStore')
     this.cart = this.$store.state.cart
-    console.log(this.cart)
   }
 
   get cartTotalLength(): number {
-    if (this.cart.length){
-      let totalLength = 0
-      for (let i = 0; i < this.cart.length; i++) {
-          totalLength += 1
-      }
-      return totalLength
-    } else {
-      return 0
+    let totalLength = 0
+    for (let i = 0; i < this.cart.items.length as boolean; i++) {
+        totalLength += parseInt(this.cart.items[i].quantity as any)
     }
+    return totalLength
+
   }
 
 }
