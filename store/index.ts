@@ -28,7 +28,7 @@ export const mutations = mutationTree(state, {
     try {
       state.cart = JSON.parse(localStorage.getItem('cart') as string)
     } catch {
-      localStorage.setItem('cart', JSON.stringify(state.cart) as string)
+      localStorage.setItem('cart', JSON.stringify(state.cart))
     }
   },
 
@@ -37,17 +37,9 @@ export const mutations = mutationTree(state, {
   },
 
   addToCart(state: RootState, item: ProductItem) {
-    console.log('state.cart', state.cart)
-    console.log('item', item)
-    if (state.cart) {
-      state.cart.items.push(item as never)
-    } else {
-      state.cart = {
-        items: []
-      }
-      state.cart.items.push(item as never)
-    }
+    state.cart.items.push(item as never)
 
+    localStorage.setItem('cart', JSON.stringify(state.cart) as string)
   },
 
 })
