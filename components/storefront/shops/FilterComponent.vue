@@ -25,7 +25,7 @@
           <div x-data="{ dropdownOpen: true }" class="relative">
             <div :to="{ name: 'Interior' }" @click="dropdownOpen = !dropdownOpen" class="relative z-10 inline-block  p-2 focus:outline-none  px-2 text-xl font-medium hover:text-yellow-600 cursor-pointer"><span>Order by:Default</span>
             </div>     
-            <div v-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10">
+            <div v-show="dropdownOpen" @click="dropdownOpen = false" class="absolute mt-8 ml-3 fixed inset-0 h-full w-full z-40">
               <div v-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
                 <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-yellow-600 hover:text-white">
                     Default
