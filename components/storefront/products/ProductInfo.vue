@@ -14,28 +14,59 @@
       <p class="text-justify my-4">{{product.additional_info}}</p>
       <hr>
       <div class="my-4">
-        <button @click="addProductToCart(product.id, 1)" class="px-6 py-2 bg-gray-900 text-white text-xl rounded">ADD TO CART</button>
+        <button @click="addProductToCart(1)" class="px-6 py-2 bg-gray-900 text-white text-xl rounded">ADD TO CART</button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Prop, Vue, Component, namespace } from 'nuxt-property-decorator'
-// const cart = namespace('cart')
+interface Cart {
+  product_id: number | null,
+  price: string | null,
+  name: string | null,
+  img: string | null,
+  quantity: number | null
+}
+
+interface Product {
+  additional_info: string,
+  available_to_purchase: boolean,
+  description: string,
+  discount_price: string,
+  get_absolute_url: string,
+  get_thumbnail: string,
+  id: number,
+  images: [],
+  main_image_url: string,
+  name: string
+  price: string
+  sku: string
+  slug: string
+}
 
 @Component
 export default class ProductInfo extends Vue {
 
-  @Prop({ required: true }) readonly product!: object
+  @Prop({ required: true }) readonly product!: Product
 
-  public localData: object = {}
+  public localData: Cart = {
+      product_id: null,
+      price: null,
+      name: null,
+      img: null,
+      quantity: null
+  }
   public items!: []
 
-  public addProductToCart(product_id: number, quantity: number): void {
+  public addProductToCart(quantity: number): void {
     console.log('add to cart clicked')
+    console.log(this.product) 
     this.localData = {
-      id: 0,
-      product_id: product_id,
+      product_id: this.product.id,
+      price: this.product.price,
+      name: this.product.name,
+      img: this.product.main_image_url,
       quantity: quantity
     }
     this.$store.dispatch('addToCart', this.localData)

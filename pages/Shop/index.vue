@@ -11,6 +11,9 @@
  import FilterComponent from '@/components/storefront/shops/FilterComponent.vue'
  import ProductComponent from '@/components/storefront/shops/ProductComponent.vue'
  export default {
+   head: {
+    titleTemplate: `Shop - %s`,
+  },
   data(){
     return{
       title: '',

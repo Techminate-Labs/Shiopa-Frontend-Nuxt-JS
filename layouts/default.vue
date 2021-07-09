@@ -27,6 +27,19 @@ import Cart from '@/components/storefront/cart/Cart.vue'
 import Footer from '@/components/storefront/footer/Footer.vue'
 
 export default Vue.extend({
+  head: {
+    titleTemplate: '%s - Open Source e-commerce solution',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+
+      // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+      { hid: 'description', name: 'description', content: 'Shiopa is an e-commerce open source solution. Create, manage and sell your products with our admin panel.' }
+    ],
+    htmlAttrs: {
+      lang: 'en'
+    }
+  },
   components: {
     NavBar,
     MobileMenu,
