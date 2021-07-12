@@ -30,14 +30,13 @@ export const mutations = mutationTree(state, {
     if (localStorage.getItem('cart')) {
       state.cart = JSON.parse(localStorage.getItem('cart') as string)
     } else if (!localStorage.getItem('cart')) {
-      lo
-    calStorage.setItem('cart', JSON.stringify(state.cart) as string)
-  }
-},
+      localStorage.setItem('cart', JSON.stringify(state.cart) as string)
+    }
+  },
   
   setEmail(state, newValue: string) {
     state.email = newValue
-},
+  },
   
   addToCart(state: RootState, item: ProductItem) {
   state.cart.items.push(item as never)
