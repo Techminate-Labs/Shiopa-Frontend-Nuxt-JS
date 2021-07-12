@@ -12,8 +12,10 @@ export const state = () => ({
 
 type RootState = ReturnType<typeof state>
 interface ProductItem {
-  id: number
   product_id: number
+  price: number
+  name: number
+  img: number
   quantity: number
 }
 
@@ -25,21 +27,21 @@ export const getters = {
 
 export const mutations = mutationTree(state, {
   initialiseStore(state) {
-    try {
+    if (localStorage.getItem('cart')) {
       state.cart = JSON.parse(localStorage.getItem('cart') as string)
-    } catch {
-      localStorage.setItem('cart', JSON.stringify(state.cart))
+    } else if (!localStorage.getItem('cart')) {
+      localStorage.setItem('cart', JSON.stringify(state.cart) as string)
     }
   },
-
+  
   setEmail(state, newValue: string) {
     state.email = newValue
   },
-
+  
   addToCart(state: RootState, item: ProductItem) {
-    state.cart.items.push(item as never)
-
-    localStorage.setItem('cart', JSON.stringify(state.cart) as string)
+  state.cart.items.push(item as never)
+  
+  localStorage.setItem('cart', JSON.stringify(state.cart))
   },
 
 })
