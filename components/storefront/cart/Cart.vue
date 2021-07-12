@@ -41,8 +41,9 @@ export default class Cart extends Vue {
   }
 
   mounted() {
-    this.$store.commit('initialiseStore')
+    // this.$store.commit('initialiseStore')
     this.cart = this.$store.state.cart
+    console.log(this.cart)
   }
 
 }

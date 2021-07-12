@@ -64,10 +64,8 @@ export default class NavBar extends Vue {
 
   get cartTotalLength(): number {
     let totalLength = 0
-    if (this.cart.items.length) {
-      for (let i = 0; i < this.cart.items.length as boolean; i++) {
-          totalLength += parseInt(this.cart.items[i].quantity as any)
-      }
+    for (let i = 0; i < this.cart.items.length as boolean; i++) {
+        totalLength += parseInt(this.cart.items[i].quantity as any)
     }
     return totalLength
 

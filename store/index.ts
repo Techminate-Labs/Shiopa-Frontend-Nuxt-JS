@@ -29,19 +29,20 @@ export const mutations = mutationTree(state, {
   initialiseStore(state) {
     if (localStorage.getItem('cart')) {
       state.cart = JSON.parse(localStorage.getItem('cart') as string)
-    } else {
-      localStorage.setItem('cart', JSON.stringify(state.cart))
-    }
-  },
-
+    } else if (!localStorage.getItem('cart')) {
+      lo
+    calStorage.setItem('cart', JSON.stringify(state.cart) as string)
+  }
+},
+  
   setEmail(state, newValue: string) {
     state.email = newValue
-  },
-
+},
+  
   addToCart(state: RootState, item: ProductItem) {
-    state.cart.items.push(item as never)
-
-    localStorage.setItem('cart', JSON.stringify(state.cart) as string)
+  state.cart.items.push(item as never)
+  
+  localStorage.setItem('cart', JSON.stringify(state.cart))
   },
 
 })
