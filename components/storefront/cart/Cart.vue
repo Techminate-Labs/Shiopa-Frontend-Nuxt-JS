@@ -1,8 +1,8 @@
 <template>
   <div class="flex">
-    <div class="flex p-2" v-for="(item, index) in cart.items" key="{{index}}">
+    <div class="flex p-2" v-for="(item, index) in cart.items" :key="index">
       <div class="m-1">
-        <img class="w-20" :src="item.img"></img>
+        <img class="w-20" :src="item.img" />
       </div>
       <div class="flex flex-col justify-center m-1">
         <p>{{item.name}}</p>
