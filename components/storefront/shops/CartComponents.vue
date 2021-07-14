@@ -16,10 +16,10 @@
                 <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                 <div class="flex w-2/5"> <!-- product -->
                     <div class="w-20">
-                        <img class="h-24" src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z" alt="">
+                        <img class="h-24" src="http://demoapus-wp.com/maison/wp-content/uploads/2017/07/bookends-normal-600x600.jpg" alt="">
                     </div>
                     <div class="flex flex-col justify-between ml-4 flex-grow">
-                        <span class="font-bold text-sm">Iphone 6S</span>
+                        <span class="font-bold text-sm">Bookends</span>
                         <span class="text-red-500 text-xs">Apple</span>
                         <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
                     </div>
@@ -35,8 +35,8 @@
                 <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
                 <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
                 </div>
-                <a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
-                <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
+                <a href="#" class="flex font-semibold text-gray-800 text-sm mt-10">
+                <svg class="fill-current mr-2 text-gray-800 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
                 Continue Shopping
                 </a>
             </div>
@@ -44,7 +44,9 @@
          <div id="summary" class="w-1/4 px-8 py-10">
             <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
             <div class="flex justify-between mt-10 mb-5">
-                <span class="font-semibold text-sm uppercase">Items</span>
+                <div class="w-15">
+                    <img class="h-20" src="http://demoapus-wp.com/maison/wp-content/uploads/2017/07/bookends-normal-600x600.jpg" alt="">
+                </div>
                 <span class="font-semibold text-sm">400$</span>
             </div>
             <div>
@@ -58,13 +60,13 @@
                 <label for="cupon" class="font-semibold inline-block mb-3 text-sm uppercase">Cupon</label>
                 <input type="text" id="Cupon" placeholder="Cupon code" class="p-2 text-sm w-full">
             </div>
-            <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
+            <button class="bg-black hover:bg-gray-800 px-5 py-2 text-sm text-white uppercase">Apply</button>
             <div class="border-t mt-8">
             <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                 <span>Total cost</span>
                 <span>$400</span>
             </div>
-            <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+            <button class="bg-black font-semibold hover:bg-gray-800 py-3 text-sm text-white uppercase w-full">Checkout</button>
             </div>
          </div>
        </div>
