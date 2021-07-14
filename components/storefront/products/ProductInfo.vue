@@ -60,8 +60,6 @@ export default class ProductInfo extends Vue {
   public items!: []
 
   public addProductToCart(quantity: number): void {
-    console.log('add to cart clicked')
-    console.log(this.product) 
     this.localData = {
       product_id: this.product.id,
       price: this.product.price,

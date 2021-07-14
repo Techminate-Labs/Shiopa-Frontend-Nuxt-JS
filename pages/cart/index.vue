@@ -1,21 +1,29 @@
 <template>
    <div>
-      <CartComponents />
+      <CartComponents :cart="cart" />
    </div>
 </template>
 
-<script lang="ts">
- import CartComponents from '@/components/storefront/shops/CartComponents.vue'
- export default {
-  data(){
+<script>
+import CartComponents from '@/components/storefront/shops/CartComponents.vue'
+
+export default {
+  data() {
     return{
       title: '',
+      cart: {
+        items: []
+      }
     }
   },
   components:{
     CartComponents,
   },
- }
+  mounted() {
+    this.cart = this.$store.state.cart
+    console.log(this.cart)
+  }
+}
 </script>
 
 <style>
