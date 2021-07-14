@@ -1,16 +1,21 @@
 import { getAccessorType, mutationTree, actionTree } from 'typed-vuex'
 import { Context } from '@nuxt/types'
 
-import * as submodule from './submodule'
+// import * as submodule from './submodule'
 
 export const state = () => ({
   email: '',
   cart: {
-    items: [],
+    items: []
   },
 })
 
 type RootState = ReturnType<typeof state>
+
+interface Cart {
+  items: ProductItem[]
+}
+
 interface ProductItem {
   product_id: number
   price: number
@@ -26,22 +31,28 @@ export const getters = {
 }
 
 export const mutations = mutationTree(state, {
-  initialiseStore(state) {
+  initialiseStore(state: RootState) {
     if (localStorage.getItem('cart')) {
       state.cart = JSON.parse(localStorage.getItem('cart') as string)
     } else if (!localStorage.getItem('cart')) {
       localStorage.setItem('cart', JSON.stringify(state.cart) as string)
     }
   },
-  
-  setEmail(state, newValue: string) {
+
+  setEmail(state: RootState, newValue: string) {
     state.email = newValue
   },
-  
+
   addToCart(state: RootState, item: ProductItem) {
-  state.cart.items.push(item as never)
-  
-  localStorage.setItem('cart', JSON.stringify(state.cart))
+    const cart: any = state.cart
+    const exists = cart.items.filter((i: { product_id: number }) => i.product_id === item.product_id)
+    if (exists.length) {
+      exists[0].quantity = parseInt(exists[0].quantity) + parseInt(item.quantity as any)
+    } else {
+      cart.items.push(item)
+    }
+
+    localStorage.setItem('cart', JSON.stringify(state.cart))
   },
 
 })
@@ -67,6 +78,6 @@ export const accessorType = getAccessorType({
   mutations,
   state,
   modules: {
-    submodule,
+    // submodule,
   },
 })

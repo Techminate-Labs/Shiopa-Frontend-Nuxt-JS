@@ -25,7 +25,10 @@ interface CartObject {
 
 interface CartItem {
   product_id: number,
-  quantity: number
+  price: string,
+  name: string,
+  img: string,
+  quantity: number,
 }
 
 @Component
@@ -41,7 +44,6 @@ export default class Cart extends Vue {
   }
 
   mounted() {
-    // this.$store.commit('initialiseStore')
     this.cart = this.$store.state.cart
     console.log(this.cart)
   }

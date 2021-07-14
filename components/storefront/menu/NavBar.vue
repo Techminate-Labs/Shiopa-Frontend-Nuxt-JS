@@ -40,7 +40,10 @@ interface Cart {
 
 interface CartItem {
   product_id: number,
-  quantity: number
+  price: string,
+  name: string,
+  img: string,
+  quantity: number,
 }
 
 @Component
