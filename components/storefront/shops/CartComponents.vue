@@ -35,15 +35,15 @@
           <span class="text-center w-1/5 font-semibold text-sm">${{item.price}}</span>
           <span class="text-center w-1/5 font-semibold text-sm">total</span>
         </div>
-        <a href="#" class="flex font-semibold text-gray-800 text-sm mt-10">
+        <nuxt-link to="/shop" class="flex font-semibold text-gray-800 text-sm mt-10">
           <svg class="fill-current mr-2 text-gray-800 w-4" viewBox="0 0 448 512">
             <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/>
           </svg>
           Continue Shopping
-        </a>
+        </nuxt-link>
       </div>
       <div id="summary" class="w-1/4 px-8 py-10">
-        <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+        <h1 class="font-thin text-4xl border-b pb-8">Your order</h1>
         <div class="flex justify-between mt-10 mb-5" v-for="(item, index) in cart.items" :key="index">
           <div class="w-15">
             <img class="h-20" :src="item.img" alt="">
@@ -57,11 +57,13 @@
             <option>Standard shipping - $10.00</option>
           </select>
         </div>
-        <div class="py-10">
-          <label for="cupon" class="font-semibold inline-block mb-3 text-sm uppercase">Cupon</label>
-          <input type="text" id="Cupon" placeholder="Cupon code" class="p-2 text-sm w-full">
-        </div>
-        <button class="bg-black hover:bg-gray-800 px-5 py-2 text-sm text-white uppercase">Apply</button>
+         <div class="py-5 flex">
+            <div>
+                <label for="cupon" class="font-semibold inline-block  mb-3 text-sm uppercase">Cupon</label>
+                <input type="text" id="Cupon" placeholder="Cupon code" class="p-2 text-sm w-full border border-gray-600">
+            </div>
+            <button class="bg-black hover:bg-gray-800 px-5 py-2 h-10 mt-8 ml-3 text-sm text-white uppercase">Apply</button>
+        </div> 
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
