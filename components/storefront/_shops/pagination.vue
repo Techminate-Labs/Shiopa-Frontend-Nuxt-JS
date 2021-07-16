@@ -10,4 +10,4 @@ export default {
 
 <style>
 
-</style>mj
+</style>

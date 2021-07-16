@@ -33,7 +33,7 @@
             </svg>
           </div>
           <span class="text-center w-1/5 font-semibold text-sm">${{item.price}}</span>
-          <span class="text-center w-1/5 font-semibold text-sm">total</span>
+          <span class="text-center w-1/5 font-semibold text-sm">${{Number(item.price * item.quantity)}}</span>
         </div>
         <nuxt-link to="/shop" class="flex font-semibold text-gray-800 text-sm mt-10">
           <svg class="fill-current mr-2 text-gray-800 w-4" viewBox="0 0 448 512">
@@ -48,7 +48,7 @@
           <div class="w-15">
             <img class="h-20" :src="item.img" alt="">
           </div>
-          <span class="font-semibold text-sm">${{item.price}}</span>
+          <span class="font-semibold text-sm">${{Number(item.price * item.quantity)}}</span>
         </div>
         <div>
           <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
@@ -67,7 +67,7 @@
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
-            <span>$400</span>
+            <span>${{cartTotal}}</span>
           </div>
           <button class="bg-black font-semibold hover:bg-gray-800 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
@@ -79,7 +79,7 @@
 <script lang="ts">
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
-interface CartObject {
+interface cartObject {
   items: CartItem[]
 }
 
@@ -95,6 +95,15 @@ interface CartItem {
 export default class Slider extends Vue{
 
   @Prop({ required: true }) readonly cart!: cartObject
+
+   get cartTotal(): number {
+    let total = 0
+    for (let i = 0; i < this.cart.items.length as boolean; i++) {
+        total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
+    }
+    return total
+
+  }
 
 }
 </script>

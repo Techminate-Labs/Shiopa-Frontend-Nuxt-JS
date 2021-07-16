@@ -1,20 +1,20 @@
 <template>
   <div>
-    <FilterComponent :products="products" />
-    <ProductComponent :products="products"/>
+    <Filters :products="products" />
+    <Products :products="products"/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import ProductComponent from '@/components/storefront/shops/ProductComponent.vue'
-import FilterComponent from '@/components/storefront/shops/FilterComponent.vue'
+import Products from '@/components/storefront/products/Products.vue'
+import Filters from '@/components/storefront/products/Filters.vue'
 
 export default Vue.extend({
   components: {
-    ProductComponent,
-    FilterComponent
+    Products,
+    Filters
   },
   async asyncData({ params, $http }: any) {
     const category_slug = params.category

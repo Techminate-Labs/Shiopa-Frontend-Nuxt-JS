@@ -1,11 +1,11 @@
 <template>
    <div>
-      <CheckoutComponent />
+      <Checkout />
    </div>
 </template>
 
 <script lang="ts">
- import CheckoutComponent from '@/components/storefront/shops/CheckoutComponent.vue'
+ import Checkout from '@/components/storefront/orders/Checkout.vue'
  export default {
   data(){
     return{
@@ -13,7 +13,7 @@
     }
   },
   components:{
-    CheckoutComponent,
+    Checkout,
   },
  }
 </script>

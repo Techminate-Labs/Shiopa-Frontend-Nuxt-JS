@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Categories from '@/components/storefront/categories/Categories.vue'
-import Slider from '@/components/Slider.vue'
+import Categories from '@/components/storefront/products/categories/Categories.vue'
+import Slider from '@/components/storefront/products/Slider.vue'
 
 export default Vue.extend({
   components: {
