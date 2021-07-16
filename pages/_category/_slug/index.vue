@@ -16,22 +16,22 @@
     </div>
     <hr class="max-w-sm mx-auto mt-8">
     <ProductDescription v-if="isDescription" :product="product" />
-    <Reviews :product="product" v-if="!isDescription" />
+    <ProductReviews :product="product" v-if="!isDescription" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import ProductInfo from '@/components/storefront/products/ProductInfo.vue'
-import ProductDescription from '@/components/storefront/products/ProductDescription.vue'
-import Reviews from '@/components/storefront/shops/Reviews.vue'
+import ProductInfo from '@/components/storefront/products/single/ProductInfo.vue'
+import ProductDescription from '@/components/storefront/products/single/ProductDescription.vue'
+import ProductReviews from '@/components/storefront/products/single/ProductReviews.vue'
 
 export default Vue.extend({
   components: {
     ProductInfo,
     ProductDescription,
-    Reviews
+    ProductReviews
   },
   data(){
     return {

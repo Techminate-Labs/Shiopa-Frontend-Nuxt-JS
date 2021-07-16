@@ -79,7 +79,7 @@
 <script lang="ts">
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
-interface CartObject {
+interface cartObject {
   items: CartItem[]
 }
 

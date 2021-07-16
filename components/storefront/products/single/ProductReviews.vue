@@ -64,7 +64,7 @@ interface Review {
 }
 
 @Component
-export default class Reviews extends Vue{
+export default class ProductReviews extends Vue{
 
   @Prop({ required: true }) readonly product!: object
   reviews: Review[] = []

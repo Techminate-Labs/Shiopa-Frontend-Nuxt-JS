@@ -1,11 +1,11 @@
 <template>
    <div>
-      <CartComponents :cart="cart" />
+      <CartSingle :cart="cart" />
    </div>
 </template>
 
 <script>
-import CartComponents from '@/components/storefront/shops/CartComponents.vue'
+import CartSingle from '@/components/storefront/cart/CartSingle.vue'
 
 export default {
   data() {
@@ -17,7 +17,7 @@ export default {
     }
   },
   components:{
-    CartComponents,
+    CartSingle,
   },
   mounted() {
     this.cart = this.$store.state.cart
