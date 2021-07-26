@@ -12,7 +12,7 @@
       @showMobileMenu="showMobileMenu = true"
       @showCart="showCart = !showCart"
     />
-    <Cart v-show="showCart" />
+    <Cart v-show="showCart" @closeCart="showCart = false" />
     <Nuxt />
     <Footer :categories="categories" />
   </div>

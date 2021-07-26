@@ -21,7 +21,7 @@
 </template>
 <script lang="ts">
 import { Prop, Vue, Component, namespace } from 'nuxt-property-decorator'
-interface Cart {
+interface CartItem {
   product_id: number | null,
   price: string | null,
   name: string | null,
@@ -50,7 +50,7 @@ export default class ProductInfo extends Vue {
 
   @Prop({ required: true }) readonly product!: Product
 
-  public localData: Cart = {
+  public localData: CartItem = {
       product_id: null,
       price: null,
       name: null,

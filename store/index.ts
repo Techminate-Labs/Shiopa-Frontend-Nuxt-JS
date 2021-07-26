@@ -55,6 +55,14 @@ export const mutations = mutationTree(state, {
     localStorage.setItem('cart', JSON.stringify(state.cart))
   },
 
+  removeFromCart(state: RootState, item: ProductItem) {
+    const cart: any = state.cart
+    console.log('before', cart)
+    cart.items = state.cart.items.filter((i: { product_id: number }) => i.product_id !== item.product_id)
+    console.log('after', cart)
+    localStorage.setItem('cart', JSON.stringify(cart))
+  },
+
 })
 
 export const actions = actionTree(
@@ -66,6 +74,10 @@ export const actions = actionTree(
 
     async addToCart(context, payload) {
       context.commit('addToCart', payload)
+    },
+
+    async removeFromCart(context, payload) {
+      context.commit('removeFromCart', payload)
     },
 
     async nuxtServerInit(_vuexContext, nuxtContext: Context) { },
