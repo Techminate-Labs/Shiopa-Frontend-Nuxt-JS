@@ -12,7 +12,14 @@
       @showMobileMenu="showMobileMenu = true"
       @showCart="showCart = !showCart"
     />
-    <Cart v-show="showCart" @closeCart="showCart = false" />
+    <div>
+      <transition name="right">
+        <Cart v-show="showCart" @closeCart="showCart = false" />
+      </transition>
+      <transition name="opacity">
+        <div v-show="showCart" @closeCart="showCart = false" class="bg-gray-900 top-0 w-full h-screen opacity-90 fixed z-30"></div>
+      </transition>
+    </div>
     <Nuxt />
     <Footer :categories="categories" />
   </div>
@@ -117,6 +124,7 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+/* Animation left */
 .left-enter-active {
   transition: all .3s ease;
 }
@@ -130,6 +138,21 @@ html {
   z-index: 999;
 }
 
+/* Animation right */
+.right-enter-active {
+  transition: all .3s ease;
+}
+.right-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition-delay: .2s;
+}
+.right-enter, .right-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 999;
+}
+
+/* Animation opacity */
 .opacity-enter-active {
   transition: all .3s ease;
   transition-delay: .15s;
