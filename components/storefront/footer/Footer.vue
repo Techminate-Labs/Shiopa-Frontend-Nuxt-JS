@@ -3,7 +3,7 @@
     <div class="flex flex-col">
       <div>
         <h4 class="italic">Subscribe to our newsletter</h4>
-        <form class="my-3 flex">
+        <form class="my-3 flex flex-wrap">
           <div class="flex flex-col">
             <label for="email">Enter your email</label>
             <input type="email" name="email" class="text-input" placeholder="example@mail.com">
