@@ -1,8 +1,10 @@
 <template>
   <div class="bg-gray-100">
     <NavBar />
-    <SideNav />
-    <h1>Footer</h1>
+    <div class="flex flex-nowrap">
+      <SideNav />
+      <Nuxt />
+    </div>
   </div>
 </template>
 

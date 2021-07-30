@@ -5,7 +5,7 @@
       <ul class="self-center flex flex-nowrap order-1 text-gray-800">
         <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/">View site</NuxtLink></li>
         <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">View Shop</NuxtLink></li>
-        <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Notifications</NuxtLink></li>
+        <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block">Notifications</li>
       </ul>
     </nav>
   </div>

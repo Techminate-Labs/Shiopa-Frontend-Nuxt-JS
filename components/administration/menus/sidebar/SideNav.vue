@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-1/12 bg-white z-40 overflow-hidden border-box">
+  <div class="h-screen w-1/12 bg-white z-40 overflow-hidden">
     <nav class="block container mx-auto justify-between" aria-label="Desktop navigation">
       <ul class="grid grid-cols-1 divide-y-2 divide-gray-200 text-center text-lg text-gray-500">
         <li class="py-8">
