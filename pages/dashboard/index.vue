@@ -5,15 +5,15 @@
       <p>Breadcrumb</p>
     </div>
     <div class="grid grid-cols-2 gap-7">
-      <div class="my-8 grid grid-flow-col grid-cols-3 gap-6">
-        <IconCard />
-        <IconCard />
-        <IconCard />
+      <div class="my-8 grid grid-flow-col grid-cols-3 gap-6 content-start">
+        <IconCard title="Published Posts" value="18" />
+        <IconCard title="Published Products" value="10" />
+        <IconCard title="Published Categories" value="4" />
       </div>
-      <div class="my-8 grid grid-flow-col grid-cols-3 gap-6">
-        <GraphCard />
-        <GraphCard />
-        <GraphCard />
+      <div class="my-8 grid grid-flow-col grid-cols-3 gap-6 content-start">
+        <GraphCard title="Total Orders" :isCurrency="true" value="1250" day="Monday" />
+        <GraphCard title="Total Order Number" :isCurrency="false" value="6" day="Monday" />
+        <GraphCard title="Total Orders" :isCurrency="false" value="6" day="Monday" />
       </div>
     </div>
   </div>
