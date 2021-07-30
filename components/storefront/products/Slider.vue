@@ -1,5 +1,5 @@
 <template>
-  <div class="h-96 bg-gray-200 flex relative">
+  <div class="h-96 bg-gray-200 flex relative shadow-md">
     <transition name="slide" mode="out-in">
       <div v-for="i in [currentIndex]" :key="i" id="slider" class="absolute flex flex-col md:flex-row inset-0 w-auto h-auto transform translate-x-0">
         <img :src="'/placeholders/' + currentImg.image" class="object-contain m-6 md:w-3/4 lg:w-1/2 h-3/4 md:h-auto" />

@@ -1,16 +1,18 @@
 <template>
-  <div>
+  <div class="bg-gray-100">
     <NavBar />
-    <h1>Sidenav</h1>
+    <SideNav />
     <h1>Footer</h1>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/storefront/menu/NavBar.vue'
+import NavBar from '@/components/administration/menus/top/NavBar.vue'
+import SideNav from '@/components/administration/menus/sidebar/SideNav.vue'
 export default {
   components: {
     NavBar,
+    SideNav,
   },
 
 }
