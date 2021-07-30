@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 py-5 px-4 z-40">
+  <div class="bg-gray-100 py-5 px-4 relative z-30 shadow-md">
     <nav class="block container mx-auto flex flex-row flex-nowrap justify-between" aria-label="Desktop navigation">
       <NuxtLink to="/" class="mr-2 font-bold text-3xl order-2 md:order-first">Shiopa</NuxtLink>
       <ul class="self-center flex flex-nowrap order-1 text-gray-800">

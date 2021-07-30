@@ -82,7 +82,6 @@ interface Product {
 export default class Products extends Vue{
 
   @Prop({ required: true }) readonly products!: Product[]
-
   
   public localData: Cart = {
       product_id: null,

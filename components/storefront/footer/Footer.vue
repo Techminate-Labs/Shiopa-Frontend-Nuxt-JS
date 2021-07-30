@@ -1,5 +1,5 @@
 <template>
-  <div class="py-6 px-6 bg-gray-100 lg:px-32 text-lg flex flex-col md:flex-row justify-between">
+  <div class="py-6 px-6 bg-gray-100 lg:px-32 text-lg flex flex-col md:flex-row justify-between shadow-inner">
     <div class="flex flex-col">
       <div>
         <h4 class="italic">Subscribe to our newsletter</h4>
