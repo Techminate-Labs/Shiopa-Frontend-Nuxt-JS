@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Products table</h1>
+      <h1>Dashboard configuration</h1>
   </div>
 </template>
 
