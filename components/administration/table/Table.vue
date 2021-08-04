@@ -81,7 +81,7 @@
                 <p class="text-sm text-gray-700">
                   Showing
                   {{ ' ' }}
-                  <span class="font-medium">1</span>
+                  <span class="font-medium">{{ currentPage }}</span>
                   {{ ' ' }}
                   to
                   {{ ' ' }}
@@ -105,12 +105,8 @@
                   </a>
                   <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                     <span>Next</span>
-                    <ChevronRightIcon class="h-5 w-5" aria-hidden="true" />
                   </a>
                 </nav>
-              </div>
-              <div v-else>
-                <p>test</p>
               </div>
             </div>
           </div>
@@ -174,42 +170,103 @@ export default class Table extends Vue {
       parentCategory: 'lorem ipsum',
       numberOfProducts: 108,
     },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That is So Good It\'s On The next Page',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That is So Good It\'s On The next Page',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That is So Good It\'s On The next Page',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That is So Good It\'s On The next Page',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That is So Good It\'s On The next Page',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That is So Good It\'s On The next Page',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
   ]
 
   mounted () {
     this.setPageNumbers()
   }
 
-  public prevpage: null = null
-  public nextpage: null = null
-  public currentPage: null = null
+  public prevPage: number | null = null
+  public nextPage: number | null = null
+  public currentPage: number | null = null
   public pageNumbers: [] = []
-  public pageNumberCount: number = 0
+  public pageNumberCount: number = 1
   public totalItems: number = this.items.length
   public maxItemsPerPage: number = 5
-  public lastPage: number = this.totalItems / this.maxItemsPerPage 
+  public lastPage: number = Math.ceil(this.totalItems / this.maxItemsPerPage)
   public notEnoughPages: true = true
 
-  public setPages(currentPage, totalPageCount): void {
-    this.prevpage = currentPage > 1 ? (currentPage - 1) : null
+  public setPages(currentPage: number, totalPageCount: number): void {
+    this.prevPage = currentPage > 1 ? (currentPage - 1) : null
 
-    if (!totalPageCount) {
-      this.nextpage = this.$route.query.page ? (parseInt(this.$route.query.page) + 1) : 2
+    console.log('totalPageCount', totalPageCount)         // 2
+    console.log('totalItems', this.totalItems)            // 6
+    console.log('maxItemsPerPage', this.maxItemsPerPage)  // 5
+    console.log('lastPage', this.lastPage)                // 2
+
+    if (!totalPageCount as boolean) {
+      console.log('if')
+      this.nextPage = this.$route.query.page ? (parseInt(this.$route.query.page as string) + 1) : 2
+      console.log('nextPage', this.nextPage)
     } else {
-      this.nextpage = currentPage < totalPageCount ? (parseInt(currentPage) + 1) : null
+      console.log('else')
+      this.nextPage = currentPage < totalPageCount ? (parseInt(currentPage as unknown as string) + 1) : null
+      console.log('nextPage', this.nextPage)
     }
 
     for (let i = 0; i < totalPageCount; i++) {
-      let _p = ((parseInt(currentPage) - 4) + i)
+      let _p = ((parseInt(currentPage as unknown as string)) + i)
+      console.log('_p', _p)
+
       if (_p > 0 && _p <= totalPageCount) {
-        this.pageNumbers.push(_p)
+        console.log('_p > 0')
+        this.pageNumbers.push(_p as never)
         this.pageNumberCount++
-      } else this.pageNumbers.push(null)
+      } else this.pageNumbers.push(null as never)
     }
+    console.log('[pageNumbers]', this.pageNumbers)
   }
 
   public setPageNumbers():void {
-    let _currentPage = this.$route.query.page ? this.$route.query.page : 1
+    let _currentPage: any = this.$route.query.page ? this.$route.query.page : 1
     this.currentPage = _currentPage
     this.setPages(_currentPage, this.lastPage)
   }
