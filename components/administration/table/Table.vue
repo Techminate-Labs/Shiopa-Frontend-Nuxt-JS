@@ -78,7 +78,7 @@
                   <!-- last page -->
                   <span v-else-if="currentPage == lastPage" class="font-medium">{{ totalItems - itemsInPage.length }}</span>
                   <!-- middle page -->
-                  <span v-else class="font-medium">{{ currentPage + (maxItemsPerPage - 1) }}</span>
+                  <span v-else class="font-medium">{{ (itemsInPage.length * currentPage) - (itemsInPage.length - 1) }}</span>
                   {{ ' ' }}
                   to
                   {{ ' ' }}
@@ -211,6 +211,86 @@ export default class Table extends Vue {
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Last Burger That You Can\'t Even ?',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Not The Last Burger That You Can\'t Even',
+      slug: 'lorem ipsum',
+      parentCategory: 'lorem ipsum',
+      numberOfProducts: 108,
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
+      name: 'Last Burger That You Can\'t Even !!!',
       slug: 'lorem ipsum',
       parentCategory: 'lorem ipsum',
       numberOfProducts: 108,
