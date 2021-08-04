@@ -30,7 +30,7 @@
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="(item, index) in items" :key="index">
+              <tr v-for="(item, index) in itemsInPage" :key="index">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex-shrink-0 h-10 w-10">
                     {{ index + 1 }}
@@ -68,24 +68,21 @@
             </tbody>
           </table>
           <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-            <div class="flex-1 flex justify-between sm:hidden">
-              <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                Previous
-              </a>
-              <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                Next
-              </a>
-            </div>
             <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
               <div>
                 <p class="text-sm text-gray-700">
                   Showing
                   {{ ' ' }}
-                  <span class="font-medium">{{ currentPage }}</span>
+                  <!-- first page -->
+                  <span v-if="currentPage == 1" class="font-medium">{{ currentPage }}</span>
+                  <!-- last page -->
+                  <span v-else-if="currentPage == lastPage" class="font-medium">{{ totalItems - itemsInPage.length }}</span>
+                  <!-- middle page -->
+                  <span v-else class="font-medium">{{ currentPage + (maxItemsPerPage - 1) }}</span>
                   {{ ' ' }}
                   to
                   {{ ' ' }}
-                  <span class="font-medium">{{ maxItemsPerPage }}</span>
+                  <span class="font-medium">{{ currentPage != lastPage ? maxItemsPerPage * currentPage : totalItems }}</span>
                   {{ ' ' }}
                   of
                   {{ ' ' }}
@@ -100,7 +97,7 @@
                     <span>Previous</span>
                   </a>
                   <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
-                  <a v-for="(num, index) in pageNumbers" v-key="index" href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  <a @click="changeItemsInPage(num)" v-for="(num, index) in pageNumbers" v-key="index" href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
                     {{ num }}
                   </a>
                   <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
@@ -205,7 +202,7 @@ export default class Table extends Vue {
     {
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
-      name: 'Burger That is So Good It\'s On The next Page',
+      name: 'Burger That You Can\'t Even',
       slug: 'lorem ipsum',
       parentCategory: 'lorem ipsum',
       numberOfProducts: 108,
@@ -213,7 +210,7 @@ export default class Table extends Vue {
     {
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
-      name: 'Burger That is So Good It\'s On The next Page',
+      name: 'Burger That You Can\'t Even',
       slug: 'lorem ipsum',
       parentCategory: 'lorem ipsum',
       numberOfProducts: 108,
@@ -237,38 +234,41 @@ export default class Table extends Vue {
   public setPages(currentPage: number, totalPageCount: number): void {
     this.prevPage = currentPage > 1 ? (currentPage - 1) : null
 
-    console.log('totalPageCount', totalPageCount)         // 2
-    console.log('totalItems', this.totalItems)            // 6
-    console.log('maxItemsPerPage', this.maxItemsPerPage)  // 5
-    console.log('lastPage', this.lastPage)                // 2
-
     if (!totalPageCount as boolean) {
-      console.log('if')
       this.nextPage = this.$route.query.page ? (parseInt(this.$route.query.page as string) + 1) : 2
-      console.log('nextPage', this.nextPage)
     } else {
-      console.log('else')
       this.nextPage = currentPage < totalPageCount ? (parseInt(currentPage as unknown as string) + 1) : null
-      console.log('nextPage', this.nextPage)
     }
 
     for (let i = 0; i < totalPageCount; i++) {
       let _p = ((parseInt(currentPage as unknown as string)) + i)
-      console.log('_p', _p)
 
       if (_p > 0 && _p <= totalPageCount) {
-        console.log('_p > 0')
         this.pageNumbers.push(_p as never)
         this.pageNumberCount++
       } else this.pageNumbers.push(null as never)
     }
-    console.log('[pageNumbers]', this.pageNumbers)
   }
 
   public setPageNumbers():void {
     let _currentPage: any = this.$route.query.page ? this.$route.query.page : 1
     this.currentPage = _currentPage
     this.setPages(_currentPage, this.lastPage)
+  }
+
+  get itemsInPage(): any[] {
+    var index: any = this.currentPage as any * this.maxItemsPerPage - this.maxItemsPerPage
+    return this.items.slice(index, index + this.maxItemsPerPage)
+  }
+
+  public changeItemsInPage(num: number): any {
+
+    console.log(this.currentPage)
+
+    this.currentPage = num
+    console.log(this.itemsInPage)
+    this.itemsInPage
+    console.log(this.itemsInPage)
   }
 
 }
