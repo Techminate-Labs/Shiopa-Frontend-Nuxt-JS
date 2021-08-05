@@ -70,6 +70,17 @@
                   results
                 </p>
               </div>
+              <div>
+              Show 
+              <select v-model="maxItemsPerPage">
+                <option selected>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+              </select>
+               Items
+              </div>
               <div v-if="notEnoughPages">
                 <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
                   <a 
