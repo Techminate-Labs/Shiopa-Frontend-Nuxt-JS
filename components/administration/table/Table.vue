@@ -1,27 +1,28 @@
 <template>
   <div class="flex flex-col">
+    debug: sort={{currentSort}}, dir={{currentSortDir}}
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
               <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th @click="sort('id')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   #
                 </th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Image
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th @click="sort('name')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Name
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th @click="sort('slug')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Slug
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th @click="sort('parentCategory')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Parent Category
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th @click="sort('numberOfProducts')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Number of Products
                 </th>
                 <th scope="col" class="relative px-6 py-3">
@@ -30,10 +31,10 @@
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="(item, index) in itemsInPage" :key="index">
+              <tr v-for="(item, index) in sortedItems" :key="index">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex-shrink-0 h-10 w-10">
-                    {{ index + 1 }}
+                    {{ item.id }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
@@ -120,14 +121,16 @@ export default class Table extends Vue {
 
   public items: object[] = [
     {
+      id: 1,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
-      name: 'naga Burger',
+      name: 'Naga Burger',
       slug: 'lorem ipsum',
       parentCategory: 'lorem ipsum',
       numberOfProducts: 17,
     },
     {
+      id: 2,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger',
@@ -136,6 +139,7 @@ export default class Table extends Vue {
       numberOfProducts: 10,
     },
     {
+      id: 3,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Patty Burger',
@@ -144,6 +148,7 @@ export default class Table extends Vue {
       numberOfProducts: 2,
     },
     {
+      id: 4,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Damn Good Burger',
@@ -152,6 +157,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 5,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Super Duper Damn Good Burger',
@@ -160,6 +166,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 6,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That is So Good It\'s On The next Page',
@@ -168,6 +175,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 7,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That is So Good It\'s On The next Page',
@@ -176,6 +184,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 8,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That is So Good It\'s On The next Page',
@@ -184,6 +193,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 9,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That is So Good It\'s On The next Page',
@@ -192,6 +202,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 10,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That is So Good It\'s On The next Page',
@@ -200,6 +211,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 11,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -208,6 +220,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 12,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -216,6 +229,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 13,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -224,6 +238,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 14,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -232,6 +247,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 15,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -240,6 +256,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 16,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -248,6 +265,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 17,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -256,6 +274,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 18,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -264,6 +283,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 19,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Burger That You Can\'t Even',
@@ -272,6 +292,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 20,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Last Burger That You Can\'t Even ?',
@@ -280,6 +301,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 21,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Not The Last Burger That You Can\'t Even',
@@ -288,6 +310,7 @@ export default class Table extends Vue {
       numberOfProducts: 108,
     },
     {
+      id: 22,
       image:
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80',
       name: 'Last Burger That You Can\'t Even !!!',
@@ -311,7 +334,10 @@ export default class Table extends Vue {
   public lastPage: number = Math.ceil(this.totalItems / this.maxItemsPerPage)
   public notEnoughPages: true = true
 
-  public setPages(currentPage: number, totalPageCount: number): void {
+  public currentSort: string = 'name'
+  public currentSortDir: string = 'asc'
+
+  setPages(currentPage: number, totalPageCount: number): void {
     this.prevPage = currentPage > 1 ? (currentPage - 1) : null
 
     if (!totalPageCount as boolean) {
@@ -330,18 +356,13 @@ export default class Table extends Vue {
     }
   }
 
-  public setPageNumbers():void {
+  setPageNumbers():void {
     let _currentPage: any = this.$route.query.page ? this.$route.query.page : 1
     this.currentPage = _currentPage
     this.setPages(_currentPage, this.lastPage)
   }
 
-  get itemsInPage(): any[] {
-    var index: any = this.currentPage as any * this.maxItemsPerPage - this.maxItemsPerPage
-    return this.items.slice(index, index + this.maxItemsPerPage)
-  }
-
-  public changeItemsInPage(num: number): any {
+  changeItemsInPage(num: number): any {
 
     console.log(this.currentPage)
 
@@ -349,6 +370,29 @@ export default class Table extends Vue {
     console.log(this.itemsInPage)
     this.itemsInPage
     console.log(this.itemsInPage)
+  }
+
+  sort(s: string): void {
+    //if s == current sort, reverse
+    if(s === this.currentSort) {
+      this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+    }
+    this.currentSort = s;
+  }
+
+  get itemsInPage(): any[] {
+    var index: any = this.currentPage as any * this.maxItemsPerPage - this.maxItemsPerPage
+    return this.items.slice(index, index + this.maxItemsPerPage)
+  }
+
+  get sortedItems(): any[] {
+    return this.itemsInPage.sort((a: any, b: any) => {
+      let modifier = 1;
+      if(this.currentSortDir === 'desc') modifier = -1;
+      if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+      if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+      return 0;
+    });
   }
 
 }
