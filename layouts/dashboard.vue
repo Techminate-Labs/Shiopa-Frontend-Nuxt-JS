@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-100">
     <NavBar />
-    <div class="flex flex-nowrap">
+    <div class="flex flex-wrap">
       <SideNav />
       <Nuxt />
     </div>
