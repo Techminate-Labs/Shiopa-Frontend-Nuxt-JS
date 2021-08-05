@@ -73,33 +73,34 @@
               <div>
                 <p class="text-sm text-gray-700">
                   Showing
-                  {{ ' ' }}
                   <!-- first page -->
                   <span v-if="currentPage == 1" class="font-medium">{{ currentPage }}</span>
                   <!-- last page -->
                   <span v-else-if="currentPage == lastPage" class="font-medium">{{ totalItems - itemsInPage.length }}</span>
                   <!-- middle page -->
                   <span v-else class="font-medium">{{ (itemsInPage.length * currentPage) - (itemsInPage.length - 1) }}</span>
-                  {{ ' ' }}
                   to
-                  {{ ' ' }}
                   <span class="font-medium">{{ currentPage != lastPage ? maxItemsPerPage * currentPage : totalItems }}</span>
-                  {{ ' ' }}
                   of
-                  {{ ' ' }}
                   <span class="font-medium">{{ totalItems }}</span>
-                  {{ ' ' }}
                   results
                 </p>
               </div>
               <div v-if="notEnoughPages">
                 <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-                  <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                  <a 
+                    href="#" 
+                    class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                     <span>Previous</span>
                   </a>
                   <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
-                  <a @click="changeItemsInPage(num)" v-for="(num, index) in pageNumbers" v-key="index" href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                    {{ num }}
+                  <a 
+                    @click="changeItemsInPage(number)" 
+                    v-for="(number, index) in pageNumbers" 
+                    :key="index" href="#" 
+                    :class="number === activeItem ? 'current' : ''" 
+                    class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                    {{ number }}
                   </a>
                   <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                     <span>Next</span>
@@ -337,6 +338,8 @@ export default class Table extends Vue {
   public currentSort: string = 'name'
   public currentSortDir: string = 'asc'
 
+  public activeItem: number | null = null 
+
   setPages(currentPage: number, totalPageCount: number): void {
     this.prevPage = currentPage > 1 ? (currentPage - 1) : null
 
@@ -362,14 +365,11 @@ export default class Table extends Vue {
     this.setPages(_currentPage, this.lastPage)
   }
 
-  changeItemsInPage(num: number): any {
-
-    console.log(this.currentPage)
-
+  changeItemsInPage(num: number): void {
     this.currentPage = num
-    console.log(this.itemsInPage)
     this.itemsInPage
-    console.log(this.itemsInPage)
+
+    this.activeItem = num;
   }
 
   sort(s: string): void {
@@ -397,3 +397,8 @@ export default class Table extends Vue {
 
 }
 </script>
+<style scoped>
+.current {
+  @apply z-10 bg-indigo-50 border-indigo-500 text-indigo-600;
+}
+</style>
