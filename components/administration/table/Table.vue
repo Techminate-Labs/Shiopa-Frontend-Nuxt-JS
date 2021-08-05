@@ -60,7 +60,7 @@
                   <!-- first page -->
                   <span v-if="currentPage == 1" class="font-medium">{{ currentPage }}</span>
                   <!-- last page -->
-                  <span v-else-if="currentPage == lastPage" class="font-medium">{{ totalItems - (itemsInPage.length + 1) }}</span>
+                  <span v-else-if="currentPage == lastPage" class="font-medium">{{ (totalItems + 1) - itemsInPage.length }}</span>
                   <!-- middle page -->
                   <span v-else class="font-medium">{{ (itemsInPage.length * currentPage) - (itemsInPage.length - 1) }}</span>
                   to
@@ -80,7 +80,7 @@
                   <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
                   <a 
                     @click="changeItemsInPage(number)" 
-                    v-for="(number, index) in pageNumbers" 
+                    v-for="(number, index) in displayPages" 
                     :key="index" href="#" 
                     :class="number === activeItem ? 'current' : ''" 
                     class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
@@ -108,7 +108,7 @@ export default class Table extends Vue {
   @Prop({ required: true }) readonly columns!: object[]
 
   mounted () {
-    this.setPageNumbers()
+    this.currentPage = 1
     this.activeItem = 1
   }
 
@@ -118,44 +118,30 @@ export default class Table extends Vue {
   public pageNumbers: [] = []
   public pageNumberCount: number = 1
   public totalItems: number = this.items.length
-  public maxItemsPerPage: number = 10
+  public maxItemsPerPage: number = 5
   public lastPage: number = Math.ceil(this.totalItems / this.maxItemsPerPage)
   public notEnoughPages: true = true
 
-  public currentSort: string = 'name'
+  public currentSort: string = 'id'
   public currentSortDir: string = 'asc'
 
   public activeItem: number | null = null 
 
-  setPages(currentPage: number, totalPageCount: number): void {
-    this.prevPage = currentPage > 1 ? (currentPage - 1) : null
+  get displayPages() {
+    const totalPages = this.lastPage;
+    let currentPage: any = this.currentPage;
+    if ([1, 2].includes(currentPage)) currentPage = 3;
+    else if ([totalPages - 1, totalPages].includes(currentPage)) currentPage = Math.max(0, totalPages - Math.trunc(5 / 2));
 
-    if (!totalPageCount as boolean) {
-      this.nextPage = this.$route.query.page ? (parseInt(this.$route.query.page as string) + 1) : 2
+    if (totalPages < 5){
+      return [...Array(totalPages).keys()].map(i => Math.max(0, i - Math.trunc(5 / 2) + currentPage))
     } else {
-      this.nextPage = currentPage < totalPageCount ? (parseInt(currentPage as unknown as string) + 1) : null
+      return [...Array(5).keys()].map(i => Math.max(0, i - Math.trunc(5 / 2) + currentPage))
     }
-
-    for (let i = 0; i < totalPageCount; i++) {
-      let _p = ((parseInt(currentPage as unknown as string)) + i)
-
-      if (_p > 0 && _p <= totalPageCount) {
-        this.pageNumbers.push(_p as never)
-        this.pageNumberCount++
-      } else this.pageNumbers.push(null as never)
-    }
-  }
-
-  setPageNumbers():void {
-    let _currentPage: any = this.$route.query.page ? this.$route.query.page : 1
-    this.currentPage = _currentPage
-    this.setPages(_currentPage, this.lastPage)
   }
 
   changeItemsInPage(num: number): void {
     this.currentPage = num
-    this.itemsInPage
-
     this.activeItem = num;
   }
 
