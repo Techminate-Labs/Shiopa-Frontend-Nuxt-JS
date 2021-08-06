@@ -72,7 +72,8 @@
               </div>
               <div>
               Show 
-              <select v-model="maxItemsPerPage">
+              <select v-model.number="maxItemsPerPage" @change="onChange">
+                <option >3</option>
                 <option selected>5</option>
                 <option>10</option>
                 <option>20</option>
@@ -138,10 +139,17 @@ export default class Table extends Vue {
 
   public activeItem: number | null = null 
 
+  public onChange(): void {
+    this.sortedItems
+    this.itemsInPage
+    this.displayPages
+  }
+
   get displayPages() {
+    this.lastPage = Math.ceil(this.totalItems / this.maxItemsPerPage)
     const totalPages = this.lastPage;
     let currentPage: any = this.currentPage;
-    if ([1, 2].includes(currentPage)) currentPage = 3;
+    if ([1, 2, 3].includes(currentPage)) currentPage = 3;
     else if ([totalPages - 1, totalPages].includes(currentPage)) currentPage = Math.max(0, totalPages - Math.trunc(5 / 2));
 
     if (totalPages < 5){
@@ -153,7 +161,7 @@ export default class Table extends Vue {
 
   changeItemsInPage(num: number): void {
     this.currentPage = num
-    this.activeItem = num;
+    this.activeItem = num
   }
 
   sort(s: string): void {
@@ -165,8 +173,9 @@ export default class Table extends Vue {
   }
 
   get itemsInPage(): any[] {
-    var index: any = this.currentPage as any * this.maxItemsPerPage - this.maxItemsPerPage
-    return this.items.slice(index, index + this.maxItemsPerPage)
+    if (this.currentPage)
+      var index: any = this.currentPage * this.maxItemsPerPage - this.maxItemsPerPage
+      return this.items.slice(index, index + this.maxItemsPerPage)
   }
 
   get sortedItems(): any[] {
