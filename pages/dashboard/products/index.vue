@@ -1,5 +1,5 @@
 <template>
-  <div class="p-8 w-full md:w-5/6 lg:w-10/12 xl:w-11/12">
+  <div>
     <h1 class="text-4xl mb-4">Products</h1>
     <Table :items="this.items" :columns="this.columns"/>
   </div>

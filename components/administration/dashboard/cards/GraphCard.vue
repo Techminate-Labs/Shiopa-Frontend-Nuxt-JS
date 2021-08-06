@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col p-4 my-auto bg-white rounded-lg shadow-md">
+  <div class="flex flex-col p-4 my-2 mx-2 bg-white rounded-lg shadow-md">
     <p class="text-lg">{{title}}</p>
     <p v-if="isCurrency" class="text-2xl text-blue-900">${{value}}</p>
     <p v-else class="text-2xl text-blue-900">{{value}}</p>

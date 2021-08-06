@@ -3,7 +3,7 @@
     <NavBar />
     <div class="flex flex-wrap">
       <SideNav />
-      <Nuxt />
+      <Nuxt class="p-8 w-full md:w-5/6 lg:w-10/12 xl:w-11/12" />
     </div>
   </div>
 </template>

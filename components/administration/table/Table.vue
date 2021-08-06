@@ -1,12 +1,17 @@
 <template>
   <div class="flex flex-col">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+    <div class="overflow-x-auto">
+      <div class="py-2 align-middle inline-block min-w-full">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-          <table class="min-w-full divide-y divide-gray-200">
+          <table class="min-w-full divide-y divide-gray-200 border-collapse">
             <thead class="bg-gray-50">
               <tr>
-                <th @click="sort(column.attribute)" v-for="(column, index) in columns" :key="index" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th 
+                  @click="sort(column.attribute)" 
+                  v-for="(column, index) in columns" 
+                  :key="index" 
+                  scope="col" 
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   {{ column.name }}
                 </th>
                 <th scope="col" class="relative px-6 py-3">
@@ -14,19 +19,28 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="(item, i) in sortedItems" :key="i">
-                <td v-for="(textColumn, j) in textColumns" :key="j" class="px-6 py-4 whitespace-nowrap">
+            <tbody class="divide-y divide-gray-200">
+              <tr v-for="(item, i) in sortedItems" :key="i" class="bg-white flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                <td 
+                  v-for="(textColumn, j) in textColumns" 
+                  :key="j" 
+                  :data-label="textColumn.attribute"
+                  class="w-full lg:w-auto px-6 py-4 whitespace-nowrap">
                   <div class="flex-shrink-0">
                     {{ item[textColumn.attribute] }}
                   </div>
                 </td>
-                <td v-for="(image, k) in imageColumn" :key="k" class="px-6 py-4 whitespace-nowrap">
+                <td 
+                  v-for="(image, k) in imageColumn" 
+                  :key="k" class="w-full lg:w-auto px-6 py-4 whitespace-nowrap"
+                  :data-label="imageColumn.attribute">
                   <div class="flex-shrink-0 h-10 w-10">
                     <img class="h-10 w-10 rounded-full" :src="item[image.attribute]" alt="" />
                   </div>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <td 
+                  data-label="Action"
+                  class="w-full lg:w-auto px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                 </td>
               </tr>
@@ -207,5 +221,54 @@ export default class Table extends Vue {
 <style scoped>
 .current {
   @apply z-10 bg-indigo-50 border-indigo-500 text-indigo-600;
+}
+
+@media (max-width: 1024px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+    
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
 }
 </style>
