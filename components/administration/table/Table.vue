@@ -47,8 +47,8 @@
             </tbody>
           </table>
           <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-              <div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between md:justify-end">
+              <div class="md:mr-6">
                 <p class="text-sm text-gray-700">
                   Showing
                   <!-- first page -->
@@ -64,9 +64,12 @@
                   results
                 </p>
               </div>
-              <div>
+              <div class="md:mr-6 text-sm text-gray-700">
               Show 
-              <select v-model.number="maxItemsPerPage" @change="onChange">
+              <select 
+                v-model.number="maxItemsPerPage" 
+                @change="onChange"
+                class="border-2 p-2 rounded-lg">
                 <option >3</option>
                 <option selected>5</option>
                 <option>10</option>
@@ -77,12 +80,17 @@
                Items
               </div>
               <div v-if="notEnoughPages">
-                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                <nav class="relative z-0 inline-flex" aria-label="Pagination">
                   <a
                     @click="changeToPreviousPage"
                     href="#" 
-                    class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                    <span>Previous</span>
+                    class="relative inline-flex items-center mr-2 px-2 py-2 rounded-full bg-white text-sm font-medium text-gray-500 shadow-md hover:bg-gray-50">
+                    <span>
+                    <!-- chevron-left -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </span>
                   </a>
                   <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
                   <a 
@@ -90,14 +98,19 @@
                     v-for="(number, index) in displayPages" 
                     :key="index" href="#" 
                     :class="number === activeItem ? 'current' : ''" 
-                    class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                    class="bg-white mx-2 shadow-md text-gray-500 hover:bg-gray-50 relative inline-flex items-center justify-center h-4 w-4 px-4 py-4 text-sm font-medium rounded-full">
                     {{ number }}
                   </a>
                   <a
                     @click="changeToNextPage"
                     href="#"
-                    class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                    <span>Next</span>
+                    class="relative inline-flex items-center ml-2 px-2 py-2 rounded-full bg-white text-sm font-medium text-gray-500 shadow-md hover:bg-gray-50">
+                    <span>
+                    <!-- chevron-right -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </a>
                 </nav>
               </div>
@@ -220,7 +233,7 @@ export default class Table extends Vue {
 </script>
 <style scoped>
 .current {
-  @apply z-10 bg-indigo-50 border-indigo-500 text-indigo-600;
+  @apply z-10 bg-blue-500 text-white;
 }
 
 @media (max-width: 1024px) {

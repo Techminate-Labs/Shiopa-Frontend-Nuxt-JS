@@ -1,8 +1,8 @@
 <template>
-  <div class="lg:h-screen w-full md:w-1/6 lg:w-2/12 xl:w-1/12 bg-white z-20 overflow-hidden">
-    <nav class="block container mx-auto justify-between" aria-label="Desktop navigation">
+  <div class="w-full h-full lg:h-screen md:w-1/6 lg:w-2/12 xl:w-1/12 bg-white overflow-hidden">
+    <nav class="block relative mx-auto justify-between z-20" aria-label="Desktop navigation">
       <ul class="flex flex-wrap justify-evenly lg:grid lg:grid-cols-1 md:divide-x-0 md:divide-y-2 divide-gray-200 text-center text-lg">
-        <li class="py-8 px-4">
+        <li class="py-8">
           <NuxtLink to="/dashboard">
             <div class="flex flex-col" aria-label="home icon">
               <!-- template -->
@@ -13,7 +13,7 @@
             </div>
           </NuxtLink>
         </li>
-        <li class="py-8 px-4">
+        <li class="py-8">
           <NuxtLink class="flex flex-col" to="/dashboard/products">
             <!-- cube -->
             <div class="flex flex-col" aria-label="products icon">
@@ -24,7 +24,7 @@
             </div>
           </NuxtLink>
         </li>
-        <li class="py-8 px-4">
+        <li class="py-8">
           <NuxtLink class="flex flex-col" to="/dashboard/categories">
             <div class="flex flex-col" aria-label="categories icon">
               <!-- view-grid -->
@@ -35,7 +35,7 @@
             </div>
           </NuxtLink>
         </li>
-        <li class="py-8 px-4">
+        <li class="py-8">
           <NuxtLink class="flex flex-col" to="/dashboard/configuration">
             <div class="flex flex-col" aria-label="parameters icon">
               <!-- adjustments -->
@@ -48,6 +48,7 @@
         </li>
       </ul>
     </nav>
+    <div class="hidden md:block md:fixed w-full h-full top-0 z-0 lg:h-screen md:w-1/6 lg:w-2/12 xl:w-1/12 bg-white"></div>
   </div>
 </template>
 <script lang="ts">
