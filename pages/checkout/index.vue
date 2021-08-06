@@ -1,20 +1,28 @@
 <template>
    <div>
-      <Checkout />
+      <CheckoutSingle :cart="cart" />
    </div>
 </template>
 
 <script lang="ts">
- import Checkout from '@/components/storefront/orders/Checkout.vue'
+ import CheckoutSingle from '@/components/storefront/orders/CheckoutSingle.vue'
+
  export default {
-  data(){
+  data() {
     return{
       title: '',
+      cart: {
+        items: []
+      }
     }
   },
   components:{
-    Checkout,
+    CheckoutSingle,
   },
+  mounted() {
+    this.cart = this.$store.state.cart
+    console.log(this.cart)
+  }
  }
 </script>
 

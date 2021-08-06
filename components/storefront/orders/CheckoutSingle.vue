@@ -8,7 +8,7 @@
               <div class="w-12 h-1 bg-black rounded mt-2 mb-4"></div>
                </div>
             </div>
-            <!---Another login---->
+            <!-- Another login -->
             <div class="flex shadow-md my-4 ml-10 bg-gray-200 mr-10 h-10 pt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-5 mb-2 mr-2" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z" clip-rule="evenodd" />
@@ -43,9 +43,9 @@
                    <span class="ml-5 py-10"><nuxt-link to="/">Lost your Password?</nuxt-link></span>
                 </div>
             </div>
-            <!----login part--->
+            <!-- login part -->
                 <div class="container mx-auto mt-10">
-                    <!---Another login---->
+                    <!-- Another login -->
                     <div class="flex shadow-md my-4 h-10 pt-2 ml-10 bg-gray-200 mr-10">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-5 mb-2 mr-2" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z" clip-rule="evenodd" />
@@ -70,10 +70,10 @@
                         </div>
                     </div>
                 </div>
-                <!----login part--->
-                <!---End Another login---->
+                <!-- login part -->
+                <!-- End Another login -->
                 <div class="flex my-0 bg-white">
-                <!---billing details--->
+                <!-- billing details -->
                     <div class="w-3/5 px-10 py-10">
                         <form action="#" method="POST">
                             <div class="overflow-hidden sm:rounded-md">
@@ -133,49 +133,10 @@
                             </div>
                         </form>
                     </div>
-                    <!---End billing details--->
-                    <!---checkout---->
-                    <div id="summary" class="w-2/6 px-10 py-10">
-                        <h1 class="font-thin text-4xl border-b pb-8">Your order</h1>
-                            <div class="flex justify-between mb-5">
-                                <div class="w-15">
-                                    <img class="h-20" src="http://demoapus-wp.com/maison/wp-content/uploads/2017/07/bookends-normal-600x600.jpg" alt="">
-                                </div>
-                                <div>
-                                    <h4>Bookends</h4>
-                                    <span class="font-semibold text-sm">400$</span>
-                                </div>
-                            </div>
-                            <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-                                    <span>Sub Total</span>
-                                    <span>$400</span>
-                                </div>
-                            <div>
-                              <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                                <select class="block p-2 text-gray-600 w-full text-sm">
-                                    <option>Free shipping</option>
-                                    <option>Standard shipping - $10.00</option>
-                                </select>
-                            </div>
-                            <div class="py-5 flex">
-                                <div>
-                                    <label for="cupon" class="font-semibold inline-block  mb-3 text-sm uppercase">Cupon</label>
-                                    <input type="text" id="Cupon" placeholder="Cupon code" class="p-2 text-sm w-full border border-gray-600">
-                                </div>
-                                <button class="bg-black hover:bg-gray-800 px-5 py-2 h-10 mt-8 ml-3 text-sm text-white uppercase">Apply</button>
-                            </div> 
-                            <div class="border-t mt-8">
-                                
-                                <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-                                    <span>Total cost</span>
-                                    <span>$400</span>
-                                </div>
-                               <button class="bg-black font-semibold hover:bg-gray-800 py-3 text-sm text-white uppercase w-full">Checkout</button>
-                            </div>
-                    </div>
-                <!---End checkout---->
+                    <!-- End billing details -->
+                    <Order :cart="cart" :cartTotal="cartTotal" />
                 </div>
-                <!---Create account--->
+                <!-- Create account -->
                   <div class="w-3/5 px-10 py-0">
                     <form action="#" method="POST">
                         <div class="overflow-hidden sm:rounded-md">
@@ -194,8 +155,8 @@
                         </div>
                     </form>
                     </div>
-                  <!---End create account---->
-                  <!---shipping address----->
+                  <!-- End create account -->
+                  <!-- shipping address -->
                    <div class="w-3/5 px-10 py-0 ml-3">
                         <form action="#" method="POST">
                             <div class="overflow-hidden sm:rounded-md">
@@ -252,30 +213,48 @@
                             </div>
                         </form>
                     </div>
-                <!---shipping address----->
-                <!---text area--->
+                <!-- shipping address -->
+                <!-- text area -->
                  <label class="block px-2 py-2  ml-10">
                     <span class="text-black ml-2">Order notes (optional)</span>
                     <textarea class="form-textarea mt-2 ml-2 block border-1 border border-gray-900  w-1/2" rows="4" placeholder="Notes about your order.special notes for Delivery."></textarea>
                 </label>
-                <!---end text area---->
+                <!-- end text area -->
         </div>
     </div>
 </template>
+<script lang="ts">
+import { Prop, Component, Vue } from 'nuxt-property-decorator'
+import Order from '@/components/storefront/orders/Order.vue'
 
-<script>
-export default {
-     data() {
-    return {
-      open: false,
-      close: false,
-      account:false,
-      ship:false,
+interface cartObject {
+  items: CartItem[]
+}
+
+interface CartItem {
+  product_id: number | null,
+  price: string | null,
+  name: string | null,
+  img: string | null,
+  quantity: number | null
+}
+
+@Component({
+  components: {
+    Order
+  }
+})
+export default class Slider extends Vue {
+
+  @Prop({ required: true }) readonly cart!: cartObject
+
+  get cartTotal(): number {
+    let total = 0
+    for (let i = 0; i < this.cart.items.length as boolean; i++) {
+        total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
     }
-  },
+    return total
+  }
+
 }
 </script>
-
-<style>
-
-</style>
