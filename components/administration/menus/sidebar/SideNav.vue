@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen w-full md:w-1/6 lg:w-2/12 xl:w-1/12 bg-white z-20 overflow-hidden">
-    <nav class="block container mx-auto justify-between" aria-label="Desktop navigation">
-      <ul class="grid grid-cols-1 divide-y-2 divide-gray-200 text-center text-lg text-gray-500">
+  <div class="w-full h-full lg:h-screen md:w-1/6 lg:w-2/12 xl:w-1/12 bg-white overflow-hidden">
+    <nav class="block relative mx-auto justify-between z-20" aria-label="Desktop navigation">
+      <ul class="flex flex-wrap justify-evenly lg:grid lg:grid-cols-1 md:divide-x-0 md:divide-y-2 divide-gray-200 text-center text-lg">
         <li class="py-8">
           <NuxtLink to="/dashboard">
             <div class="flex flex-col" aria-label="home icon">
@@ -48,6 +48,7 @@
         </li>
       </ul>
     </nav>
+    <div class="hidden md:block md:fixed w-full h-full top-0 z-0 lg:h-screen md:w-1/6 lg:w-2/12 xl:w-1/12 bg-white"></div>
   </div>
 </template>
 <script lang="ts">
@@ -61,4 +62,9 @@ export default class SideNav extends Vue {}
 .dashboard-icon {
   @apply text-gray-400 self-center h-12 w-12;
 }
+
+.nuxt-link-exact-active, .nuxt-link-exact-active svg {
+  @apply text-blue-600;
+}
+
 </style>
