@@ -21,6 +21,7 @@
       </transition>
     </div>
     <Nuxt />
+    
     <Footer :categories="categories" />
   </div>
 </template>

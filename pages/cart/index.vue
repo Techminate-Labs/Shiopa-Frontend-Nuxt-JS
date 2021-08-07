@@ -1,10 +1,10 @@
 <template>
-   <div>
+   <div class="mx-6 max-w-screen-xl md:mx-auto">
       <CartSingle :cart="cart" />
    </div>
 </template>
 
-<script>
+<script lang="ts">
 import CartSingle from '@/components/storefront/cart/CartSingle.vue'
 
 export default {
