@@ -9,11 +9,14 @@
 </template>
 
 <script lang="ts">
- import Slider from '@/components/storefront/products/Slider.vue'
- import Filters from '@/components/storefront/products/Filters.vue'
- import Products from '@/components/storefront/products/Products.vue'
- export default {
-   head: {
+import Vue from 'vue'
+
+import Slider from '@/components/storefront/products/Slider.vue'
+import Filters from '@/components/storefront/products/Filters.vue'
+import Products from '@/components/storefront/products/Products.vue'
+
+export default Vue.extend({
+  head: {
     titleTemplate: `Shop - %s`,
   },
   data(){
@@ -32,7 +35,7 @@
     
     return { sliders, products }
   }
- }
+})
 </script>
 
 <style>
