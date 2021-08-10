@@ -1,6 +1,6 @@
 <template>
-  <div class="z-40 relative">
-    <nav class="h-screen fixed w-10/12 left-0 md:right-0 translate-x-0 -translate-x-full bg-gray-100 z-40 p-10 overflow-hidden" aria-label="Mobile navigation">
+  <div class="relative z-40">
+    <nav class="h-screen fixed w-10/12 left-0 md:right-0 translate-x-0 -translate-x-full bg-gray-100 p-10 overflow-hidden" aria-label="Mobile navigation">
       <h2 class="block text-5xl font-extrabold">Menu</h2>
       <div class="flex flex-col mt-8 overflow-y-auto">
         <ul class="mb-4 ml-2">

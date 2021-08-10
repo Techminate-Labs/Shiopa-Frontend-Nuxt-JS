@@ -58,7 +58,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator'
 export default class SideNav extends Vue {}
 </script>
 
-<style>
+<style scoped>
 .dashboard-icon {
   @apply text-gray-400 self-center h-12 w-12;
 }

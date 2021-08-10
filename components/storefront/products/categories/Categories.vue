@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-screen-xl flex flex-col md:flex-row mx-auto xl:px-16 my-16">
+  <div class="flex flex-col md:flex-row mx-auto xl:px-16 my-16">
     <div class="col flex flex-col flex-grow md:w-1/2" v-for="(column, i) in columns" :key="i">
       <div v-for="(item, j) in column" :key="j" class="max-w-max mb-32 mx-6">
         <a :href="item.get_absolute_url" class="block relative">

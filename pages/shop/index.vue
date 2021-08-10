@@ -1,17 +1,22 @@
 <template>
    <div>
       <Slider :sliders="sliders" />
-      <Filters />
-      <Products :products="products" />
+      <div class="max-w-screen-xl mx-auto">
+        <Filters />
+        <Products :products="products" />
+      </div>
    </div>
 </template>
 
 <script lang="ts">
- import Slider from '@/components/storefront/products/Slider.vue'
- import Filters from '@/components/storefront/products/Filters.vue'
- import Products from '@/components/storefront/products/Products.vue'
- export default {
-   head: {
+import Vue from 'vue'
+
+import Slider from '@/components/storefront/products/Slider.vue'
+import Filters from '@/components/storefront/products/Filters.vue'
+import Products from '@/components/storefront/products/Products.vue'
+
+export default Vue.extend({
+  head: {
     titleTemplate: `Shop - %s`,
   },
   data(){
@@ -30,7 +35,7 @@
     
     return { sliders, products }
   }
- }
+})
 </script>
 
 <style>

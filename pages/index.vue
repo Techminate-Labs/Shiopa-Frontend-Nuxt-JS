@@ -1,7 +1,9 @@
 <template>
   <div>
     <Slider :sliders="sliders" />
-    <Categories />
+    <div class="max-w-screen-xl mx-auto">
+      <Categories />
+    </div>
   </div>
 </template>
 

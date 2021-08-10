@@ -1,6 +1,6 @@
 <template>
-  <div id="summary" class="w-1/4 px-8 py-10">
-    <h1 class="font-thin text-4xl border-b pb-8">Your order</h1>
+  <div id="summary" class="w-full md:w-1/2 lg:w-1/3 px-8 py-10 self-end">
+    <h1 class="font-thin text-4xl border-b pb-8 text-right">Your order</h1>
     <div class="flex justify-between mt-10 mb-5" v-for="(item, index) in cart.items" :key="index">
       <div class="w-15">
         <img class="h-20" :src="item.img" alt="">
@@ -17,8 +17,8 @@
     </div>
       <div class="py-5 flex">
         <div>
-            <label for="cupon" class="font-semibold inline-block  mb-3 text-sm uppercase">Coupon</label>
-            <input type="text" id="Cupon" placeholder="Cupon code" class="p-2 text-sm w-full border border-gray-600">
+            <label for="coupon" class="font-semibold inline-block  mb-3 text-sm uppercase">Coupon</label>
+            <input type="text" id="Coupon" placeholder="COUPON CODE" class="p-2 text-sm w-full border border-gray-600">
         </div>
         <button class="bg-black hover:bg-gray-800 px-5 py-2 h-10 mt-8 ml-3 text-sm text-white uppercase">Apply</button>
     </div> 
@@ -28,7 +28,7 @@
         <span>${{cartTotal}}</span>
       </div>
       <button class="bg-black font-semibold hover:bg-gray-800 py-3 text-sm text-white uppercase w-full">
-        <NuxtLink to="/checkout">Checkout</NuxtLink>
+        <NuxtLink :to="url">{{ checkoutButton }}</NuxtLink>
       </button>
     </div>
   </div>
@@ -54,7 +54,16 @@ interface CartItem {
 export default class Order extends Vue {
 
   @Prop({ required: true }) readonly cart!: cartObject
-  @Prop({ required: true }) cartTotal
+  @Prop({ required: true }) readonly checkoutButton!: string
+  @Prop({ required: true }) readonly url!: string
+
+  get cartTotal(): number {
+    let total = 0
+    for (let i = 0; i < this.cart.items.length as boolean; i++) {
+        total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
+    }
+    return total
+  }
 
 }
 </script>

@@ -1,13 +1,15 @@
 <template>
-   <div>
+   <div class="mx-6 max-w-screen-xl md:mx-auto">
       <CartSingle :cart="cart" />
    </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+
 import CartSingle from '@/components/storefront/cart/CartSingle.vue'
 
-export default {
+export default Vue.extend({
   data() {
     return{
       title: '',
@@ -23,7 +25,7 @@ export default {
     this.cart = this.$store.state.cart
     console.log(this.cart)
   }
-}
+})
 </script>
 
 <style>
