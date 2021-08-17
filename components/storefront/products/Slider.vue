@@ -14,8 +14,18 @@
         <label @click="handleSliderChange(index)" :class="slider.active ? 'text-blue-600' : ''" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
       </li>
     </ol>
-    <div @click="prevSlide()" :class="currentIndex === 0 ? '' : 'block'" class="slider-arrow absolute left-0 top-1/2 ml-4 text-4xl cursor-pointer flex items-center justify-center text-black hover:text-gray-800">&#x276E;</div>
-    <div @click="nextSlide()" :class="currentIndex === (sliders.length - 1) ? '' : 'block'" class="slider-arrow absolute right-0 top-1/2 mr-4 text-4xl cursor-pointer flex items-center justify-center text-black hover:text-gray-800">&#x276F;</div>
+    <div 
+      @click="prevSlide()" 
+      :class="currentIndex === 0 ? '' : 'block'" 
+      class="slider-arrow absolute left-0 top-1/2 transform -translate-y-1/2 ml-4 text-4xl cursor-pointer flex items-center justify-center text-black hover:text-gray-800">
+      &#x276E;
+    </div>
+    <div 
+      @click="nextSlide()" 
+      :class="currentIndex === (sliders.length - 1) ? '' : 'block'" 
+      class="slider-arrow absolute right-0 top-1/2 transform -translate-y-1/2 mr-4 text-4xl cursor-pointer flex items-center justify-center text-black hover:text-gray-800">
+      &#x276F;
+    </div>
   </div>
 </template>
 <script lang="ts">

@@ -1,6 +1,8 @@
 <template>
-   <div class="px-4">
-      <CartSingle :cart="cart" />
+   <div class="md:max-w-screen-xl md:mx-auto">
+      <div class="px-4">
+        <CartSingle :cart="cart" />
+      </div>
    </div>
 </template>
 

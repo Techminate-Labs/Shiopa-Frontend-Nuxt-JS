@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-100 flex px-4 relative z-20 shadow-md h-16">
-    <nav class="block container mx-auto flex flex-row flex-nowrap justify-between" aria-label="Desktop navigation">
+  <div class="bg-gray-100 flex relative z-20 shadow-md h-16 md:mx-auto">
+    <nav class="block container px-4 mx-auto flex flex-row flex-nowrap justify-between" aria-label="Desktop navigation">
       <NuxtLink to="/" class="mr-2 font-bold text-3xl order-2 md:order-first self-center">Shiopa</NuxtLink>
       <ul class="self-center flex flex-nowrap order-1 text-gray-800">
         <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/">Home</NuxtLink></li>

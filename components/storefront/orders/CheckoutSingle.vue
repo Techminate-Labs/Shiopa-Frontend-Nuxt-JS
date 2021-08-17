@@ -69,35 +69,15 @@
 				</section>
 			</div>
 		</div>
-		<div class="flex flex-col flex-nowrap md:grid grid-cols-12 my-0">
-			<div class="col-span-5">
+		<div class="grid grid-cols-12 my-0">
+			<div class="col-span-12 md:col-span-6">
 				<CheckoutFields />
+				<CreateAccount />
 			</div>
-			<!-- End billing details -->
-			<div class="col-start-9 col-end-13">
+			<div class="col-span-12 md:col-start-8 lg:col-start-9 md:col-end-13">
 				<Order :cart="cart" :checkoutButton="'Checkout'" :url="'#'" />
 			</div>
 		</div>
-		<!-- Create account -->
-		<div class="my-5 flex flex-col flex-nowrap md:grid grid-cols-12 my-0">
-			<form action="#" method="POST" class="col-span-5">
-				<div class="overflow-hidden sm:rounded-md">
-					<label @click="createAccount = !createAccount" class="inline-flex items-center">
-						<input type="checkbox" class="form-checkbox" :checked="!!createAccount">
-						<span @click="createAccount = !createAccount" class="ml-2 cursor-pointer text-gray-900">Create an Account?</span>
-					</label>
-					<div v-if="createAccount" class="grid grid-cols-6 gap-6 mt-4">
-						<div class="col-span-3">
-							<PasswordField name="password" title="Password" placeholder="Choose a password" :isRequired="true"/>
-						</div>
-						<div class="col-span-3">
-							<PasswordField name="password-repeat" title="Repeat Password" placeholder="Repeat the password" :isRequired="true"/>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-		<!-- End create account -->
 		<!-- shipping address -->
 		<div class="my-5 flex flex-col flex-nowrap md:grid grid-cols-12 my-0">
 			<form action="#" method="POST" class="col-span-5">
@@ -128,6 +108,7 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 import Order from '@/components/storefront/orders/Order.vue'
 import CheckoutFields from '@/components/storefront/orders/CheckoutFields.vue'
 import PasswordField from '@/components/storefront/fields/PasswordField'
+import CreateAccount from '@/components/storefront/accounts/CreateAccount'
 
 interface cartObject {
   items: CartItem[]
@@ -145,7 +126,8 @@ interface CartItem {
   components: {
     Order,
 		CheckoutFields,
-		PasswordField
+		PasswordField,
+		CreateAccount
   }
 })
 export default class CheckoutSingle extends Vue {
@@ -154,7 +136,6 @@ export default class CheckoutSingle extends Vue {
 
 	public showLoginForm: boolean = false
 	public showCouponForm: boolean = false
-	public createAccount: boolean = true
 	public isShippingDifferent: boolean = false
 
   get cartTotal(): number {
