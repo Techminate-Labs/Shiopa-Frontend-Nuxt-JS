@@ -1,5 +1,5 @@
 <template>
-  <div id="summary" class="w-full md:w-1/2 lg:w-1/3 px-8 py-10 self-end">
+  <div id="summary" class="w-full">
     <h1 class="font-thin text-4xl border-b pb-8 text-right">Your order</h1>
     <div class="flex justify-between mt-10 mb-5" v-for="(item, index) in cart.items" :key="index">
       <div class="w-15">
