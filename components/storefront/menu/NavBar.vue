@@ -10,7 +10,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="self-center h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
-            <div class="absolute -bottom-2 -right-2"><span class="block text-center text-white h-6 w-6 px-2 min-w-max bg-gray-800 font-mono rounded-full">{{cartTotalLength}}</span></div>
+            <div class="absolute -bottom-1 -right-1"><span class="block text-center text-white text-sm h-5 w-5 px-2 min-w-max bg-gray-800 font-mono rounded-full">{{cartTotalLength}}</span></div>
           </div>
         </li>
         <li class="ml-4 md:ml-8 self-center order-last">

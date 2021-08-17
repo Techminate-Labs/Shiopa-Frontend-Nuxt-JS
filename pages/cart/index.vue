@@ -1,5 +1,5 @@
 <template>
-   <div class="mx-6 max-w-screen-xl md:mx-auto">
+   <div class="px-4">
       <CartSingle :cart="cart" />
    </div>
 </template>

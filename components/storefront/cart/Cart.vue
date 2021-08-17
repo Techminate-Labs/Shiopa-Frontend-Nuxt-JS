@@ -22,12 +22,12 @@
       </button>
     </div>
     <div class="fixed bottom-6 flex flex-wrap mx-3">
-      <a @click="closeCart">
-        <NuxtLink to="/cart" class="px-6 py-2 bg-gray-900 text-white text-lg rounded mr-2 mt-2 uppercase" >Cart</NuxtLink>
-      </a>
-      <a @click="closeCart">
-        <NuxtLink @click="closeCart" to="/checkout" class="px-6 py-2 bg-gray-900 text-white text-lg rounded mt-2 uppercase" >Checkout</NuxtLink>
-      </a>
+      <button @click="closeCart">
+        <NuxtLink to="/cart" class="px-6 py-2 bg-gray-900 text-white text-lg rounded mr-2 mt-2 uppercase">Cart</NuxtLink>
+      </button>
+      <button @click="closeCart">
+        <NuxtLink @click="closeCart" to="/checkout" class="px-6 py-2 bg-gray-900 text-white text-lg rounded mt-2 uppercase">Checkout</NuxtLink>
+      </button>
     </div>
   </div>
 </template>
@@ -69,7 +69,6 @@ export default class Cart extends Vue {
 
   mounted() {
     this.cart = this.$store.state.cart
-    console.log(this.cart)
   }
 
   public deleteItem(item: CartItem): void {

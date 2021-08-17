@@ -1,49 +1,53 @@
 <template>
   <div class="container mx-auto mt-10">
     <div class="flex flex-wrap justify-between">
-      <div class="w-full md:w-1/2 bg-white">
+      <div class="w-full lg:w-1/2 bg-white">
         <div class="flex justify-between border-b pb-8">
           <h1 class="font-semibold text-2xl">Shopping Cart</h1>
           <h2 class="font-semibold text-2xl">Items</h2>
         </div>
 
-        <table class="min-w-full divide-y divide-gray-200 border-collapse">
-          <thead class="bg-gray-50">
+        <table class="min-w-full border-collapse bg-white">
+          <thead class="bg-gray-100 border-b border-gray-300">
             <tr>
               <th 
                 @click="sort(column.attribute)" 
                 v-for="(column, index) in columns" 
                 :key="index" 
                 scope="col" 
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 {{ column }}
               </th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr v-for="(item, index) in cart.items" :key="index" class="bg-white flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-              <td class="hidden md:block pr-2 min-w-max">
-                <img class="object-cover w-20 h-20" :src="item.img" alt="">
-              </td>
-              <td class="flex flex-col justify-between">
-                <span class="text-grey-800 text-xs">{{item.name}}</span>
-                <a @click="deleteItem(item)" href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs mt-4">Remove</a>
-              </td>
-              <td>
-                <div @click="decQTY(item)" class="p-2 bg-gray-100 hover:bg-gray-200 rounded-full cursor-pointer">
-                  <svg class="fill-current text-gray-600 h-3 w-3" viewBox="0 0 448 512">
-                    <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-                  </svg>
-                </div>
-                <input class="mx-2 border text-center w-8" type="number" :value="item.quantity" min="0">
-                <div @click="incQTY(item)" class="p-2 bg-gray-100 hover:bg-gray-200 rounded-full cursor-pointer">
-                  <svg class="fill-current text-gray-600 h-3 w-3" viewBox="0 0 448 512">
-                    <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-                  </svg>
+          <tbody class="px-4">
+            <tr v-for="(item, index) in cart.items" :key="index" class="border-b border-gray-300 bg-gray-50">
+              <td class="p-4" data-label="Details">
+                <div class="flex flex-row flex-nowrap justify-end sm:justify-start md:block">
+                  <img class="object-cover w-20 h-20 order-last sm:order-first ml-2 sm:mr-2 sm:ml-0 md:m-0" :src="item.img" alt="">
+                  <div class="flex flex-col justify-between">
+                    <span class="text-grey-800 text-xs">{{item.name}}</span>
+                    <a @click="deleteItem(item)" href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs mt-4">Remove</a>
+                  </div>
                 </div>
               </td>
-              <td class="text-center w-1/4 font-semibold text-sm text-right">${{item.price}}</td>
-              <td class="text-center w-1/4 font-semibold text-sm text-right">${{Number(item.price * item.quantity)}}</td>
+              <td data-label="Quantity" class="p-4">
+                <div class="flex flex-row flex-nowrap justify-end">
+                  <div @click="decQTY(item)" class="p-2 bg-gray-100 hover:bg-gray-200 rounded-full cursor-pointer self-center">
+                    <svg class="fill-current text-gray-600 h-3 w-3" viewBox="0 0 448 512">
+                      <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                    </svg>
+                  </div>
+                  <input class="mx-2 border text-center w-8" type="number" :value="item.quantity" min="0">
+                  <div @click="incQTY(item)" class="p-2 bg-gray-100 hover:bg-gray-200 rounded-full cursor-pointer self-center">
+                    <svg class="fill-current text-gray-600 h-3 w-3" viewBox="0 0 448 512">
+                      <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                    </svg>
+                  </div>
+                </div>
+              </td>
+              <td data-label="Price" class="p-4 text-center md:w-1/4 font-semibold text-sm text-right">${{item.price}}</td>
+              <td data-label="Total" class="p-4 text-center md:w-1/4 font-semibold text-sm text-right">${{Number(item.price * item.quantity)}}</td>
             </tr>
           </tbody>
         </table>
@@ -164,6 +168,55 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+@media (max-width: 640px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+    
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
 }
 
 </style>
