@@ -1,13 +1,11 @@
 <template>
   <div>
-    <div>
-      <transition name="left">
-        <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
-      </transition>
-      <transition name="opacity">
-        <div v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" class="bg-gray-900 w-full h-screen opacity-90 fixed z-30"></div>
-      </transition>
-    </div>
+    <transition name="left">
+      <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
+    </transition>
+    <transition name="opacity">
+      <div v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" @click="showMobileMenu = false" class="cursor-pointer bg-gray-900 w-full h-screen opacity-90 fixed z-30"></div>
+    </transition>
     <NavBar
       @showMobileMenu="showMobileMenu = true"
       @showCart="showCart = !showCart"
@@ -17,7 +15,7 @@
         <Cart v-show="showCart" @closeCart="showCart = false" />
       </transition>
       <transition name="opacity">
-        <div v-show="showCart" @closeCart="showCart = false" class="bg-gray-900 top-0 w-full h-screen opacity-90 fixed z-30"></div>
+        <div v-show="showCart" @closeCart="showCart = false" @click="showCart = false" class="cursor-pointer bg-gray-900 top-0 w-full h-screen opacity-90 fixed z-30"></div>
       </transition>
     </div>
     <Nuxt />

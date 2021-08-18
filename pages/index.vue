@@ -1,7 +1,7 @@
 <template>
   <div>
     <Slider :sliders="sliders" />
-    <div class="max-w-screen-xl mx-auto">
+    <div class="max-w-screen-xl mx-auto mt-8 mb-20">
       <Categories />
     </div>
   </div>

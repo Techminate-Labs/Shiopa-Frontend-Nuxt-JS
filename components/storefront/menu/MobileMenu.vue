@@ -18,9 +18,11 @@
           </li>
         </ul>
         <div class="absolute top-0 right-0 pt-6 pr-6">
-          <button @click="closeMobileMenu" class="ml-1 flex items-center border-2 border-gray-200 justify-center h-10 w-10 rounded-full hover:text-red-700 hover:border-red-700">
-            X
-          </button>
+          <div @click="closeMobileMenu" class="flex flex-row flex-nowrap justify-end hover:text-red-700 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
         </div>
       </div>
     </nav>
