@@ -1,0 +1,43 @@
+.card{
+  @apply px-6 py-4 rounded-xl bg-white shadow-md hover:shadow-lg;
+}
+
+.title-h1 {
+  @apply text-4xl text-gray-900 font-medium;
+}
+
+.title-h2 {
+  @apply text-2xl text-gray-900 font-medium;
+}
+
+.title-h3 {
+  @apply text-lg text-gray-900 font-medium;
+}
+
+.btnprimary {
+  @apply flex lg:w-2/3 w-full sm:flex-row flex-col px-2 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-center;
+}
+
+.btnclass {
+  @apply py-2 px-8 rounded-lg text-lg;
+}
+
+.current {
+  @apply text-blue-500 shadow-sm;
+}
+
+.btn-hover {
+  @apply hover:bg-btnprimary;
+}
+
+.selected-button {
+  @apply bg-btnprimary;
+}
+
+.cardbox {
+   @apply max-w-md mx-auto md:max-w-2xl lg:max-w-5xl xl:max-w-5xl bg-white max-h-screen flex-row rounded-3xl relative;
+}
+
+.transition-500 {
+  @apply transition ease-in-out duration-500;
+}
