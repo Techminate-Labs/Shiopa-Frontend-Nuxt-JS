@@ -19,7 +19,8 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
-import PasswordField from '@/components/storefront/fields/PasswordField'
+import PasswordField from '@/components/storefront/fields/PasswordField.vue'
+
 
 @Component({
   components: {
