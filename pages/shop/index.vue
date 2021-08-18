@@ -1,8 +1,8 @@
 <template>
    <div>
       <Slider :sliders="sliders" />
-      <div class="max-w-screen-xl mx-auto">
-        <Filters />
+      <Filters />
+      <div class="max-w-screen-xl mx-auto mt-16 mb-20">
         <Products :products="products" />
       </div>
    </div>

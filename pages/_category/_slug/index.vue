@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-16 mb-20">
     <ProductInfo :product="product" />
     <div class="text-center">
       <h2

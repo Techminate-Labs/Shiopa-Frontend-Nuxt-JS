@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-16 mb-20">
     <Filters :products="products" />
     <Products :products="products"/>
   </div>

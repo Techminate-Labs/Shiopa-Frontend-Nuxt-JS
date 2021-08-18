@@ -1,11 +1,11 @@
 <template>
-  <div class="max-w-screen-xl mx-auto py-4">
+  <div class="max-w-screen-xl mx-auto">
     <!-- Breadcrumbs -->
-    <section class="text-gray-600 body-font">
+    <section class="px-4 text-gray-600 body-font">
       <!-- category flex -->
-      <div class="px-5 py-10 mx-auto flex items-center md:flex-row flex-col">
+      <div class="py-10 mx-auto flex items-center md:flex-row flex-col">
         <div class="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
-          <div class="px-4 mx-auto">
+          <div class=" mx-auto">
             <ul>
               <li href="/" class="text-xl inline font-medium text-yellow-600 cursor-pointer hover:underline">All</li>
               <li v-for="(category, index) in categories" :key="index" class="inline text-gray-900 px-2 text-xl font-medium cursor-pointer hover:text-yellow-600">{{category.name}}<span class="px-1"><sup>{{category.products.length}}</sup></span></li>
