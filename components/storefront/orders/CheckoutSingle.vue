@@ -1,5 +1,5 @@
 <template>
-	<div class="container mx-auto mt-5">
+	<div class=" mt-5">
 		<div class="w-full">
 			<h2 class="text-xl font-thin italic text-gray-600 text-center mt-10">
 				<NuxtLink to="/">
@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		<!-- Another login -->
-		<div class="flex shadow-md my-4 ml-10 bg-gray-200 px-4 h-10">
+		<div class="flex shadow-md my-4 border-t-4 border-gray-900 ml-10 bg-gray-200 px-4 h-10">
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 self-center mr-2" viewBox="0 0 20 20" fill="currentColor">
 				<path fill-rule="evenodd" d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z" clip-rule="evenodd" />
 			</svg>
