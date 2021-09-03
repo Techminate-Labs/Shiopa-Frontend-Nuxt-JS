@@ -47,8 +47,8 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
-import TextField from '@/components/storefront/fields/TextField'
-import SelectField from '@/components/storefront/fields/SelectField'
+import TextField from '@/components/storefront/fields/TextField.vue'
+import SelectField from '@/components/storefront/fields/SelectField.vue'
 
 @Component({
   components: {
@@ -58,8 +58,8 @@ import SelectField from '@/components/storefront/fields/SelectField'
 })
 export default class CheckoutFields extends Vue {
 
-  public countryList: [] = ['United States', 'Canada', 'Mexico', 'Uruguay', 'Bangladesh', 'India', 'France']
-  public stateList: [] = ['Alaska', 'Alabama', 'California']
+  public countryList: string[] = ['United States', 'Canada', 'Mexico', 'Uruguay', 'Bangladesh', 'India', 'France']
+  public stateList: string[] = ['Alaska', 'Alabama', 'California']
 
 }
 </script>
