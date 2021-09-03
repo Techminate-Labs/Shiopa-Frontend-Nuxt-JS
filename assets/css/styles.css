@@ -27,15 +27,15 @@
 }
 
 .btn-hover {
-  @apply hover:bg-btnprimary;
+  @apply hover:bg-primary;
 }
 
 .selected-button {
-  @apply bg-btnprimary;
+  @apply bg-primary;
 }
 
 .cardbox {
-   @apply max-w-md mx-auto md:max-w-2xl lg:max-w-5xl xl:max-w-5xl bg-white max-h-screen flex-row rounded-3xl relative;
+  @apply max-w-md mx-auto md:max-w-2xl lg:max-w-5xl xl:max-w-5xl bg-white max-h-screen flex-row rounded-3xl relative;
 }
 
 .transition-500 {

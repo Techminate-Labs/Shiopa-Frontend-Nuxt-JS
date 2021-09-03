@@ -40,6 +40,7 @@ export default class CartSingle extends Vue {
 
   public columns: string[] = ['details', 'quantity', 'price', 'total']
 
+  public localData = {}
   // get cartTotal(): number {
   //   let total = 0
   //   for (let i = 0; i < this.cart.items.length as boolean; i++) {
@@ -48,13 +49,13 @@ export default class CartSingle extends Vue {
   //   return total
   // }
 
-  sort(s: string): void {
-    //if s == current sort, reverse
-    if(s === this.currentSort) {
-      this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
-    }
-    this.currentSort = s;
-  }
+  // sort(s: string): void {
+  //   //if s == current sort, reverse
+  //   if(s === this.currentSort) {
+  //     this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+  //   }
+  //   this.currentSort = s;
+  // }
 
   public deleteItem(item: CartItem): void {
     this.localData = {
