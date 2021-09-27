@@ -9,9 +9,9 @@
             <form class="my-3 flex flex-wrap">
               <div class="flex flex-col">
                 <label for="email">Enter your email</label>
-                <input type="email" name="email" class="text-input" placeholder="example@mail.com">
+                <input type="email" name="email" class="text-input border border-black" placeholder="example@mail.com">
               </div>
-              <button class="px-6 border-2 border-gray-300 rounded h-12 self-end bg-white hover:bg-gray-900 hover:text-white">Subscribe</button>
+              <button class="px-6 border-2 text-white border-gray-800 rounded h-12 self-end bg-black hover:bg-gray-800 hover:text-white">Subscribe</button>
             </form>
           </div>
         </div>
@@ -19,8 +19,8 @@
           <div class="w-full sm:w-auto">
             <h5 class="mt-4 text-2xl">Menu</h5>
             <ul>
-              <li><nuxt-link to="/">Home</nuxt-link></Nuxt></li>
-              <li><nuxt-link to="/shop">Shop</nuxt-link></Nuxt></li>
+              <li><nuxt-link to="/">Home</nuxt-link></li>
+              <li><nuxt-link to="/shop">Shop</nuxt-link></li>
             </ul>
           </div>
           <div class="w-full sm:w-auto">
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="mt-4 text-gray-500 w-full">
-      <p>© 2017 Maison. All rights reserved</p>
+      <p>© 2021 Techminate. All rights reserved</p>
     </div>
   </div>
 </div>

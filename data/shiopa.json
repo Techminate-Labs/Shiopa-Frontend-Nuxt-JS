@@ -83,20 +83,8 @@
             "stock": 4,
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
             "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
-        },
-        {
-            "id": 5,
-            "category_id": 5,
-            "section": "latest",
-            "name": "Dell Gaming",
-            "slug": "dell-gaming",
-            "image": "default_product.jpg",
-            "price": 1700,
-            "stock": 3,
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
-            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
         }
-
+       
     ],
     "slider": [{
             "id": 1,

@@ -30,7 +30,7 @@ export default Vue.extend({
   },
   async fetch() {
     this.categories = await fetch(
-      'https://shopia-backend.herokuapp.com/api/v1/all-categories'
+      'http://localhost:8000/category'
     ).then(res => res.json()).catch(err => console.log(err))
   },
   computed: {

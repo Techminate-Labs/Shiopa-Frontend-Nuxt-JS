@@ -25,15 +25,15 @@
 				<div class="grid grid-cols-8 gap-6">
 					<div class="col-span-4 sm:col-span-3">
 						<label for="first-name" class="block text-lg font-medium text-gray-800">Users name or Email<span class="">*</span></label>
-						<input type="text" name="first-name" id="first-name" placeholder="User name" autocomplete="given-name" class="w-full bg -gray-600 border-2 border-gray-200 p-2 rounded outline-none focus:border-gray-900">
+						<input type="text" name="first-name" id="first-name" placeholder="User name" autocomplete="given-name" class="p-2 text-sm w-full border border-gray-600">
 					</div>
 					<div class="col-span-4 sm:col-span-3">
 						<label for="password" class="block text-lg font-medium text-gray-800">Password</label>
-						<input type="text" name="password" id="password" autocomplete="password" placeholder="password" class="w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-gray-900">
+						<input type="text" name="password" id="password" autocomplete="password" placeholder="password" class="p-2 text-sm w-full border border-gray-600">
 					</div>
 				</div>
 				<div class="mx-auto mt-4">
-					<button class="py-2 px-4 bg-white hover:bg-black border hover:text-white border-gray-900 font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-75">
+					<button class="bg-black hover:bg-gray-800 px-5 py-2 h-10 mt-8 ml-3 text-sm text-white uppercase">
 						Log In
 					</button>
 					<label class="inline-flex items-center">
@@ -42,7 +42,7 @@
 					</label>
 				</div>
 				<div class="mx-auto mt-5">
-					<span class="py-10"><nuxt-link to="/">Lost your Password?</nuxt-link></span>
+					<span class="py-10 ml-2"><nuxt-link to="/">Lost your Password?</nuxt-link></span>
 				</div>
 			</div>
 		</div>
@@ -61,9 +61,9 @@
 					<div class="container px-0 py-5 mx-auto">
 						<div class="grid grid-cols-8 gap-6 ml-5">
 							<div class="col-span-4 sm:col-span-3">
-								<input type="text" name="coupon code" id="coupon code" autocomplete="given-name" placeholder="Coupon code" class="w-full bg -gray-600 border-2 border-gray-200 p-2 rounded outline-none focus:border-gray-900">
+								<input type="text" name="coupon code" id="coupon code" autocomplete="given-name" placeholder="Coupon code" class="p-2 text-sm w-full border border-gray-600">
 							</div>
-							<button class="bg-white hover:bg-black border border-gray-700 w-25 h-10 text-sm text-gray-800 hover:text-white  uppercase">Apply coupon</button>
+							<button class="bg-black hover:bg-gray-800 border border-gray-700 w-25 h-10 text-sm text-white hover:text-white  uppercase">Apply coupon</button>
 						</div>
 					</div>
 				</section>
