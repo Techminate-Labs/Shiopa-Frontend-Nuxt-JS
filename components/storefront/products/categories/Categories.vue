@@ -1,31 +1,34 @@
 <template>
-  <div class="flex flex-col md:flex-row mx-auto xl:px-16 my-16">
-    <div class="col flex flex-col flex-grow md:w-1/2" v-for="(column, i) in columns" :key="i">
-      <div v-for="(item, j) in column" :key="j" class="max-w-max mb-32 mx-6">
-        <a :href="item.get_absolute_url" class="block relative">
-          <div :class="(i === 1) ? 'justify-end' : 'justify-start'" class="relative flex ">
+  <div class="flex flex-col md:flex-row mx-auto xl:px-16 my-24">
+    <div class="col flex flex-col flex-grow p-4 lg:w-1/3" v-for="(column, i) in columns" :key="i">
+      <div v-for="(item, j) in column" :key="j" class="max-w-max mb-5 mx-4">
+          <div  class="relative mx-auto col flex flex-col flex-grow">
+            <div class="z-10 pt-6 absoulate">
             <img
-              :src="item.image_url"
+              :src="'/placeholders/' +  item.image_url"
               :alt="item.image_alt"
-              class="z-10 relative w-3/4 lg:w-4/6 xl:w-1/2"
+              class="float-right  w-5/6 "
             />
-            <div :class="(i === 1) ? 'right-3' : 'left-3'" class="z-0 -bottom-12 block absolute lg:w-4/6 w-full bg-gray-100 h-5/6"></div>
-            <h3 :class="(i === 1) ? 'left-24' : 'right-24 text-right'" class="z-10 absolute -bottom-10 font-bold left-24 text-4xl hover:underline">{{item.name}}</h3>
+            </div>
+            <div  class="z-0 -bottom-6 block absolute lg:w-30 w-full bg-gray-100 h-40"></div>
+            <div class="absolute z-10 float-left ml-2 -bottom-3 ">
+              <p  class="font-medium left-24 text-base hover:underline">{{item.slug}}</p>
+              <h3  class="font-semibold  text-2xl hover:underline">{{item.name}}</h3>
+              <span class="font-medium  text-sm hover:underline">shop Now</span>
+            </div>
           </div>
-        </a>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-
 export default Vue.extend({
   name: 'Categories',
   data() {
     return {
       categories: [],
-      cols: 2
+      cols: 3
     }
   },
   async fetch() {
