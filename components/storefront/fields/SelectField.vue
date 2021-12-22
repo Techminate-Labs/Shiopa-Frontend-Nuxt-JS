@@ -4,7 +4,7 @@
     <select
       :id="name" 
       :name="name"
-      class="w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-gray-800"
+      class="p-2 text-sm w-full border border-gray-600"
       :required="!!isRequired">
       <option value="">--Please choose an option--</option>
       <option v-for="(option, index) in list" :key="index" :value="option">

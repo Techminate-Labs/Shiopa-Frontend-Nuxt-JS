@@ -4,7 +4,6 @@
     <Products :products="products"/>
   </div>
 </template>
-
 <script lang="ts">
 import Vue from 'vue'
 
@@ -18,7 +17,7 @@ export default Vue.extend({
   },
   async asyncData({ params, $http }: any) {
     const category_slug = params.category
-    const category = await $http.$get(`https://shopia-backend.herokuapp.com/api/v1/products/` + category_slug)
+    const category = await $http.$get(`http://localhost:8000/category` + category_slug)
     const products = category.products
     return { products }
   }

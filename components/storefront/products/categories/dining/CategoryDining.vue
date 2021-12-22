@@ -25,8 +25,6 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
     description: string | null,
     image: string | null,
     img: string | null
-    
-
   }
 
   interface diningCategory {

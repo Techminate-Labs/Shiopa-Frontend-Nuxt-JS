@@ -3,7 +3,7 @@
 }
 
 .title-h1 {
-  @apply text-4xl text-gray-900 font-medium;
+  @apply text-4xl font-extrabold mb-2 text-gray-600 tracking-wider;
 }
 
 .title-h2 {
@@ -12,6 +12,10 @@
 
 .title-h3 {
   @apply text-lg text-gray-900 font-medium;
+}
+
+.title-h6 {
+  @apply text-base text-yellow-600;
 }
 
 .btnprimary {
@@ -35,9 +39,33 @@
 }
 
 .cardbox {
-  @apply max-w-md mx-auto md:max-w-2xl lg:max-w-5xl xl:max-w-5xl bg-white max-h-screen flex-row rounded-3xl relative;
+  @apply flex flex-col md:flex-row mx-auto xl:px-5 flex-grow py-10 px-10;
 }
 
 .transition-500 {
   @apply transition ease-in-out duration-500;
+}
+
+.title-box {
+  @apply ml-10 z-10 mt-10 pt-10 w-80 float-left ml-2;
+}
+
+.home-h1 {
+  @apply mb-2 text-xl font-bold text-gray-900;
+}
+.card-h1 {
+  @apply text-gray-900 text-3xl font-medium mb-1;
+}
+.span-title {
+  @apply font-medium text-2xl text-yellow-600;
+}
+.button-style {
+  @apply rounded-sm w-6 h-6 focus:outline-none;
+}
+.svg-class {
+  @apply p-2 bg-gray-100 hover:bg-gray-200 rounded-full cursor-pointer self-center;
+}
+
+.svg-btn {
+  @apply bg-white border border-gray-100 hover:bg-yellow-600 hover:text-white text-gray-800;
 }

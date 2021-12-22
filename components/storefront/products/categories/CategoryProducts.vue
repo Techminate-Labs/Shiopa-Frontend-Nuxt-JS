@@ -22,7 +22,7 @@
             </button>        
           </div>
       </div>
-      <div class=" flex flex-wrap -m-4">
+      <div class="flex flex-wrap -m-4">
         <div v-for="(categoryProduct, index) in categoryProducts" :key="index" class="relative group xl:w-1/5 md:w-1/2 m-7 w-100">
           <div class="relative">
             <img alt="ecommerce" class="h-full rounded w-full object-cover object-center transform transition duration-100 hover:scale-800" :src="'/placeholders/' + categoryProduct.image">

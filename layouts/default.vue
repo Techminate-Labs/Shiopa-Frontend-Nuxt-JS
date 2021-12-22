@@ -57,7 +57,8 @@ export default Vue.extend({
       showMobileMenu: false,
       showCart: false,
       categories: [],
-      cart: []
+      cart: [],
+      open: false,
     }
   },
   async fetch() {
