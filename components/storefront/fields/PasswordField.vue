@@ -6,7 +6,7 @@
       :id="name" 
       :name="name"
       :placeholder="placeholder" 
-      class="w-full border-2 border-gray-200 p-2 rounded outline-none focus:border-gray-800"
+      class="p-2 text-sm w-full border border-gray-600"
       :required="!!isRequired"
     />
   </div>

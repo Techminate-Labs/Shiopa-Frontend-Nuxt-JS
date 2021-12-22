@@ -20,3 +20,10 @@ export default class ShippingSelect extends Vue {
 
 }
 </script>
+<style scoped>
+select option {
+    background-color: green;
+    font-weight: bold;
+    color: red;
+}
+</style>

@@ -156,7 +156,7 @@ export default {
   },
     async fetch() {
     this.categories = await fetch(
-      // 'http://localhost:8000/category'
+       //'http://localhost:8000/category'
       'https://shopia-backend.herokuapp.com/api/v1/all-categories'
     ).then(res => res.json()).catch(err => console.log(err))
   }
