@@ -5,7 +5,7 @@
       <Categories :categories="categories" />
     </div>
     <div class="max-w-screen-xl mx-auto mt-1. mb-20">
-      <CategoryProducts :categoryProducts="categoryProducts" />
+      <CategoryProducts :categoryProducts="categoryProducts"/>
     </div>
     <div class="max-w-screen-xl">
       <SingleCategories :homeCategories="homeCategories" />
@@ -21,12 +21,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Slider from '@/components/storefront/products/Slider.vue'
 import Categories from '@/components/storefront/products/categories/Categories.vue'
 import CategoryProducts from '@/components/storefront/products/categories/CategoryProducts.vue'
-import Slider from '@/components/storefront/products/Slider.vue'
 import SingleCategories from '@/components/storefront/products/categories/SingleCategories.vue'
 import CategoryDining from '@/components/storefront/products/categories/dining/CategoryDining.vue'
 import Hotproducts from '@/components/storefront/products/categories/dining/Hotproducts.vue'
+
 export default Vue.extend({
   components: {
     Categories,

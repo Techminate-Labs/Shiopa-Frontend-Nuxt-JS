@@ -1,21 +1,21 @@
 <template>
-  <div class="bg-gray-100 shadow-md">
-    <div class="px-4 relative z-20 md:max-w-screen-xl md:mx-auto">
-      <nav class="container mx-auto h-16 flex flex-wrap p-5 flex-col md:flex-row items-center" aria-label="Desktop navigation">
-        <ul class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto text-gray-800">
-          <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/">Home</NuxtLink></li>
-          <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Shop</NuxtLink></li>
-          <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Journal</NuxtLink></li>
-        </ul>
-        <NuxtLink to="/" class="flex lg:order-none lg:w-1/5 text-xl uppercase font-bold items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">Shiopa</NuxtLink>
-        <ul class="relative flex md:ml-auto md:mr-0 mx-auto items-center flex-shrink-0 space-x-4">
-          <li class="text-gray-900 text-xl font-medium hover:text-yellow-600 cursor-pointer inline-block" @click="open = !open"><NuxtLink to="/">Elements</NuxtLink>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer hover:text-yellow-600" viewBox="0 0 20 20" fill="currentColor" @click="open = !open">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-          </li>
-          <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Pages</NuxtLink></li>
-          <li class="ml-4 md:ml-8 self-center">
+  <div class="relative bg-gray-100 shadow-md">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <ul class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+       <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/">Home</NuxtLink></li>
+       <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Shop</NuxtLink></li>
+       <li class="ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Journal</NuxtLink></li>
+    </ul>
+    <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+      <NuxtLink to="/" class="mr-2 font-bold text-3xl order-2 md:order-first self-center">Shiopa</NuxtLink>
+    </a>
+    <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+      <ul class="self-center flex flex-nowrap order-1 text-gray-800">
+        <li class="relative z-10 inline-block ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block" @click="dropdownOpen = !dropdownOpen"><NuxtLink to="/">Elements</NuxtLink>
+        
+        </li>
+          <li class="relative z-10 inline-block ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Pages</NuxtLink></li>
+          <li class="ml-4 md:ml-8 self-center order-last">
             <div @click="showCart" class="relative cursor-pointer" aria-label="Cart icon">
               <svg xmlns="http://www.w3.org/2000/svg" class="self-center h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -38,7 +38,6 @@
             </button>
           </li>
         </ul>
-      </nav>
     </div>
     <!-- filter -->
     <div class="px-16 py-4 ">
@@ -106,9 +105,88 @@
       </div>
     </div>
   </div>
+  <!---dropDown--->
+        <div v-show="dropdownOpen" @click="dropdownOpen = false" class="absolute mt-20 fixed inset-0 h-full z-40 w-5/6 mx-auto font-serif shadow-md" >
+          <div class="bg-gray-100 border-gray-400 px-2 mx-auto justify-center">
+            <div class="flex flex-wrap md:text-left text-center ">
+              <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption One</h2>
+                <ul class="list-none mb-10">
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Two</h2>
+                <nav class="list-none mb-10">
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  </li>
+                </nav>
+              </div>
+              <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Three</h2>
+                <nav class="list-none mb-10">
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  </li>
+                </nav>
+              </div>
+              <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Four</h2>
+                <nav class="list-none mb-10">
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  </li>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---End dropDown--->
+  </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator'
+
 
 interface Cart {
   items: CartItem[]
@@ -124,12 +202,19 @@ interface CartItem {
 
 @Component
 export default class NavBar extends Vue {
-
-
+    data() {
+    return {
+      open: false,
+      dropdownOpen: false,
+      categories: []
+    }
+  }
+ 
   public cart: Cart = {
     items: []
   }
-
+  @Emit('openCard')
+  OpenCard(): void {}
   @Emit('showMobileMenu')
   showMobileMenu(): void {}
 

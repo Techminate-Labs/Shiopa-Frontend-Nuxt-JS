@@ -25,16 +25,10 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
     description: string | null,
     image: string | null,
     img: string | null
-    
-
   }
 
   interface diningCategory {
-    additional_info: string,
-    available_to_purchase: boolean,
     description: string,  
-    discount_price: string,
-    get_absolute_url: string,
     get_thumbnail: string,
     id: number,
     images: [],

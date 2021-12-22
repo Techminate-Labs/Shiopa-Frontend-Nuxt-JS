@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col md:flex-row mx-auto xl:px-16 my-24">
-    <div class="col flex flex-col flex-grow p-4 lg:w-1/3" v-for="(column, i) in columns" :key="i">
-      <div v-for="(item, j) in column" :key="j" class="max-w-max mb-5 mx-4">
+  <div class="relative flex flex-col md:flex-row mx-auto xl:px-12 my-10">
+    <div class="col flex flex-col flex-grow p-4 lg:w-3/6" v-for="(column, i) in columns" :key="i">
+      <div v-for="(item, j) in column" :key="j" class="max-w-max mx-1">
           <div  class="relative mx-auto col flex flex-col flex-grow">
             <div class="z-10 pt-6 absoulate">
             <img
@@ -14,7 +14,7 @@
             <div class="absolute z-10 float-left ml-2 -bottom-3 ">
               <p  class="font-medium left-24 text-base hover:underline">{{item.slug}}</p>
               <h3  class="font-semibold  text-2xl hover:underline">{{item.name}}</h3>
-              <span class="font-medium  text-sm hover:underline">shop Now</span>
+              <span class="font-medium  text-sm hover:underline cursor-pointer">shop Now</span>
             </div>
           </div>
       </div>
