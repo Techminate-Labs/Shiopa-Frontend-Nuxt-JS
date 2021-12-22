@@ -6,6 +6,8 @@ module.exports = {
       colors:{
         primary: "#042235",
         secondary: "#042235",
+        footerclr: "#042235",
+        footerclr2: "#071F2E",
       },
       fontFamily: {
         serif: ['Quando'],

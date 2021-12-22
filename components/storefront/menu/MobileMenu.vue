@@ -11,7 +11,6 @@
             <NuxtLink to="/shop">Shop</NuxtLink>
           </li>
         </ul>
-        <h3 class="block text-2xl">Categories</h3>
         <ul class="mb-4 ml-2">
           <li class="menu-link" @click="closeMobileMenu" v-for="(category, index) in categories" :key="index">
             <NuxtLink :to="category.get_absolute_url">{{category.name}}</NuxtLink>

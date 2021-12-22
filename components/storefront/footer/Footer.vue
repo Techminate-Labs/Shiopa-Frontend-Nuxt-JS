@@ -1,58 +1,78 @@
 <template>
-<div class="bg-gray-100">
-  <div class="md:max-w-screen-xl px-4 md:mx-auto py-6 text-lg">
-    <div class="flex flex-col md:flex-row justify-between">
-      <div class="container mx-auto grid grid-cols-12 gap-4">
-        <div class="flex flex-col col-span-12 md:col-span-6 lg:col-span-5">
-          <div>
-            <h4 class="italic">Subscribe to our newsletter</h4>
-            <form class="my-3 flex flex-wrap">
-              <div class="flex flex-col">
-                <label for="email">Enter your email</label>
-                <input type="email" name="email" class="text-input" placeholder="example@mail.com">
-              </div>
-              <button class="px-6 border-2 border-gray-300 rounded h-12 self-end bg-white hover:bg-gray-900 hover:text-white">Subscribe</button>
-            </form>
-          </div>
-        </div>
-        <div class="flex flex-wrap justify-between md:justify-evenly col-span-12 md:col-start-7 lg:col-start-6 md:col-end-13">
-          <div class="w-full sm:w-auto">
-            <h5 class="mt-4 text-2xl">Menu</h5>
-            <ul>
-              <li><nuxt-link to="/">Home</nuxt-link></Nuxt></li>
-              <li><nuxt-link to="/shop">Shop</nuxt-link></Nuxt></li>
-            </ul>
-          </div>
-          <div class="w-full sm:w-auto">
-            <h5 class="mt-4 text-2xl">Categories</h5>
-            <ul v-for="(category, index) in categories" :key="index">
-              <li><NuxtLink :to="category.get_absolute_url">{{category.name}}</NuxtLink></li>
-            </ul>
-          </div>
-          <div class="w-full sm:w-auto">
-            <h5 class="mt-4 text-2xl">Follow us</h5>
-            <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">Pinterest</a></li>
-              <li><a href="#">Twitter</a></li>
-            </ul>
-          </div>
-        </div>
+  <div>
+    <div class="py-6 px-6 bg-footerclr lg:px-32 text-md text-white flex flex-col md:flex-row justify-between shadow-inner">
+      <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
+        <h5 class="mt-3 text-xl">TNBC Analytics</h5>
+        <ul class="mt-3 text-sm">
+          <li>
+            <a>
+              
+              Github
+            </a>
+          </li>
+          <li>
+            <a>
+              Reddit
+            </a>
+          </li>
+          <li>
+            <a>
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a>
+              Discord
+            </a>
+          </li>
+        </ul>
+      </div>
+        <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
+        <h5 class="mt-3 text-xl">Information</h5>
+        <ul class="mt-3 text-sm">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Delivery Information</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Customer Service</a></li>  
+        </ul>
+      </div>
+        <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
+        <h5 class="mt-3 text-xl">My Accound</h5>
+        <ul class="mt-3 text-sm">
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Order History</a></li>
+          <li><a href="#">Wish List</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Order History</a></li>
+        </ul>
+      </div>
+      <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
+        <h5 class="mt-3 text-xl">Get in touch</h5>
+        <ul class="mt-3 text-sm">
+          <li><nuxt-link to="/team">Address: Your address goes here</nuxt-link></li>
+          <li><nuxt-link to="/team">Telephone Enquiry: (012) 345 6789</nuxt-link></li>
+          <li><nuxt-link to="/team">Email: techminate@gmail.com</nuxt-link></li>
+          <li class="mt-2"><nuxt-link to="/donate">Open : 8:00 AM - Close : 18:00 PM</nuxt-link></li>
+          <li><nuxt-link to="/donate">Saturday - Sunday : Close</nuxt-link></li>
+        </ul>
       </div>
     </div>
-    <div class="mt-4 text-gray-500 w-full">
-      <p>© 2017 Maison. All rights reserved</p>
+    <div class="px-6 pb-1 bg-footerclr2 lg:px-32 text-md text-white flex flex-col md:flex-row justify-between shadow-inner">
+      <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
+        <span class="text-xs">Developed By : Techminate</span>
+      </div>
+      <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
+        <span class="text-xs">Copyright ©2021 All rights reserved | Made with Techminate</span>
+      </div>
     </div>
   </div>
-</div>
 </template>
 <script lang="ts">
 import { Prop, Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class Footer extends Vue {
-
   @Prop({ required: true }) readonly categories!: object[]
 
 }
