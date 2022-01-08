@@ -47,7 +47,7 @@
 }
 
 .title-box {
-  @apply ml-10 z-10 mt-10 pt-10 w-80 float-left ml-2;
+  @apply z-10 mt-10 pt-10 w-80 float-left ml-2;
 }
 
 .home-h1 {
