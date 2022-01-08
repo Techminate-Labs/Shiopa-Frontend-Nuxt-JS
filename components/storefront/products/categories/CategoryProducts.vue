@@ -2,25 +2,8 @@
   <section class="max-w-screen-xl mx-auto text-gray-600 body-font">
     <div class="px-10 py-10 pt-5">
       <div class="flex flex-wrap w-full mb-20">
-        <div class="lg:w-1/2 flex flex-wrap  w-full mb-6 lg:mb-0">
-          <h2 class="text-2xl text-black font-bold uppercase mr-3">Deal Of The Day</h2>
-          <div class="bg-yellow-600 rounded-full flex">
-            <span class="m-0 text-xl text-center text-white ml-4">End In:</span>
-            <div class="m-0 text-xl text-center text-white mr-4 ">2021/8/30</div>
-          </div>
-        </div>
-        <div class="lg:w-1/2 w-full inline-flex justify-items-end lg:justify-end float-left lg:ml-0">
-            <button class="svg-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <button class="svg-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>        
-          </div>
+        <DealOfTheDay />
+        
       </div>
       <div class="flex flex-wrap -m-4">
         <div v-for="(categoryProduct, index) in categoryProducts" :key="index" class="relative group xl:w-1/5 md:w-1/2 m-7 w-100">
@@ -59,6 +42,7 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
+import DealOfTheDay from '@/components/storefront/products/DealOftheDay.vue'
 
  interface Cart {
     categoryProduct_id: number | null,
@@ -84,8 +68,10 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
     slug: string
   }
 
-  @Component
-  export default class categoryProducts extends Vue{
+  @Component({
+    components: { DealOfTheDay }
+  })
+  export default class categoryProducts extends Vue {
 
     @Prop({ required: true }) readonly categoryProducts!: categoryProduct[]
     public localData: Cart = {

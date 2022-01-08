@@ -7,7 +7,7 @@
             <img class="aboulate float-right h-80 -mt-3 w-5/6 " src="https://template.hasthemes.com/urdan/urdan/assets/images/bg/bg-1.png"/>
           </div>
           <div  class="mt-5 absolute lg:w-30 w-5/6 bg-gray-100 h-80"></div>
-          <div class="absolute ml-10 z-10 mt-10 pt-10 w-80 float-left ml-2">
+          <div class="absolute z-10 mt-10 pt-10 w-80 float-left ml-2">
             <h6 class="text-xl text-yellow-600 mb-3">Up To 30% Off</h6>
             <h1 class="text-4xl font-extrabold mb-3 text-black tracking-wider">New Furniture</h1>
             <p class="py-2">Lorem ipsum dolor sit amet consecte adipisicing elit sed do</p>

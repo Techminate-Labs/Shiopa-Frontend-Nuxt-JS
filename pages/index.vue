@@ -4,16 +4,16 @@
     <div class="max-w-screen-xl mx-auto mt-8 mb-20">
       <Categories :categories="categories" />
     </div>
-    <div class="max-w-screen-xl mx-auto mt-1. mb-20">
+    <div class="max-w-screen-xl mx-auto mb-20">
       <CategoryProducts :categoryProducts="categoryProducts"/>
     </div>
-    <div class="max-w-screen-xl">
+    <div class="max-w-screen-xl mx-auto mb-20">
       <SingleCategories :homeCategories="homeCategories" />
     </div>
-    <div class="max-w-screen-xl">
+    <div class="max-w-screen-xl mx-auto mb-20">
       <CategoryDining :categoryDinings="categoryDinings" />
     </div>
-    <div class="max-w-screen-xl">
+    <div class="max-w-screen-xl mx-auto mb-20">
       <Hotproducts :hotProducts="hotProducts" />
     </div>
   </div>
