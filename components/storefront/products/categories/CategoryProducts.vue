@@ -1,13 +1,14 @@
 <template>
   <section class="max-w-screen-xl mx-auto text-gray-600 body-font">
-    <div class="px-10 py-10 pt-5">
+    <div class="px-10 pt-5">
       <DealOfTheDay />
-      <div class="flex flex-wrap">
+      <div class="grid gap-4 mb-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <div 
           v-for="(categoryProduct, index) in categoryProducts" :key="index"
-          class="relative group w-full sm:w-1/2 md:w-1/2 xl:w-1/5 m-7">
+          class="relative group w-full">
           <div class="relative">
             <img alt="ecommerce" class="h-full rounded w-full object-cover object-center transform transition duration-100 hover:scale-800" :src="'/placeholders/' + categoryProduct.image">
+            
             <div class="opacity-0 w-full group-hover:opacity-100 duration-300 absolute bottom-0 right-0 z-10">
               <div class="flex justify-end m-2">
                 <button class="text-black mr-2">
