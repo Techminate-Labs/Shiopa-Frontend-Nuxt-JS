@@ -4,7 +4,7 @@
      <!-----1st part---->
        <div  class="relative lg:w-4/5 mx-auto flex flex-wrap  mr-4">
           <div class="z-10 pt-8">
-            <img class="aboulate float-right h-80 -mt-3 w-5/6 " src="https://template.hasthemes.com/urdan/urdan/assets/images/bg/bg-1.png"/>
+            <img class="absolute float-right h-80 -mt-3 w-5/6 " src="https://template.hasthemes.com/urdan/urdan/assets/images/bg/bg-1.png"/>
           </div>
           <div  class="mt-5 absolute lg:w-30 w-5/6 bg-gray-100 h-80"></div>
           <div class="absolute z-10 mt-10 pt-10 w-80 float-left ml-2">
@@ -16,7 +16,7 @@
        </div>
         <!-----End 1st part---->
         <!-----2nd part---->
-          <div class=" lg:w-1/2 w-full ">
+          <div class="lg:w-1/2 w-full ">
             <div class="relative h-75 col flex flex-col flex-grow"> 
               <div class="rounded-lg h-64 overflow-hidden z-10 pt-6 absoulate">
                 <img alt="content" class="object-cover object-center h-full w-full" src="https://template.hasthemes.com/urdan/urdan/assets/images/banner/banner-5.png">

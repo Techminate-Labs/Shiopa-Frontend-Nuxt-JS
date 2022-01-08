@@ -3,9 +3,10 @@
 		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 	</svg>
 </template>
+
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-  @Component
-  export default class ArrowLeft extends Vue {}
+@Component
+export default class ArrowLeft extends Vue {}
 </script>
