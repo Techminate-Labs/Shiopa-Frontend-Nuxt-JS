@@ -11,10 +11,10 @@
     </a>
     <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
       <ul class="self-center flex flex-nowrap order-1 text-gray-800">
-        <li class="relative z-10 inline-block ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block" @click="dropdownOpen = !dropdownOpen"><NuxtLink to="/">Elements</NuxtLink>
+        <li class="relative z-10 ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block" @click="dropdownOpen = !dropdownOpen"><NuxtLink to="/">Elements</NuxtLink>
         
         </li>
-          <li class="relative z-10 inline-block ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Pages</NuxtLink></li>
+          <li class="relative z-10 ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Pages</NuxtLink></li>
           <li class="ml-4 md:ml-8 self-center order-last">
             <div @click="showCart" class="relative cursor-pointer" aria-label="Cart icon">
               <svg xmlns="http://www.w3.org/2000/svg" class="self-center h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,148 +40,148 @@
         </ul>
     </div>
     <!-- filter -->
-    <div class="px-16 py-4 ">
-      <div v-if="open" class="container px-25 py-10 inline-block border-2 border-gray-200 absoulate w-full mt-5 bg-gray-100 border-t mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col  flex-grow md:pr-10 mb-2 md:text-left text-center">
-        <div class="lg:w-1/6 md:w-1/2 w-full flex-shrink-0 md:mx-0 md:mt-0 mt-10 pl-2">
-          <h2 class="text-xl font-medium text-black ml-3 tracking-widest mb-3">CAPTION ONE</h2>
-          <div class="px-0 pt-4 pb-2">
-            <span class="block rounded-full cursor-pointer text-gray-800 hover:text-black px-2 text-xl font-medium mr-2 mb-4">Acourding</span>
-            <span class="block rounded-full cursor-pointer text-gray-800 hover:text-black text-gray-900 px-2 text-lg font-medium mr-2 mb-4">Chart</span>
-            <span class="block rounded-full cursor-pointer text-gray-800 hover:text-black text-gray-900 px-2 text-lg font-medium mr-2 mb-4">clients</span>
-            <span class="block rounded-full cursor-pointer text-gray-800 hover:text-black text-gray-900 px-2 text-lg font-medium mr-2 mb-4">Instragram</span>
-          </div>
+    <div v-if="open" class="container px-25 py-10 border-2 border-gray-200 absolute w-full mt-5 bg-gray-100 border-t mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col flex-grow md:pr-10 mb-2 md:text-left text-center">
+      <div class="lg:w-1/6 md:w-1/2 w-full flex-shrink-0 md:mx-0 md:mt-0 mt-10 pl-2">
+        <h2 class="text-xl font-medium text-black ml-3 tracking-widest mb-3">CAPTION ONE</h2>
+        <div class="px-0 pt-4 pb-2">
+          <span class="block rounded-full cursor-pointer text-gray-800 hover:text-black px-2 text-xl font-medium mr-2 mb-4">Acourding</span>
+          <span class="block rounded-full cursor-pointer text-gray-900 hover:text-black px-2 text-lg font-medium mr-2 mb-4">Chart</span>
+          <span class="block rounded-full cursor-pointer text-gray-900 hover:text-black px-2 text-lg font-medium mr-2 mb-4">clients</span>
+          <span class="block rounded-full cursor-pointer text-gray-900 hover:text-black px-2 text-lg font-medium mr-2 mb-4">Instragram</span>
         </div>
+      </div>
+      <div class="lg:w-1/6 md:w-1/2 w-full px-2">
+        <h2 class="text-xl font-medium text-black tracking-widest ml-3 mb-3">CAPTION TWO</h2>
+          <nav class="list-none px-0 pt-4 pb-2">
+              <li class="p-1">
+                <a class=" px-2 text-lg m mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Intrao Box</a>
+              </li>
+              <li class="p-1">
+                <a class=" px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Progress Bar</a>
+              </li>
+              <li class="p-1">
+                <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Tabs</a>
+              </li>
+              <li class="p-1">
+                <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Testimonals</a>
+              </li>
+          </nav>
+      </div>
         <div class="lg:w-1/6 md:w-1/2 w-full px-2">
-          <h2 class="text-xl font-medium text-black tracking-widest ml-3 mb-3">CAPTION TWO</h2>
-            <nav class="list-none px-0 pt-4 pb-2">
+        <h2 class="text-xl font-medium text-black tracking-widest ml-1 mb-3">CAPTION THREE</h2>
+          <nav class="list-none mb-1 pt-4">
+              <li class="p-1">
+                <a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Button</a>
+              </li>
+              <li class="p-1">
+                <a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Shop</a>
+              </li>
+              <li class="p-1">
+                <a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Cart</a>
+              </li>
                 <li class="p-1">
-                  <a class=" px-2 text-lg m mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Intrao Box</a>
-                </li>
-                <li class="p-1">
-                  <a class=" px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Progress Bar</a>
-                </li>
-                <li class="p-1">
-                  <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Tabs</a>
-                </li>
-                <li class="p-1">
-                  <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Testimonals</a>
-                </li>
-            </nav>
-        </div>
-         <div class="lg:w-1/6 md:w-1/2 w-full px-2">
-          <h2 class="text-xl font-medium text-black tracking-widest ml-1 mb-3">CAPTION THREE</h2>
-            <nav class="list-none mb-1 pt-4">
-                <li class="p-1">
-                  <a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Button</a>
-                </li>
-                <li class="p-1">
-                  <a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Shop</a>
-                </li>
-                <li class="p-1">
-                  <a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Cart</a>
-                </li>
-                 <li class="p-1">
-                  <a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Blogs</a>
-                </li>
-            </nav>
-        </div>
-        <div class="lg:w-2/6 md:w-1/2 w-full px-2">
-          <h2 class="text-xl font-medium text-black ml-3 tracking-widest mb-3">CAPTION FOUR</h2>
-            <nav class="list-none mb-5 pt-4">
-                <li class="p-1">
-                  <a class="block px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">FAQ</a>
-                </li>
-                <li class="p-1">
-                  <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Contact Us</a>
-                </li>
-                <li class="p-1">
-                  <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">About Us</a>
-                </li>
-                <li class="p-1">
-                  <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">404 Error</a>
-                </li>
-            </nav>
-        </div>
+                <a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Blogs</a>
+              </li>
+          </nav>
+      </div>
+      <div class="lg:w-2/6 md:w-1/2 w-full px-2">
+        <h2 class="text-xl font-medium text-black ml-3 tracking-widest mb-3">CAPTION FOUR</h2>
+          <nav class="list-none mb-5 pt-4">
+              <li class="p-1">
+                <a class="block px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">FAQ</a>
+              </li>
+              <li class="p-1">
+                <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Contact Us</a>
+              </li>
+              <li class="p-1">
+                <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">About Us</a>
+              </li>
+              <li class="p-1">
+                <a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">404 Error</a>
+              </li>
+          </nav>
       </div>
     </div>
   </div>
   <!---dropDown--->
-        <div v-show="dropdownOpen" @click="dropdownOpen = false" class="absolute mt-20 fixed inset-0 h-full z-40 w-5/6 mx-auto font-serif shadow-md" >
-          <div class="bg-gray-100 border-gray-400 px-2 mx-auto justify-center">
-            <div class="flex flex-wrap md:text-left text-center ">
-              <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption One</h2>
-                <ul class="list-none mb-10">
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">First Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Two</h2>
-                <nav class="list-none mb-10">
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">First Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                  </li>
-                </nav>
-              </div>
-              <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Three</h2>
-                <nav class="list-none mb-10">
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">First Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                  </li>
-                </nav>
-              </div>
-              <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Four</h2>
-                <nav class="list-none mb-10">
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">First Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-                  </li>
-                  <li>
-                    <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                  </li>
-                </nav>
-              </div>
-            </div>
+    <div
+      v-show="dropdownOpen" 
+      @click="dropdownOpen = false"
+      class="absolute z-40 w-full mx-6 font-serif shadow-md bg-gray-200">
+      <div class="p-6 border-gray-400 px-2 mx-auto justify-center">
+        <div class="flex flex-wrap md:text-left text-center">
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption One</h2>
+            <ul class="list-none">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Two</h2>
+            <nav class="list-none">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Three</h2>
+            <nav class="list-none">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Four</h2>
+            <nav class="list-none">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+              </li>
+            </nav>
           </div>
         </div>
-
-        <!---End dropDown--->
+      </div>
+    </div>
+    <!---End dropDown--->
   </div>
 </template>
 <script lang="ts">
