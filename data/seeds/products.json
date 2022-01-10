@@ -1,121 +1,8 @@
 {
-    "category": [
-        {
-            "id": 1,
-            "parent_id": 0,
-            "name": "Office Chair",
-            "slug": "office-chair",
-            "image_url": "banner-1.png"
-        },
-        {
-            "id": 2,
-            "parent_id": 0,
-            "name": "Hanging Chair",
-            "slug": "hanging-chair",
-            "image_url": "banner-2.png"
-        },
-        {
-            "id": 3,
-            "parent_id": 2,
-            "name": "Folding Chair",
-            "slug": "folding-chair",
-            "image_url": "banner-3.png"
-        }
-
-    ],
-    "homeCategory": [{
-            "id": 2,
-            "parent_id": 0,
-            "name": "Free Shipping",
-            "description" : "Free shipping on all order",
-            "image": "car.png",
-            "img": "single-product.png"
-        },
-        {
-            "id": 2,
-            "parent_id": 0,
-            "name": "Support 24/7",
-            "description" : "Support 24 hours a day",
-            "image": "time.png"
-        },
-        {
-            "id": 3,
-            "name": "Money Return",
-            "description" : "Back Guarantee Under",
-            "image": "dollar.png"
-            
-        },
-        {
-            "id": 3,
-            "name": "Order Discount",
-            "description" : "Onevery order over $150",
-            "image": "discount.png"
-        }
-
-    ],
-    "diningCategory": [{
-            "id": 2,
-            "parent_id": 0,
-            "name": "Free Shipping",
-            "description" : "Free shipping on all order",
-            "image": "banner-3.png",
-            "img": "single-product.png"
-        }
-    ],
-    "product": [{
-            "id": 2,
-            "category_id": 3,
-            "section": "latest",
-            "name": "Iphone Max",
-            "slug": "iphone-max",
-            "image": "default_product.jpg",
-            "price": 800,
-            "stock": 5,
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
-            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
-        },
-        {
-            "id": 2,
-            "category_id": 3,
-            "section": "latest",
-            "name": "Iphone 8",
-            "slug": "iphone-8",
-            "image": "default_product.jpg",
-            "price": 600,
-            "stock": 7,
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
-            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
-        },
-        {
-            "id": 3,
-            "category_id": 4,
-            "section": "latest",
-            "name": "Samsung S20",
-            "slug": "samsung-s20",
-            "image": "default_product.jpg",
-            "price": 900,
-            "stock": 20,
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
-            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
-        },
-        {
-            "id": 4,
-            "category_id": 5,
-            "section": "latest",
-            "name": "Dell GT200",
-            "slug": "dell-gt200",
-            "image": "default_product.jpg",
-            "price": 2050,
-            "stock": 4,
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
-            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
-        }
-       
-    ],
     "products": [
         {
             "id": 2,
-            "category_id": 3,
+            "category_id": 1,
             "section": "latest",
             "name": "Product 1",
             "slug": "product-1",
@@ -127,7 +14,7 @@
         },
         {
             "id": 2,
-            "category_id": 3,
+            "category_id": 1,
             "section": "latest",
             "name": "Product 2",
             "slug": "product-2",
@@ -139,7 +26,7 @@
         },
         {
             "id": 3,
-            "category_id": 4,
+            "category_id": 1,
             "section": "latest",
             "name": "Product 3",
             "slug": "product-3",
@@ -151,7 +38,7 @@
         },
         {
             "id": 4,
-            "category_id": 5,
+            "category_id": 2,
             "section": "latest",
             "name": "Product 4",
             "slug": "product-4",
@@ -162,13 +49,12 @@
             "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
         },
         {
-            "id": 2,
-            "category_id": 3,
+            "id": 5,
+            "category_id": 2,
             "section": "latest",
-            "name": "New Modern Sofa Set",
-            "slug": "iphone-max",
+            "name": "Product 5",
+            "slug": "product-5",
             "image": "product-5.png",
-            "projectnam": "afrin",
             "prodescription" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus",
             "price": 20.25,
             "stock": 5,
@@ -176,11 +62,11 @@
             "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
         },
         {
-            "id": 2,
+            "id": 6,
             "category_id": 3,
             "section": "latest",
-            "name": "Iphone 8",
-            "slug": "iphone-8",
+            "name": "Product 6",
+            "slug": "product-6",
             "image": "product-6.png",
             "price": 50.25,
             "stock": 7,
@@ -188,11 +74,11 @@
             "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
         },
         {
-            "id": 3,
-            "category_id": 4,
+            "id": 7,
+            "category_id": 3,
             "section": "latest",
-            "name": "Samsung S20",
-            "slug": "samsung-s20",
+            "name": "Product 7",
+            "slug": "product-7",
             "image": "product-7.png",
             "price": 40.15,
             "stock": 20,
@@ -200,11 +86,11 @@
             "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
         },
         {
-            "id": 4,
-            "category_id": 5,
+            "id": 8,
+            "category_id": 3,
             "section": "latest",
-            "name": "Dell GT200",
-            "slug": "dell-gt200",
+            "name": "Product 8",
+            "slug": "product-8",
             "image": "product-8.png",
             "price": 20.55,
             "stock": 4,
@@ -212,11 +98,11 @@
             "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
         },
         {
-            "id": 2,
+            "id": 9,
             "category_id": 3,
             "section": "latest",
-            "name": "New Modern Sofa Set",
-            "slug": "iphone-max",
+            "name": "Product 9",
+            "slug": "product-9",
             "image": "product-9.png",
             "projectnam": "afrin",
             "prodescription" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus",
@@ -224,47 +110,11 @@
             "stock": 5,
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
             "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
-        },
-        {
-            "id": 2,
-            "category_id": 3,
-            "section": "latest",
-            "name": "Iphone 8",
-            "slug": "iphone-8",
-            "image": "product-2.png",
-            "price": 50.25,
-            "stock": 7,
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
-            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
-        },
-        {
-            "id": 3,
-            "category_id": 4,
-            "section": "latest",
-            "name": "Samsung S20",
-            "slug": "samsung-s20",
-            "image": "product-3.png",
-            "price": 40.15,
-            "stock": 20,
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
-            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
-        },
-        {
-            "id": 4,
-            "category_id": 5,
-            "section": "latest",
-            "name": "Dell GT200",
-            "slug": "dell-gt200",
-            "image": "product-4.png",
-            "price": 20.55,
-            "stock": 4,
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
-            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
         }
     ],
     "reviews": [
         {
-        "id": 2,
+            "id": 2,
             "product_id": 2,
             "username": "johndoe",
             "comment": "This is a nice product, 20/20 would buy it again!",
