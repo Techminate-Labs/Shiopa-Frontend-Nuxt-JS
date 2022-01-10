@@ -1,6 +1,5 @@
 <template>
 	<div class="h-96 bg-gray-200 flex relative shadow-md">
-		<p class="text-center w-full mx-auto">{{ currentIndex }}</p>
 		<transition name="slide" mode="out-in">
 			<div 
 				v-for="i in [currentIndex]" :key="i" 
@@ -21,7 +20,6 @@
 		</transition>
 		<ol class="z-20 absolute bottom-0 left-1/2 transform -translate-x-1/2">
 			<li class="inline-block mr-3" v-for="(slider, index) in sliders" :key="index">
-				{{ slider.active }}
 				<label
 					@click="handleSliderChange(index)" :class="slider.active ? 'text-blue-600' : ''"
 					class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">
@@ -49,22 +47,13 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 @Component
 export default class Slider extends Vue{
 
-	@Prop({ required: true }) readonly sliders: object[]
+	@Prop({ required: true }) sliders!: Array<Object>
 	timer: unknown = null
 	currentIndex: number = 0
-	currentImg: object = {
-		id: 1,
-		active: true,
-		category_id: "3",
-		category_name: "Furniture",
-		product_id: "6",
-		name: "Gray Classic Sofa",
-		image: "sofa_1000w.png",
-		alt: "Description of slider image"
-	}
+	currentImg: Object = this.sliders[0]
 
 	created() {
-		// this.startSlide();
+		this.startSlide();
 	}
 
 	startSlide(): void {
