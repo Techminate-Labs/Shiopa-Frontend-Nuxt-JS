@@ -1,13 +1,13 @@
 <template>
-	<div class="relative mx-auto xl:px-12 my-10 grid gap-4 grids-col-1 sm:grid-cols-2 lg:grid-cols-3">
+	<div class="relative my-10 grid gap-4 grids-col-1 sm:grid-cols-2 lg:grid-cols-3">
 		<div 
 			v-for="(category, i) in categories" :key="i"
-			class="relative mx-auto">
+			class="relative">
 			<div class="z-10 pt-6">
 				<img
 					:src="'/placeholders/' + category.image_url"
 					:alt="category.image_alt"
-					class="float-right"
+					class="w-full"
 					/>
 			</div>
 			<!-- <div class="z-0 -bottom-6 block w-full bg-gray-100 h-40"></div> -->

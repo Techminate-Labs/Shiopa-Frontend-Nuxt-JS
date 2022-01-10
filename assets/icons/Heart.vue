@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-
-@Component
-export default class Heart extends Vue {}
+import Vue from 'vue'
+export default Vue.extend({
+	name: 'Heart',
+})
 </script>

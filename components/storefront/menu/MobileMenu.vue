@@ -40,9 +40,3 @@ export default class NavBar extends Vue {
 
 }
 </script>
-
-<style scoped>
-.menu-link {
-  @apply text-2xl font-light self-center hover:text-green-700;
-}
-</style>
