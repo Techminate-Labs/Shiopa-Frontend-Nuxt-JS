@@ -39,7 +39,7 @@ export default Vue.extend({
     Hotproducts
   },
   async asyncData({ $http }: any) {
-    const sliders = await $http.$get('http://localhost:8000/slider')
+    const sliders = await $http.$get('http://localhost:8000/sliders')
     const categories = await $http.$get('http://localhost:8000/category')
     const categoryProducts = await $http.$get('http://localhost:8000/categoryProduct')
     const homeCategories = await $http.$get('http://localhost:8000/homeCategory')

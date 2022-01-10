@@ -1,0 +1,26 @@
+{
+    "category": [
+        {
+            "id": 1,
+            "parent_id": 0,
+            "name": "Office Chair",
+            "slug": "office-chair",
+            "image_url": "banner-1.png"
+        },
+        {
+            "id": 2,
+            "parent_id": 0,
+            "name": "Hanging Chair",
+            "slug": "hanging-chair",
+            "image_url": "banner-2.png"
+        },
+        {
+            "id": 3,
+            "parent_id": 2,
+            "name": "Folding Chair",
+            "slug": "folding-chair",
+            "image_url": "banner-3.png"
+        }
+
+    ]
+}
