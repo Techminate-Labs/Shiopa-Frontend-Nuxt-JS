@@ -1,6 +1,6 @@
 <template>
   <div class="relative z-40">
-    <nav class="h-screen fixed w-10/12 left-0 md:right-0 translate-x-0 -translate-x-full bg-gray-100 p-10 overflow-hidden" aria-label="Mobile navigation">
+    <nav class="h-screen fixed w-10/12 left-0 md:right-0 -translate-x-full bg-gray-100 p-10 overflow-hidden" aria-label="Mobile navigation">
       <h2 class="block text-5xl font-extrabold">Menu</h2>
       <div class="flex flex-col mt-8 overflow-y-auto">
         <ul class="mb-4 ml-2">
@@ -13,7 +13,7 @@
         </ul>
         <ul class="mb-4 ml-2">
           <li class="menu-link" @click="closeMobileMenu" v-for="(category, index) in categories" :key="index">
-            <NuxtLink :to="category.get_absolute_url">{{category.name}}</NuxtLink>
+            <NuxtLink :to="category.slug">{{category.name}}</NuxtLink>
           </li>
         </ul>
         <div class="absolute top-0 right-0 pt-6 pr-6">

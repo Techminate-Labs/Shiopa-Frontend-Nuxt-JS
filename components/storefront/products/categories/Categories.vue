@@ -32,9 +32,9 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    this.categories = await fetch(
-      'http://localhost:8000/category'
-    ).then(res => res.json()).catch(err => console.log(err))
+    this.categories = await fetch('http://localhost:8000/category')
+      .then(res => res.json())
+      .catch(err => console.log(err))
   },
   computed: {
     columns (): object[] {

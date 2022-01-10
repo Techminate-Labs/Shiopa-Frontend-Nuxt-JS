@@ -27,12 +27,11 @@ export default Vue.extend({
   components:{
     Slider,
     Filters,
-    
+    Products
   },
   async asyncData({ $http }: any) {
     const sliders = await $http.$get('http://localhost:8000/slider')
-    // const products = await $http.$get('https://shopia-backend.herokuapp.com/api/v1/all-products/')
-    return { sliders, }
+    return { sliders }
   }
 })
 </script>
