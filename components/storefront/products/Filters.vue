@@ -156,7 +156,7 @@ export default Vue.extend({
 		}
 	},
 	async fetch() {
-		this.categories = await fetch('http://localhost:8000/category')
+		this.categories = await fetch('http://localhost:8000/categories')
 			.then(res => res.json() as any)
 			.catch(err => console.log(err))
 	}

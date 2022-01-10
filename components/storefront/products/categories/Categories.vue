@@ -28,7 +28,7 @@
 			}
 		},
 		async fetch() {
-			this.categories = await fetch('http://localhost:8000/category')
+			this.categories = await fetch('http://localhost:8000/categories')
 			.then(res => res.json())
 			.catch(err => console.log(err))
 		},
