@@ -1,0 +1,34 @@
+{
+	"sliders": [
+		{
+			"id": 1,
+			"active": true,
+			"category_id": "3",
+			"category_name": "Furniture",
+			"product_id": "6",
+			"name": "Gray Classic Sofa",
+			"image": "sofa_1000w.png",
+			"alt": "Description of slider image"
+		},
+		{
+			"id": 2,
+			"active": false,
+			"category_id": "3",
+			"category_name": "Clocks",
+			"product_id": "7",
+			"name": "Wooden Clock",
+			"image": "clock_1000w.png",
+			"alt": "Description of slider image"
+		},
+		{
+			"id": 3,
+			"active": false,
+			"category_id": "3",
+			"category_name": "Jewelry",
+			"product_id": "8",
+			"name": "Small Infinite Beads",
+			"image": "beads_1000w.png",
+			"alt": "Description of slider image"
+		}
+	]
+}

@@ -1,55 +1,49 @@
-.card{
+@layer base {
+  h1 {
+    @apply text-6xl font-extrabold mb-2 text-gray-600 tracking-wider;
+  }
+  h2 {
+    @apply text-4xl font-bold text-gray-900;
+  }
+  h3 {
+    @apply text-lg text-gray-900 font-medium;
+  }
+  h6 {
+    @apply text-base text-yellow-600;
+  }
+}
+@layer utilities {
+  .menu-link {
+    @apply text-2xl font-light self-center hover:text-green-700;
+  }
+}
+.card {
   @apply px-6 py-4 rounded-xl bg-white shadow-md hover:shadow-lg;
 }
-
-.title-h1 {
-  @apply text-4xl font-extrabold mb-2 text-gray-600 tracking-wider;
-}
-
-.title-h2 {
-  @apply text-2xl text-gray-900 font-medium;
-}
-
-.title-h3 {
-  @apply text-lg text-gray-900 font-medium;
-}
-
-.title-h6 {
-  @apply text-base text-yellow-600;
-}
-
 .btnprimary {
   @apply flex lg:w-2/3 w-full sm:flex-row flex-col px-2 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-center;
 }
-
 .btnclass {
   @apply py-2 px-4 text-lg text-white bg-yellow-600;
 }
-
 .current {
   @apply text-blue-500 shadow-sm;
 }
-
 .btn-hover {
   @apply hover:bg-primary;
 }
-
 .selected-button {
   @apply bg-primary;
 }
-
 .cardbox {
   @apply flex flex-col md:flex-row mx-auto xl:px-5 flex-grow py-10 px-10;
 }
-
 .transition-500 {
   @apply transition ease-in-out duration-500;
 }
-
 .title-box {
   @apply z-10 mt-10 pt-10 w-80 float-left ml-2;
 }
-
 .home-h1 {
   @apply mb-2 text-xl font-bold text-gray-900;
 }
@@ -65,7 +59,6 @@
 .svg-class {
   @apply p-2 bg-gray-100 hover:bg-gray-200 rounded-full cursor-pointer self-center;
 }
-
 .svg-btn {
   @apply bg-white border border-gray-100 hover:bg-yellow-600 hover:text-white text-gray-800;
 }

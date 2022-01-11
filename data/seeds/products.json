@@ -1,0 +1,134 @@
+{
+    "products": [
+        {
+            "id": 2,
+            "category_id": 1,
+            "section": "latest",
+            "name": "Product 1",
+            "slug": "product-1",
+            "image": "product-1.png",
+            "price": 20.25,
+            "stock": 5,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id": 2,
+            "category_id": 1,
+            "section": "latest",
+            "name": "Product 2",
+            "slug": "product-2",
+            "image": "product-2.png",
+            "price": 50.25,
+            "stock": 7,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id": 3,
+            "category_id": 1,
+            "section": "latest",
+            "name": "Product 3",
+            "slug": "product-3",
+            "image": "product-3.png",
+            "price": 40.15,
+            "stock": 20,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id": 4,
+            "category_id": 2,
+            "section": "latest",
+            "name": "Product 4",
+            "slug": "product-4",
+            "image": "product-4.png",
+            "price": 20.55,
+            "stock": 4,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id": 5,
+            "category_id": 2,
+            "section": "latest",
+            "name": "Product 5",
+            "slug": "product-5",
+            "image": "product-5.png",
+            "prodescription" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus",
+            "price": 20.25,
+            "stock": 5,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id": 6,
+            "category_id": 3,
+            "section": "latest",
+            "name": "Product 6",
+            "slug": "product-6",
+            "image": "product-6.png",
+            "price": 50.25,
+            "stock": 7,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id": 7,
+            "category_id": 3,
+            "section": "latest",
+            "name": "Product 7",
+            "slug": "product-7",
+            "image": "product-7.png",
+            "price": 40.15,
+            "stock": 20,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id": 8,
+            "category_id": 3,
+            "section": "latest",
+            "name": "Product 8",
+            "slug": "product-8",
+            "image": "product-8.png",
+            "price": 20.55,
+            "stock": 4,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        },
+        {
+            "id": 9,
+            "category_id": 3,
+            "section": "latest",
+            "name": "Product 9",
+            "slug": "product-9",
+            "image": "product-9.png",
+            "projectnam": "afrin",
+            "prodescription" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus",
+            "price": 20.25,
+            "stock": 5,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
+            "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
+        }
+    ],
+    "reviews": [
+        {
+            "id": 2,
+            "product_id": 2,
+            "username": "johndoe",
+            "comment": "This is a nice product, 20/20 would buy it again!",
+            "rating": 5,
+            "created_at": "2022-06-22T26:26:39+00:00",
+            "updated_at": "2022-06-22T26:26:39+00:00"
+        }, {
+            "id": 2,
+            "product_id": 3,
+            "username": "janedoe",
+            "comment": "Great customer service, nice product quality. Would love some discount for my next purchase :-)",
+            "rating": 4,
+            "created_at": "2022-06-28T09:52:22+00:00",
+            "updated_at": "2022-06-28T09:52:22+00:00"
+        }
+    ]
+}

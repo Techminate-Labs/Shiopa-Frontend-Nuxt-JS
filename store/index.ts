@@ -1,33 +1,32 @@
 import { getAccessorType, mutationTree, actionTree } from 'typed-vuex'
 import { Context } from '@nuxt/types'
 
+import { Cart, CartItem } from '@/types/cart/Cart'
+
 // import * as submodule from './submodule'
 
 export const state = () => ({
   email: '',
-  cart: {
-    items: []
-  },
+  cart: {} as Cart
 })
 
 type RootState = ReturnType<typeof state>
 
-interface Cart {
-  items: ProductItem[]
-}
-
-interface ProductItem {
-  product_id: number
-  price: number
-  name: number
-  img: number
-  quantity: number
-}
-
 export const getters = {
   email: (state: RootState) => state.email,
   fullEmail: (state: RootState) => state.email,
-  cart: (state: RootState) => state.cart
+  cart: (state: RootState) => state.cart,
+  cartTotalLength(state: RootState): Number {
+    let totalLength = 0
+    if (state.cart.items){
+      for (let i = 0; i < state.cart.items.length as Boolean; i++) {
+        totalLength += parseInt(state.cart.items[i].quantity as any)
+      }
+      return totalLength
+    } else {
+      return totalLength
+    }
+  }
 }
 
 export const mutations = mutationTree(state, {
@@ -43,9 +42,9 @@ export const mutations = mutationTree(state, {
     state.email = newValue
   },
 
-  addToCart(state: RootState, item: ProductItem) {
+  addToCart(state: RootState, item: CartItem) {
     const cart: any = state.cart
-    const exists = cart.items.filter((i: { product_id: number }) => i.product_id === item.product_id)
+    const exists = cart.items.filter((i: { product_id: Number }) => i.product_id === item.product_id)
     if (exists.length) {
       exists[0].quantity = parseInt(exists[0].quantity) + parseInt(item.quantity as any)
     } else {
@@ -55,24 +54,22 @@ export const mutations = mutationTree(state, {
     localStorage.setItem('cart', JSON.stringify(state.cart))
   },
 
-  removeFromCart(state: RootState, item: ProductItem) {
-    const cart: any = state.cart
-    console.log('before', cart)
-    cart.items = state.cart.items.filter((i: { product_id: number }) => i.product_id !== item.product_id)
-    console.log('after', cart)
+  removeFromCart(state: RootState, item: any) {
+    const cart: Cart = state.cart
+    cart.items = state.cart.items.filter((_item) => _item.product_id !== item.product_id)
     localStorage.setItem('cart', JSON.stringify(cart))
   },
 
-  incQTY(state: RootState, item: ProductItem) {
-    const cart: any = state.cart
-    const product: ProductItem[] = cart.items.filter((i: { product_id: number }) => i.product_id === item.product_id)
+  incQTY(state: RootState, item: CartItem) {
+    const cart: Cart = state.cart
+    const product: any = cart.items.filter((_item) => _item.product_id === item.product_id)
     product[0].quantity = product[0].quantity + 1;
     localStorage.setItem('cart', JSON.stringify(cart))
   },
 
-  decQTY(state: RootState, item: ProductItem) {
-    const cart: any = state.cart
-    const product: ProductItem[] = cart.items.filter((i: { product_id: number }) => i.product_id === item.product_id)
+  decQTY(state: RootState, item: CartItem) {
+    const cart: Cart = state.cart
+    const product: any = cart.items.filter((_item) => _item.product_id === item.product_id)
     if (product.length && product[0].quantity > 0) {
       product[0].quantity = product[0].quantity - 1;
     }
