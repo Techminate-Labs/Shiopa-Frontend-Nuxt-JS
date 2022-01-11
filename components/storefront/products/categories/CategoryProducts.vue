@@ -40,7 +40,7 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 import Heart from '@/assets/icons/Heart.vue'
 import Eye from '@/assets/icons/Eye.vue'
 import { ProductSeed } from '@/types/products/Product'
-import { Cart } from '@/types/cart/Cart'
+import { CartItem } from '@/types/cart/Cart'
 
 @Component({
 	components: { Heart, Eye }
@@ -48,7 +48,7 @@ import { Cart } from '@/types/cart/Cart'
 export default class categoryProducts extends Vue {
 
 	@Prop({ required: true }) readonly categoryProducts!: ProductSeed[]
-	public localData: Cart = {
+	public localData: CartItem = {
 		product_id: null,
 		price: null,
 		name: null,

@@ -1,6 +1,6 @@
 <template>
 	<li class="ml-4 md:ml-8 self-center order-last">
-		<div @click="showCart" class="relative cursor-pointer" aria-label="Cart icon">
+		<div @click="$emit('showCart')" class="relative cursor-pointer" aria-label="Cart icon">
 			<CartIcon />
 			<div class="absolute -bottom-1 -right-1">
 				<span 
@@ -18,7 +18,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 import CartIcon from '@/assets/icons/CartIcon.vue'
 
 @Component({ components: { CartIcon } })
-export default class CartMenu extends Vue {
+export default class CartMenuIcon extends Vue {
 	@Prop({ required: true }) readonly cartLength: Number
 }
 </script>

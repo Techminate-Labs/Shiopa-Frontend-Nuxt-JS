@@ -1,178 +1,20 @@
 <template>
-<div class="relative bg-gray-100 shadow-md">
-	<div class="container mx-auto py-4 flex flex-wrap flex-col md:flex-row justify-center">
-	<LeftLinks />
-	<Logo />
-	<!-- <RightLinks /> -->
-	<div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-	<ul class="self-center flex flex-nowrap order-1 text-gray-800">
-		<li
-		class="relative z-10 ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block" 
-		@click="dropdownOpen = !dropdownOpen">
-			<NuxtLink to="/">Large Dropdown Menu</NuxtLink>
-		</li>
-		<li class="relative z-10 ml-4 md:ml-8 self-center text-lg uppercase text-gray-700 hidden md:block"><NuxtLink to="/shop">Pages</NuxtLink></li>
-		<CartMenu :cartLength="cartTotalLength" />
-		<li class="ml-8 self-center order-last">
-			<div aria-label="Search icon">
-			<svg xmlns="http://www.w3.org/2000/svg" class="self-center h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-			</svg>
-			</div>
-		</li>
-		<li class="flex cursor-pointer order-first">
-			<button @click="showMobileMenu" class="inline-block md:hidden" aria-label="Menu icon">
-			<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-			</svg>
-			</button>
-		</li>
-		</ul>
-	</div>
-	<!-- filter -->
-	<div v-if="open" class="container px-25 py-10 border-2 border-gray-200 absolute w-full mt-5 bg-gray-100 border-t mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col flex-grow md:pr-10 mb-2 md:text-left text-center">
-	<div class="lg:w-1/6 md:w-1/2 w-full flex-shrink-0 md:mx-0 md:mt-0 mt-10 pl-2">
-		<h2 class="text-xl font-medium text-black ml-3 tracking-widest mb-3">CAPTION ONE</h2>
-		<div class="px-0 pt-4 pb-2">
-		<span class="block rounded-full cursor-pointer text-gray-800 hover:text-black px-2 text-xl font-medium mr-2 mb-4">Acourding</span>
-		<span class="block rounded-full cursor-pointer text-gray-900 hover:text-black px-2 text-lg font-medium mr-2 mb-4">Chart</span>
-		<span class="block rounded-full cursor-pointer text-gray-900 hover:text-black px-2 text-lg font-medium mr-2 mb-4">clients</span>
-		<span class="block rounded-full cursor-pointer text-gray-900 hover:text-black px-2 text-lg font-medium mr-2 mb-4">Instragram</span>
+	<div class="relative bg-gray-100 shadow-md">
+		<div class="container mx-auto py-4 flex flex-row justify-between">
+			<LeftLinks class="md:ml-8" />
+			<Logo />
+			<RightLinks 
+				@showMobileMenu="$emit('showMobileMenu')"
+				@showCart="$emit('showCart')" 
+				@toggleDropdown="toggleDropdown"
+				class="md:ml-8" />
 		</div>
+		<MenuFilters 
+			v-show="open" />
+		<DropdownMenu
+			v-show="isDropdownOpen" 
+			@click="closeDropdown" />
 	</div>
-	<div class="lg:w-1/6 md:w-1/2 w-full px-2">
-		<h2 class="text-xl font-medium text-black tracking-widest ml-3 mb-3">CAPTION TWO</h2>
-		<nav class="list-none px-0 pt-4 pb-2">
-			<li class="p-1">
-				<a class=" px-2 text-lg m mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Intrao Box</a>
-			</li>
-			<li class="p-1">
-				<a class=" px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Progress Bar</a>
-			</li>
-			<li class="p-1">
-				<a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Tabs</a>
-			</li>
-			<li class="p-1">
-				<a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Testimonals</a>
-			</li>
-		</nav>
-	</div>
-		<div class="lg:w-1/6 md:w-1/2 w-full px-2">
-		<h2 class="text-xl font-medium text-black tracking-widest ml-1 mb-3">CAPTION THREE</h2>
-		<nav class="list-none mb-1 pt-4">
-			<li class="p-1">
-				<a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Button</a>
-			</li>
-			<li class="p-1">
-				<a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Shop</a>
-			</li>
-			<li class="p-1">
-				<a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Cart</a>
-			</li>
-				<li class="p-1">
-				<a class="px-1 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Blogs</a>
-			</li>
-		</nav>
-	</div>
-	<div class="lg:w-2/6 md:w-1/2 w-full px-2">
-		<h2 class="text-xl font-medium text-black ml-3 tracking-widest mb-3">CAPTION FOUR</h2>
-		<nav class="list-none mb-5 pt-4">
-			<li class="p-1">
-				<a class="block px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">FAQ</a>
-			</li>
-			<li class="p-1">
-				<a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">Contact Us</a>
-			</li>
-			<li class="p-1">
-				<a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">About Us</a>
-			</li>
-			<li class="p-1">
-				<a class="px-2 text-lg mt-2 font-medium cursor-pointer text-gray-800 hover:text-black">404 Error</a>
-			</li>
-		</nav>
-	</div>
-	</div>
-</div>
-<!---dropDown--->
-	<div
-	v-show="dropdownOpen" 
-	@click="dropdownOpen = false"
-	class="absolute z-40 w-full font-serif shadow-md bg-gray-200">
-	<div class="p-6 border-gray-400 px-2 mx-auto justify-center">
-		<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:text-left text-center">
-		<div class="w-full px-4">
-			<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption One</h2>
-			<ul class="list-none">
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">First Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Second Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Third Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-			</li>
-			</ul>
-		</div>
-		<div class="w-full px-4">
-			<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Two</h2>
-			<nav class="list-none">
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">First Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Second Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Third Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-			</li>
-			</nav>
-		</div>
-		<div class="w-full px-4">
-			<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Three</h2>
-			<nav class="list-none">
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">First Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Second Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Third Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-			</li>
-			</nav>
-		</div>
-		<div class="w-full px-4">
-			<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Caption Four</h2>
-			<nav class="list-none">
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">First Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Second Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Third Link</a>
-			</li>
-			<li>
-				<a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-			</li>
-			</nav>
-		</div>
-		</div>
-	</div>
-	</div>
-	<!---End dropDown--->
-</div>
 </template>
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator'
@@ -180,28 +22,23 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator'
 // components
 import Logo from '@/components/storefront/Logo.vue'
 import LeftLinks from '@/components/storefront/menu/links/LeftLinks.vue'
-import CartMenu from '@/components/storefront/menu/actions/CartMenu.vue'
+import RightLinks from '@/components/storefront/menu/links/RightLinks.vue'
+import DropdownMenu from '@/components/storefront/menu/DropdownMenu.vue'
 
-interface Cart {
-	items: CartItem[]
-}
-
-interface CartItem {
-	product_id: number,
-	price: string,
-	name: string,
-	img: string,
-	quantity: number,
-}
+// types
+import { Cart } from '@/types/cart/Cart'
 
 @Component({
-	components: { Logo, LeftLinks, CartMenu }
+	components: { 
+		LeftLinks, 
+		Logo, 
+		RightLinks,
+		DropdownMenu
+	}
 })
 export default class NavBar extends Vue {
 	data() {
 		return {
-			open: false,
-			dropdownOpen: false,
 			categories: []
 		}
 	}
@@ -209,6 +46,9 @@ export default class NavBar extends Vue {
 	public cart: Cart = {
 		items: []
 	}
+	public open: Boolean = false
+	public isDropdownOpen: Boolean = false
+	public categories: Array<any> = []
 
 	@Emit('openCard')
 	OpenCard(): void {}
@@ -216,20 +56,15 @@ export default class NavBar extends Vue {
 	@Emit('showMobileMenu')
 	showMobileMenu(): void {}
 
+	@Emit('toggleDropdown')
+	toggleDropdown(): void {
+		this.isDropdownOpen = !this.isDropdownOpen
+	}
+	closeDropdown(): void {
+		this.isDropdownOpen = false
+	}
+
 	@Emit('showCart')
 	showCart(): void {}
-
-	mounted() {
-		this.$store.commit('initialiseStore')
-		this.cart = this.$store.state.cart
-	}
-
-	get cartTotalLength(): number {
-		let totalLength = 0
-		for (let i = 0; i < this.cart.items.length as boolean; i++) {
-			totalLength += parseInt(this.cart.items[i].quantity as any)
-		}
-		return totalLength
-	}
 }
 </script>
