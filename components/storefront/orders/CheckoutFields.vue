@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts">
-import { Prop, Component, Vue } from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import TextField from '@/components/storefront/fields/TextField.vue'
 import SelectField from '@/components/storefront/fields/SelectField.vue'
 
@@ -58,8 +58,20 @@ import SelectField from '@/components/storefront/fields/SelectField.vue'
 })
 export default class CheckoutFields extends Vue {
 
-  public countryList: string[] = ['United States', 'Canada', 'Mexico', 'Uruguay', 'Bangladesh', 'India', 'France']
-  public stateList: string[] = ['Alaska', 'Alabama', 'California']
+  public countryList: Array<Object> = [
+    { key: 'US', value: 'United States' },
+    { key: 'CA', value: 'Canada' },
+    { key: 'MX', value: 'Mexico' },
+    { key: 'UY', value: 'Uruguay' },
+    { key: 'BN', value: 'Bangladesh' },
+    { key: 'IN', value: 'India' },
+    { key: 'FR', value: 'France' },
+  ]
+  public stateList: Array<Object> = [
+    { key: 'ALK', value: 'Alaska' },
+    { key: 'ALB', value: 'Alabama' },
+    { key: 'CA', value: 'California' }
+  ]
 
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <transition name="left">
       <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
     </transition>
@@ -44,7 +44,8 @@ export default Vue.extend({
     ],
     htmlAttrs: {
       lang: 'en'
-    }
+    },
+    bodyAttrs: {}
   },
   components: {
     NavBar,
