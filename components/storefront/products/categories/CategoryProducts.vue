@@ -1,5 +1,5 @@
 <template>
-	<section class="max-w-screen-xl mx-auto text-gray-600 body-font">
+	<section class="text-gray-600 body-font">
 		<div class="grid gap-4 mb-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			<div 
 			v-for="(categoryProduct, index) in categoryProducts" :key="index"

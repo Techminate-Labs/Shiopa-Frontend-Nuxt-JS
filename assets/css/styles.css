@@ -3,7 +3,7 @@
     @apply text-6xl font-extrabold mb-2 text-gray-600 tracking-wider;
   }
   h2 {
-    @apply text-4xl font-bold text-gray-900;
+    @apply text-4xl font-bold text-gray-900 mb-2;
   }
   h3 {
     @apply text-lg text-gray-900 font-medium;

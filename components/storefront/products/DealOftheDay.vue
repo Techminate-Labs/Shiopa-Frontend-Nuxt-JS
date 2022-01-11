@@ -1,10 +1,8 @@
 <template>
 	<div class="flex flex-wrap w-full my-16">
 		<div class="flex flex-wrap w-full mb-6">
-			<h2 class="text-2xl text-black font-bold uppercase mr-3">Deal Of The Day</h2>
-			<div class="bg-yellow-600 rounded-full flex text-white">
-				<p class="text-xl text-center mx-4">Ends on: 2021/8/30</p>
-			</div>
+			<h2 class="text-2xl text-black font-bold uppercase mr-3 self-center mb-0">Deal Of The Day</h2>
+			<p class="bg-yellow-600 rounded-full text-white text-md text-center px-4 py-1 self-center">Ends on: 2021/8/30</p>
 		</div>
 		<div class="w-full inline-flex justify-items-end float-left">
 			<button class="svg-btn">

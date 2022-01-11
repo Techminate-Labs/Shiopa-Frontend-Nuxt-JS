@@ -1,5 +1,5 @@
 <template>
-	<div class="relative bg-gray-100 shadow-md">
+	<div class="sticky top-0 z-40 bg-gray-100 shadow-md">
 		<div class="container mx-auto py-4 flex flex-row justify-between">
 			<LeftLinks class="md:ml-8" />
 			<Logo />
