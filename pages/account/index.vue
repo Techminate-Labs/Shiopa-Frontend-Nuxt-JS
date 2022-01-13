@@ -1,20 +1,9 @@
 <template>
 	<div class="mt-16 mb-20">
-		<Login />
+		Account
 	</div>
 </template>
 
 <script lang="ts">
-import Login from '@/components/storefront/accounts/Login.vue'
-export default {
-	data(){
-		return{
-			title: '',
-		}
-	},
-	components:{
-		Login,
-	},
-
-}
+export default {}
 </script>
