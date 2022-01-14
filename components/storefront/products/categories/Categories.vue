@@ -3,18 +3,19 @@
 		<div 
 			v-for="(category, i) in categories" :key="i"
 			class="relative">
-			<div class="z-10 pt-6">
-				<img
-					:src="'/placeholders/' + category.image_url"
-					:alt="category.image_alt"
-					class="w-full"
-					/>
-			</div>
-			<!-- <div class="z-0 -bottom-6 block w-full bg-gray-100 h-40"></div> -->
-			<div class="absolute z-10 float-left mx-4 bottom-4">
-				<h3 class="font-semibold text-2xl">{{category.name}}</h3>
-				<span class="font-medium text-sm hover:underline cursor-pointer">Shop Now</span>
-			</div>
+			<NuxtLink :to="{ name: 'category', params: { category: category.slug } }">
+				<div class="z-10 pt-6">
+					<img
+						:src="'/placeholders/' + category.image_url"
+						:alt="category.image_alt"
+						class="w-full"
+						/>
+				</div>
+				<div class="absolute z-10 float-left mx-4 bottom-4">
+					<h3 class="font-semibold text-2xl">{{category.name}}</h3>
+					<span class="font-medium text-sm hover:underline cursor-pointer">Shop Now</span>
+				</div>
+			</NuxtLink>
 		</div>
 	</div>
 </template>
@@ -24,11 +25,11 @@
 		name: 'Categories',
 		data() {
 			return {
-			categories: []
+				categories: []
 			}
 		},
 		async fetch() {
-			this.categories = await fetch('http://localhost:8000/categories')
+			this.categories = await fetch('http://localhost:8080/categories')
 			.then(res => res.json())
 			.catch(err => console.log(err))
 		},

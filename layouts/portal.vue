@@ -1,16 +1,15 @@
 <template>
   <div>
-    <NavBar />
-    <h1>Sidenav</h1>
-    <h1>Footer</h1>
+    <NavBarAdmin />
+    <Nuxt />
   </div>
 </template>
 
-<script>
-import NavBar from '@/components/storefront/menu/NavBar.vue'
+<script lang="ts">
+import NavBarAdmin from '~/components/portal/menu/NavBarAdmin.vue'
 export default {
   components: {
-    NavBar,
+    NavBarAdmin,
   },
 
 }

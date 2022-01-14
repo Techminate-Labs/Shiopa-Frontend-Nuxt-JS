@@ -3,7 +3,8 @@
         {
             "id": 2,
             "category_id": 1,
-            "section": "latest",
+            "category_slug": "office-chair",
+            "section": "",
             "name": "Product 1",
             "slug": "product-1",
             "image": "product-1.png",
@@ -15,6 +16,7 @@
         {
             "id": 2,
             "category_id": 1,
+            "category_slug": "office-chair",
             "section": "latest",
             "name": "Product 2",
             "slug": "product-2",
@@ -27,6 +29,7 @@
         {
             "id": 3,
             "category_id": 1,
+            "category_slug": "office-chair",
             "section": "latest",
             "name": "Product 3",
             "slug": "product-3",
@@ -39,7 +42,8 @@
         {
             "id": 4,
             "category_id": 2,
-            "section": "latest",
+            "category_slug": "hanging-chair",
+            "section": "",
             "name": "Product 4",
             "slug": "product-4",
             "image": "product-4.png",
@@ -51,6 +55,7 @@
         {
             "id": 5,
             "category_id": 2,
+            "category_slug": "hanging-chair",
             "section": "latest",
             "name": "Product 5",
             "slug": "product-5",
@@ -64,7 +69,8 @@
         {
             "id": 6,
             "category_id": 3,
-            "section": "latest",
+            "category_slug": "folding-chair",
+            "section": "",
             "name": "Product 6",
             "slug": "product-6",
             "image": "product-6.png",
@@ -76,7 +82,8 @@
         {
             "id": 7,
             "category_id": 3,
-            "section": "latest",
+            "category_slug": "folding-chair",
+            "section": "",
             "name": "Product 7",
             "slug": "product-7",
             "image": "product-7.png",
@@ -88,7 +95,8 @@
         {
             "id": 8,
             "category_id": 3,
-            "section": "latest",
+            "category_slug": "folding-chair",
+            "section": "",
             "name": "Product 8",
             "slug": "product-8",
             "image": "product-8.png",
@@ -100,6 +108,7 @@
         {
             "id": 9,
             "category_id": 3,
+            "category_slug": "folding-chair",
             "section": "latest",
             "name": "Product 9",
             "slug": "product-9",

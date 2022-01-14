@@ -1,16 +1,16 @@
 <template>
-	<div class="relative bg-gray-100 shadow-md">
+	<div class="sticky top-0 z-40 bg-gray-100 shadow-md">
 		<div class="container mx-auto py-4 flex flex-row justify-between">
-			<LeftLinks class="md:ml-8" />
+			<LeftLinks />
 			<Logo />
 			<RightLinks 
 				@showMobileMenu="$emit('showMobileMenu')"
 				@showCart="$emit('showCart')" 
 				@toggleDropdown="toggleDropdown"
-				class="md:ml-8" />
+				/>
 		</div>
-		<MenuFilters 
-			v-show="open" />
+		<!-- <FiltersMenu 
+			v-show="open" /> -->
 		<DropdownMenu
 			v-show="isDropdownOpen" 
 			@click="closeDropdown" />
@@ -24,6 +24,7 @@ import Logo from '@/components/storefront/Logo.vue'
 import LeftLinks from '@/components/storefront/menu/links/LeftLinks.vue'
 import RightLinks from '@/components/storefront/menu/links/RightLinks.vue'
 import DropdownMenu from '@/components/storefront/menu/DropdownMenu.vue'
+import FiltersMenu from '@/components/storefront/menu/FiltersMenu.vue'
 
 // types
 import { Cart } from '@/types/cart/Cart'
@@ -33,7 +34,8 @@ import { Cart } from '@/types/cart/Cart'
 		LeftLinks, 
 		Logo, 
 		RightLinks,
-		DropdownMenu
+		DropdownMenu,
+		FiltersMenu
 	}
 })
 export default class NavBar extends Vue {

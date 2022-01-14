@@ -4,18 +4,13 @@
     <div class="container mx-auto">
       <DealOfTheDay />
       <Categories :categories="categories" class="mt-8 mb-20" />
+
       <h2>Category 1</h2>
       <CategoryProducts :categoryProducts="firstCategory" class="mb-20" />
-      <div class="mb-20">
-        <!-- <SingleCategories :homeCategories="homeCategories" /> -->
-      </div>
-      <div class="mb-20">
-        <!-- Temporarily deactivating until we find a transparent product image -->
-        <!-- <CategoryDining :categoryDinings="categoryDinings" /> -->
-      </div>
-      <div class="mb-20">
-        <!-- <Hotproducts :hotProducts="hotProducts" /> -->
-      </div>
+      <h2>Category 2</h2>
+      <CategoryProducts :categoryProducts="secondCategory" class="mb-20" />
+      <h2>Latest Products</h2>
+      <CategoryProducts :categoryProducts="latestProducts" class="mb-20" />
     </div>
   </div>
 </template>
@@ -39,14 +34,18 @@ export default Vue.extend({
       sliders: [] as Array<any>,
       categories: [] as Array<any>,
       firstCategory: [] as Array<any>,
+      secondCategory: [] as Array<any>,
+      latestProducts: [] as Array<any>,
     }
   },
   async asyncData({ $http }: any) {
-    const sliders = await $http.$get('http://localhost:8000/sliders')
-    const categories = await $http.$get('http://localhost:8000/categories')
-    const firstCategory = await $http.$get('http://localhost:8000/products?category_id=1')
+    const sliders = await $http.$get('http://localhost:8080/sliders')
+    const categories = await $http.$get('http://localhost:8080/categories')
+    const firstCategory = await $http.$get('http://localhost:8080/products?category_id=1')
+    const secondCategory = await $http.$get('http://localhost:8080/products?category_id=2')
+    const latestProducts = await $http.$get('http://localhost:8080/products?section=latest')
 
-    return { sliders, categories, firstCategory }
+    return { sliders, categories, firstCategory, secondCategory, latestProducts }
   }
 })
 </script>

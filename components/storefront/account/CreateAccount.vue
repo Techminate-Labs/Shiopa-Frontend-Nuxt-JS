@@ -1,5 +1,5 @@
 <template>
-  <form action="#" method="POST" class="">
+  <form @submit.prevent>
     <div class="overflow-hidden sm:rounded-md">
       <label @click="createAccount = !createAccount" class="inline-flex items-center">
         <input type="checkbox" class="form-checkbox" :checked="!!createAccount">

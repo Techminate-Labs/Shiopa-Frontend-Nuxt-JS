@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <transition name="left">
       <MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
     </transition>
@@ -44,7 +44,8 @@ export default Vue.extend({
     ],
     htmlAttrs: {
       lang: 'en'
-    }
+    },
+    bodyAttrs: {}
   },
   components: {
     NavBar,
@@ -62,7 +63,7 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    this.categories = await fetch('http://localhost:8000/categories')
+    this.categories = await fetch('http://localhost:8080/categories')
       .then(res => res.json())
       .catch(err => console.log(err))
   }

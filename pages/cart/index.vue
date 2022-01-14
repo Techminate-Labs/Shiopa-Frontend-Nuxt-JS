@@ -1,9 +1,7 @@
 <template>
-   <div class="max-w-screen-xl mx-auto mt-16 mb-20">
-      <div class="px-4">
-        <CartSingle :cart="cart" />
-      </div>
-   </div>
+	<div class="mt-16 mb-20">
+		<CartSingle :cart="cart" />
+	</div>
 </template>
 
 <script lang="ts">
@@ -12,24 +10,19 @@ import Vue from 'vue'
 import CartSingle from '@/components/storefront/cart/CartSingle.vue'
 
 export default Vue.extend({
-  data() {
-    return{
-      title: '',
-      cart: {
-        items: []
-      }
-    }
-  },
-  components:{
-    CartSingle,
-  },
-  mounted() {
-    this.cart = this.$store.state.cart
-    console.log(this.cart)
-  }
+	data() {
+		return{
+			title: '',
+			cart: {
+				items: []
+			}
+		}
+	},
+	components:{
+		CartSingle,
+	},
+	mounted() {
+		this.cart = this.$store.state.cart
+	}
 })
 </script>
-
-<style>
-
-</style>

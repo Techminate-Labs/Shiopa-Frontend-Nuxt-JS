@@ -7,8 +7,8 @@
       class="p-2 text-sm w-full border border-gray-600"
       :required="!!isRequired">
       <option value="">--Please choose an option--</option>
-      <option v-for="(option, index) in list" :key="index" :value="option">
-        {{option}}
+      <option v-for="(option) in list" :key="option.key" :value="option.key">
+        {{ option.value }}
       </option>
       </select>
   </div>
@@ -20,9 +20,9 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 @Component
 export default class TextField extends Vue {
 
-  @Prop({ required: true }) readonly name!: string
-  @Prop({ required: true }) readonly list!: []
-  @Prop({ required: true }) readonly isRequired!: boolean
+  @Prop({ required: true }) readonly name!: String
+  @Prop({ required: true }) readonly list!: Array<any>
+  @Prop({ required: true }) readonly isRequired!: Boolean
 
 }
 </script>

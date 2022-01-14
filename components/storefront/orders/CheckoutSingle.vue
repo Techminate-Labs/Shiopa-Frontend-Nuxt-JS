@@ -79,7 +79,7 @@
 			</div>
 		</div>
 		<!-- shipping address -->
-		<div class="my-5 flex flex-col flex-nowrap md:grid grid-cols-12 my-0">
+		<div class="flex flex-col flex-nowrap md:grid grid-cols-12 my-0">
 			<form action="#" method="POST" class="col-span-5">
 				<div class="overflow-hidden sm:rounded-md">
 					<h2 class="uppercase text-2xl my-2">Shipping address</h2>
@@ -97,7 +97,11 @@
 		<!-- text area -->
 		<label class="block py-2">
 			<span class="text-black">Order notes (optional)</span>
-			<textarea class="form-textarea mt-2 block border-1 border border-gray-900  w-1/2" rows="4" placeholder="Notes about your order.special notes for Delivery."></textarea>
+			<textarea 
+				class="form-textarea mt-2 block border-1 border border-gray-900 w-full" 
+				rows="4" 
+				placeholder="Notes about your order or special notes for delivery.">
+			</textarea>
 		</label>
 		<!-- end text area -->
 	</div>
@@ -108,7 +112,7 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 import Order from '@/components/storefront/orders/Order.vue'
 import CheckoutFields from '@/components/storefront/orders/CheckoutFields.vue'
 import PasswordField from '@/components/storefront/fields/PasswordField.vue'
-import CreateAccount from '@/components/storefront/accounts/CreateAccount.vue'
+import CreateAccount from '~/components/storefront/account/CreateAccount.vue'
 
 interface cartObject {
   items: CartItem[]
