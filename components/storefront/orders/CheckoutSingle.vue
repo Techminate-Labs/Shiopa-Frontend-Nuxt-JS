@@ -112,7 +112,7 @@ import { Prop, Component, Vue } from 'nuxt-property-decorator'
 import Order from '@/components/storefront/orders/Order.vue'
 import CheckoutFields from '@/components/storefront/orders/CheckoutFields.vue'
 import PasswordField from '@/components/storefront/fields/PasswordField.vue'
-import CreateAccount from '@/components/storefront/accounts/CreateAccount.vue'
+import CreateAccount from '~/components/storefront/account/CreateAccount.vue'
 
 interface cartObject {
   items: CartItem[]

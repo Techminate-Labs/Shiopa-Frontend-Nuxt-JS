@@ -17,7 +17,7 @@ export default Vue.extend({
   },
   async asyncData({ params, $http }: any) {
     const category_slug = params.category
-    const category = await $http.$get(`http://localhost:8000/categories` + category_slug)
+    const category = await $http.$get(`http://localhost:8080/categories` + category_slug)
     const products = category.products
     return { products }
   }

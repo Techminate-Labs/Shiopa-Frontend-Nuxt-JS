@@ -71,7 +71,7 @@ export default class ProductReviews extends Vue{
 
   async fetch() {
     const reviews = await fetch(
-      'http://localhost:8000/reviews'
+      'http://localhost:8080/reviews'
     )
     .then(res => res.json())
     .catch(err => console.log(err))

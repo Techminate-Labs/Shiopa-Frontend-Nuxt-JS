@@ -9,7 +9,7 @@
 				@toggleDropdown="toggleDropdown"
 				class="md:ml-8" />
 		</div>
-		<MenuFilters 
+		<FiltersMenu 
 			v-show="open" />
 		<DropdownMenu
 			v-show="isDropdownOpen" 
@@ -24,6 +24,7 @@ import Logo from '@/components/storefront/Logo.vue'
 import LeftLinks from '@/components/storefront/menu/links/LeftLinks.vue'
 import RightLinks from '@/components/storefront/menu/links/RightLinks.vue'
 import DropdownMenu from '@/components/storefront/menu/DropdownMenu.vue'
+import FiltersMenu from '@/components/storefront/menu/FiltersMenu.vue'
 
 // types
 import { Cart } from '@/types/cart/Cart'
@@ -33,7 +34,8 @@ import { Cart } from '@/types/cart/Cart'
 		LeftLinks, 
 		Logo, 
 		RightLinks,
-		DropdownMenu
+		DropdownMenu,
+		FiltersMenu
 	}
 })
 export default class NavBar extends Vue {

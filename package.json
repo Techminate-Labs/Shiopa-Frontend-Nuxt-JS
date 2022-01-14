@@ -7,7 +7,7 @@
         "build": "nuxt build",
         "start": "nuxt start",
         "generate": "nuxt generate",
-        "serve": "json-server --watch data/db.js --port 8000"
+        "serve": "json-server --watch data/db.js --port 8080"
     },
     "dependencies": {
         "@nuxt/http": "^0.6.4",

@@ -1,21 +1,15 @@
 <template>
-	<div class="mt-16 mb-20">
-		<Login />
-	</div>
+	<LoginClient />
 </template>
 
 <script lang="ts">
 // components
-import Login from '@/components/storefront/accounts/Login.vue'
+import LoginClient from '@/components/storefront/account/LoginClient.vue'
 
 export default {
-	data(){
-		return{
-			title: '',
-		}
-	},
-	components:{
-		Login,
+	layout: 'portal',
+	components: {
+		LoginClient,
 	},
 
 }

@@ -39,11 +39,11 @@ export default Vue.extend({
     }
   },
   async asyncData({ $http }: any) {
-    const sliders = await $http.$get('http://localhost:8000/sliders')
-    const categories = await $http.$get('http://localhost:8000/categories')
-    const firstCategory = await $http.$get('http://localhost:8000/products?category_id=1')
-    const secondCategory = await $http.$get('http://localhost:8000/products?category_id=2')
-    const latestProducts = await $http.$get('http://localhost:8000/products?section=latest')
+    const sliders = await $http.$get('http://localhost:8080/sliders')
+    const categories = await $http.$get('http://localhost:8080/categories')
+    const firstCategory = await $http.$get('http://localhost:8080/products?category_id=1')
+    const secondCategory = await $http.$get('http://localhost:8080/products?category_id=2')
+    const latestProducts = await $http.$get('http://localhost:8080/products?section=latest')
 
     return { sliders, categories, firstCategory, secondCategory, latestProducts }
   }

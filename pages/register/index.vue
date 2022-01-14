@@ -1,16 +1,15 @@
 <template>
-	<div class="mt-16 mb-20">
-		<Register />
-	</div>
+	<RegisterClient />
 </template>
 
 <script lang="ts">
 // components
-import Register from '@/components/storefront/accounts/Register.vue'
+import RegisterClient from '~/components/storefront/account/RegisterClient.vue'
 
 export default {
-	components:{
-		Register,
+	layout: 'portal',
+	components: {
+		RegisterClient,
 	},
 }
 </script>
