@@ -3,8 +3,8 @@
 		<div class="grid gap-4 mb-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			<div 
 				v-for="(categoryProduct, index) in categoryProducts" :key="index"
-				class="relative group w-full">
-				<div class="relative">
+				class="relative w-full">
+				<div class="relative group hover:scale-105 transform transition duration-200 my-6">
 					<NuxtLink :to="{ 
 						name: 'category-slug', 
 						params: { 
@@ -13,7 +13,7 @@
 						}}">
 						<img 
 							:alt="categoryProduct.description" 
-							class="h-full rounded w-full object-cover object-center transform transition duration-100 hover:scale-800" 
+							class="h-full rounded w-full object-cover object-center" 
 							:src="'/placeholders/' + categoryProduct.image">
 					</NuxtLink>
 						<div class="opacity-0 w-full group-hover:opacity-100 duration-300 absolute bottom-0 right-0 z-10">

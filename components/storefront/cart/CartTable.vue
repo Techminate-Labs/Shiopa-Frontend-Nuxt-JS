@@ -47,7 +47,7 @@
               </div>
             </td>
             <td data-label="Price" class="p-4 md:w-1/4 font-semibold text-sm text-right">${{item.price}}</td>
-            <td data-label="Total" class="p-4 md:w-1/4 font-semibold text-sm text-right">${{Number(item.price * item.quantity)}}</td>
+            <td data-label="Total" class="p-4 md:w-1/4 font-semibold text-sm text-right">${{Number(item.price * item.quantity).toFixed(2)}}</td>
             <td @click="deleteItem(item)" data-label="Actions" class="p-4 hover:text-red-700 cursor-pointer md:w-1/4 font-semibold text-sm text-right">
               <div class="flex flex-row flex-nowrap justify-end">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,13 +108,13 @@ export default class CartTable extends Vue {
   public currentSort: string = 'id'
   public currentSortDir: string = 'asc'
 
-  get cartTotal(): number {
-    let total = 0
-    for (let i = 0; i < this.cart.items.length as boolean; i++) {
-        total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
-    }
-    return total
-  }
+  get cartTotal(): Number {
+		let total = 0
+		for (let i = 0; i < this.cart.items.length as boolean; i++) {
+			total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
+		}
+		return Number(total.toFixed(2));
+	}
 
   sort(s: string): void {
     //if s == current sort, reverse

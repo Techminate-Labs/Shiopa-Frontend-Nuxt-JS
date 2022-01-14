@@ -1,16 +1,16 @@
 <template>
 	<div class="sticky top-0 z-40 bg-gray-100 shadow-md">
 		<div class="container mx-auto py-4 flex flex-row justify-between">
-			<LeftLinks class="md:ml-8" />
+			<LeftLinks />
 			<Logo />
 			<RightLinks 
 				@showMobileMenu="$emit('showMobileMenu')"
 				@showCart="$emit('showCart')" 
 				@toggleDropdown="toggleDropdown"
-				class="md:ml-8" />
+				/>
 		</div>
-		<FiltersMenu 
-			v-show="open" />
+		<!-- <FiltersMenu 
+			v-show="open" /> -->
 		<DropdownMenu
 			v-show="isDropdownOpen" 
 			@click="closeDropdown" />

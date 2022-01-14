@@ -7,7 +7,7 @@
 			</div>
 			<span class="font-semibold text-sm self-center">{{ item.name }}</span>
 			<span class="font-semibold text-sm self-center">x {{ item.quantity }}</span>
-			<span class="font-semibold text-sm self-center">${{ Number(item.price * item.quantity) }}</span>
+			<span class="font-semibold text-sm self-center">${{ Number(item.price * item.quantity).toFixed(2) }}</span>
 		</div>
 		<div class="py-5">
 			<SelectField
@@ -51,11 +51,11 @@ interface cartObject {
 }
 
 interface CartItem {
-	product_id: number | null,
-	price: string | null,
-	name: string | null,
-	img: string | null,
-	quantity: number | null
+	product_id: Number | null,
+	price: Number | null,
+	name: String | null,
+	img: String | null,
+	quantity: Number | null
 }
 
 @Component({
@@ -77,12 +77,12 @@ export default class Order extends Vue {
 		{ key: 20, value: 'Premium Shipping - 20$' }
 	]
 
-	get cartTotal(): number {
+	get cartTotal(): Number {
 		let total = 0
 		for (let i = 0; i < this.cart.items.length as boolean; i++) {
 			total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
 		}
-		return total
+		return Number(total.toFixed(2));
 	}
 
 }

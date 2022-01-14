@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="py-6 px-6 bg-footerclr lg:px-32 text-md text-white flex flex-col md:flex-row justify-between shadow-inner">
+  <div class="bg-footerclr">
+    <div class="container  text-md text-white flex flex-col md:flex-row justify-between">
       <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
         <h5 class="mt-3 text-xl">TNBC Analytics</h5>
         <ul class="mt-3 text-sm">
@@ -58,7 +58,7 @@
         </ul>
       </div>
     </div>
-    <div class="px-6 pb-1 bg-footerclr2 lg:px-32 text-md text-white flex flex-col md:flex-row justify-between shadow-inner">
+    <div class="container px-6 pb-1 bg-footerclr2 lg:px-32 text-md text-white flex flex-col md:flex-row justify-between shadow-inner">
       <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
         <span class="text-xs">Developed By : Techminate</span>
       </div>
@@ -77,9 +77,3 @@ export default class Footer extends Vue {
 
 }
 </script>
-
-<style scoped>
-.text-input {
-  @apply px-3 py-2 mt-1 h-12 border-2 border-gray-300 focus:border-gray-800 rounded;
-}
-</style>
