@@ -1,7 +1,7 @@
 <template>
 	<div class="flex min-h-screen bg-white flex-wrap">
 		<img 
-			class="hidden md:block w-full md:w-1/2" 
+			class="hidden md:block w-full md:w-1/2 object-cover" 
 			:src="'/shiopa-bag_1000px.png'"
 			/>
 		<div class="w-full md:w-1/2 flex flex-col">
