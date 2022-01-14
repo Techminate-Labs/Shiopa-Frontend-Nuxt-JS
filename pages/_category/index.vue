@@ -1,7 +1,7 @@
 <template>
   <div class="mt-16 mb-20">
     <Filters :products="products" />
-    <Products :products="products"/>
+    <Products :products="products" />
   </div>
 </template>
 <script lang="ts">
@@ -17,8 +17,8 @@ export default Vue.extend({
   },
   async asyncData({ params, $http }: any) {
     const category_slug = params.category
-    const category = await $http.$get(`http://localhost:8080/categories` + category_slug)
-    const products = category.products
+    console.log(category_slug)
+    const products = await $http.$get(`http://localhost:8080/products?category_slug=` + category_slug)
     return { products }
   }
 })

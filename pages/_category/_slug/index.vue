@@ -39,7 +39,9 @@ export default Vue.extend({
     }
   },
   async asyncData({ params, $http }: any) {
-    const product = await $http.$get(`https://shopia-backend.herokuapp.com/api/v1/products/${params.category}/${params.slug}`)
+    const product_slug = params.slug
+    const _product = await $http.$get(`http://localhost:8080/products?slug=${product_slug}`)
+    const product = _product[0]
     return { product }
   }
 })
