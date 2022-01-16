@@ -3,13 +3,12 @@
 		<label :for="name" class="capitalize block text-lg font-medium">{{title}}</label>
 		<input
 			@input="$emit('valueChange', value)"
-			type="text" 
+			type="email" 
 			:id="name" 
 			:name="name"
-			:placeholder="placeholder"
+			:placeholder="placeholder" 
 			:required="!!isRequired"
-			v-model="value"
-		/>
+			/>
 	</div>
 </template>
 
@@ -17,7 +16,7 @@
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
 @Component
-export default class TextField extends Vue {
+export default class EmailField extends Vue {
 
 	@Prop({ required: true }) readonly name!: string
 	@Prop({ required: true }) readonly title!: string
