@@ -8,6 +8,7 @@
 			:name="name"
 			:placeholder="placeholder"
 			:required="!!isRequired"
+			v-model="value"
 			/>
 	</div>
 </template>

@@ -1,10 +1,10 @@
 <template>
 	<div class="flex min-h-screen bg-white flex-wrap">
 		<img 
-			class="hidden md:block w-full md:w-1/2 object-cover" 
+			class="hidden md:block w-full md:w-2/6 lg:w-1/2 object-cover" 
 			:src="'/shiopa-bag_1000px.png'"
 			/>
-		<div class="w-full md:w-1/2 flex flex-col">
+		<div class="w-full md:w-4/6 lg:w-1/2 flex flex-col">
 			<h2 class="text-base font-thin text-gray-600 text-center mt-10">
 				<nuxt-link to="/">
 					<span class="px-2 hover:text-gray-900">Home</span>
@@ -30,13 +30,14 @@
 							@valueChange="(val) => password = val"
 							title="Password"
 							name="password"
-							placeholder="examplepassword" 
+							placeholder=""
 							:isRequired="true" />
 					</div>
 					<div class="flex justify-between"><label class="block text-gray-500 font-bold my-4"><input type="checkbox" class="leading-loose text-pink-600"> <span class="py-2 text-sm text-gray-600 leading-snug">Remember Me</span></label> <label class="block text-gray-500 font-bold my-4"><a href="#"
 						class="cursor-pointer tracking-tighter text-black border-b-2 border-gray-200 hover:border-gray-400"><span>Forgot Password?</span></a></label>
 					</div> 
-					<input 
+					<input
+						@click="login"
 						type="submit" 
 						value="Log In" 
 						class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 cursor-pointer">
@@ -55,20 +56,24 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 // components
 import EmailField from '@/components/storefront/fields/EmailField.vue'
+import PasswordField from '@/components/storefront/fields/PasswordField.vue'
 
 @Component({
 	components: {
-		EmailField
+		EmailField,
+		PasswordField
 	}
 })
 export default class Register extends Vue {
 
-	public email: string = 'customer1@example.com'
-    public password: string = '123456'
+	public email: string = ''
+    public password: string = ''
 
-    public user: Object = {
-        email: this.email,
-        password: this.password,
+    get user(): Object {
+        return {
+            email: this.email,
+            password: this.password
+        }
     }
 
 	public async login(): Promise<any> {
