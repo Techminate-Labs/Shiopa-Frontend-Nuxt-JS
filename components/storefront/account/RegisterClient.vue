@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Log In" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
+                    <input @click="register" type="submit" value="Log In" class="bg-black cursor-pointer text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
                 </form>
                 <div class="text-center pt-8 pb-12">
                     <p>Are you have already account? <nuxt-link to="/account" class="underline font-semibold">Login here.</nuxt-link></p>
@@ -71,5 +71,32 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
-export default class Register extends Vue {}
+export default class RegisterClient extends Vue {
+
+    public email: string = 'johndoe@example.com'
+    public password: string = '123456789'
+
+    public user: any = new URLSearchParams({
+        'email': this.email,
+        'password': this.password,
+    })
+
+    public async register(): Promise<any> {
+        const registerUser = await fetch('http://localhost:8000/api/loginCustomer', {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            // credentials: 'include', // include, *same-origin, omit
+            headers: {
+                'Accept': 'application/x-www-form-urlencoded',
+                'Content-Type': 'x-www-form-urlencoded'
+            },
+            // redirect: 'follow', // manual, *follow, error
+            // referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: this.user.toString() // body data type must match "Content-Type" header
+        })
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }
+}
 </script>
