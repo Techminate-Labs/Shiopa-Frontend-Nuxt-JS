@@ -84,8 +84,8 @@ export default class RegisterClient extends Vue {
     public async register(): Promise<any> {
         const registerUser = await fetch('http://localhost:8000/api/loginCustomer', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            // mode: 'cors', // no-cors, *cors, same-origin
+            // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
             // credentials: 'include', // include, *same-origin, omit
             headers: {
                 'Accept': 'application/x-www-form-urlencoded',
