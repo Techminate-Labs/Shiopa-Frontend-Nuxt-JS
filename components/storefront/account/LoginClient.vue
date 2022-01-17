@@ -85,9 +85,12 @@ export default class Register extends Vue {
             },
             body: JSON.stringify(this.user) // body data type must match "Content-Type" header
         })
-            .then(res => console.log(res))
+            .then(res => res.json())
             .catch(err => console.log(err))
-    }
+		
+		
+		this.$store.dispatch('setBearerToken', loginUser.token)
+	}
 
 }
 </script>

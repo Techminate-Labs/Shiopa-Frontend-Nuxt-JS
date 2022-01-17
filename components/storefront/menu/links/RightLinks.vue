@@ -29,9 +29,6 @@ export default Vue.extend({
 		CartMenuIcon, 
 		SearchMenuIcon, 
 		MobileMenuIcon 
-	},
-	mounted() {
-		this.$store.commit('initialiseStore')
 	}
 })
 </script>

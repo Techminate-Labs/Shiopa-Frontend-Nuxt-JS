@@ -1,8 +1,21 @@
 <template>
-	<div class="sticky top-0 z-40 bg-gray-100 shadow-md">
+	<div class="sticky top-0 z-30 bg-gray-100 shadow-md">
 		<div class="container mx-auto py-4 flex flex-row justify-between">
 			<LeftLinks />
 			<Logo />
+			<ul v-if="!$store.getters.isAuthenticated" class="mb-4 ml-2">
+				<li>
+					<NuxtLink :to="{ name: 'login' }">Log in</NuxtLink>
+				</li>
+				<li>
+					<NuxtLink :to="{ name: 'register' }">Register</NuxtLink>
+				</li>
+			</ul>
+			<ul v-else class="mb-4 ml-2">
+				<li>
+					<NuxtLink :to="{ name: 'account' }">My Account</NuxtLink>
+				</li>
+			</ul>
 			<RightLinks 
 				@showMobileMenu="$emit('showMobileMenu')"
 				@showCart="$emit('showCart')" 

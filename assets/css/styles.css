@@ -1,12 +1,12 @@
 @layer base {
   h1 {
-    @apply text-6xl font-extrabold mb-2 text-gray-600 tracking-wider;
+    @apply text-4xl font-extrabold mb-2 text-gray-900 tracking-wider;
   }
   h2 {
-    @apply text-4xl font-bold text-gray-900 mb-2;
+    @apply text-2xl font-bold text-gray-800 mb-2;
   }
   h3 {
-    @apply text-lg text-gray-900 font-medium;
+    @apply text-lg text-gray-800 font-medium;
   }
   h6 {
     @apply text-base text-yellow-600;

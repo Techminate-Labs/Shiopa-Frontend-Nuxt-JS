@@ -1,9 +1,11 @@
 <template>
-	<div class="mt-16 mb-20">
-		Account
+	<div class="container my-12">
+		<h1>My Account</h1>
 	</div>
 </template>
 
 <script lang="ts">
-export default {}
+import Vue from 'vue'
+
+export default Vue.extend({})
 </script>
