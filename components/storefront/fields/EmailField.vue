@@ -3,10 +3,10 @@
 		<label :for="name" class="capitalize block text-lg font-medium">{{title}}</label>
 		<input
 			@input="$emit('valueChange', value)"
-			type="password" 
+			type="email" 
 			:id="name" 
 			:name="name"
-			:placeholder="placeholder"
+			:placeholder="placeholder" 
 			:required="!!isRequired"
 			v-model="value"
 			/>
@@ -17,7 +17,7 @@
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
 @Component
-export default class PasswordField extends Vue {
+export default class EmailField extends Vue {
 
 	@Prop({ required: true }) readonly name!: string
 	@Prop({ required: true }) readonly title!: string

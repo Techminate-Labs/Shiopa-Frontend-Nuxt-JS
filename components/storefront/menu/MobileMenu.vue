@@ -1,8 +1,21 @@
 <template>
-  <div class="relative z-40">
+  <div class="relative z-50">
     <nav class="h-screen fixed w-10/12 left-0 md:right-0 -translate-x-full bg-gray-100 p-10 overflow-hidden" aria-label="Mobile navigation">
       <h2 class="block text-5xl font-extrabold">Menu</h2>
       <div class="flex flex-col mt-8 overflow-y-auto">
+        <ul v-if="!$store.getters.isAuthenticated" class="mb-4 ml-2">
+          <li  class="menu-link" @click="closeMobileMenu">
+            <NuxtLink :to="{ name: 'login' }">Log in</NuxtLink>
+          </li>
+          <li class="menu-link" @click="closeMobileMenu">
+            <NuxtLink :to="{ name: 'register' }">Register</NuxtLink>
+          </li>
+        </ul>
+        <ul v-else class="mb-4 ml-2">
+          <li class="menu-link" @click="closeMobileMenu">
+            <NuxtLink :to="{ name: 'account' }">My Account</NuxtLink>
+          </li>
+        </ul>
         <ul class="mb-4 ml-2">
           <li class="menu-link" @click="closeMobileMenu">
             <NuxtLink to="/">Home</NuxtLink>

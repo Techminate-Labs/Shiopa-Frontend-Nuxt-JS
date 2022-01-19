@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-screen fixed w-10/12 md:w-1/2 lg:w-1/4 right-0 top-0 md:right-0 -translate-x-full bg-gray-100 z-40 p-4 overflow-y-auto overflow-x-hidden">
+  <div class="flex flex-col h-screen fixed w-10/12 md:w-1/2 lg:w-1/4 right-0 top-0 md:right-0 -translate-x-full bg-gray-100 z-50 p-4 overflow-y-auto overflow-x-hidden">
     <div class="mb-10">
       <div class="flex p-2" v-for="(item, index) in cart.items" :key="index">
         <div class="m-1">
@@ -70,7 +70,7 @@ export default class Cart extends Vue {
   }
 
   mounted() {
-    this.cart = this.$store.state.cart
+    this.cart = this.$accessor.cart.cart
   }
 
   public deleteItem(item: CartItem): void {
@@ -81,7 +81,8 @@ export default class Cart extends Vue {
       img: item.img,
       quantity: item.quantity
     }
-    this.$store.dispatch('removeFromCart', this.localData)
+    
+    this.$accessor.cart.removeFromCart(this.localData)
   }
 
 }

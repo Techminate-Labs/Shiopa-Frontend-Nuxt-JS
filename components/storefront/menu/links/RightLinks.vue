@@ -10,7 +10,7 @@
 			<NuxtLink to="/shop">Pages</NuxtLink>
 		</li>
 		<!-- <CartMenuIcon :cartLength="cartTotalLength" /> -->
-		<CartMenuIcon @showCart="$emit('showCart')" :cartLength="$store.getters.cartTotalLength" />
+		<CartMenuIcon @showCart="$emit('showCart')" :cartLength="$accessor.cart.cartTotalLength" />
 		<SearchMenuIcon />
 		<MobileMenuIcon @showMobileMenu="$emit('showMobileMenu')" />
 	</ul>
@@ -29,9 +29,6 @@ export default Vue.extend({
 		CartMenuIcon, 
 		SearchMenuIcon, 
 		MobileMenuIcon 
-	},
-	mounted() {
-		this.$store.commit('initialiseStore')
 	}
 })
 </script>
