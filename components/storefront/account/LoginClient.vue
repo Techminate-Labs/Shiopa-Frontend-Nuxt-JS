@@ -89,7 +89,10 @@ export default class Register extends Vue {
             .catch(err => console.log(err))
 		
 		
-		this.$store.dispatch('setBearerToken', loginUser.token)
+		this.$accessor.session.setBearerToken(loginUser.token)
+		this.$accessor.session.setUser(loginUser.user)
+
+		this.$router.push('/')
 	}
 
 }

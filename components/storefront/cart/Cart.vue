@@ -70,7 +70,7 @@ export default class Cart extends Vue {
   }
 
   mounted() {
-    this.cart = this.$store.state.cart
+    this.cart = this.$accessor.cart.cart
   }
 
   public deleteItem(item: CartItem): void {
@@ -81,7 +81,8 @@ export default class Cart extends Vue {
       img: item.img,
       quantity: item.quantity
     }
-    this.$store.dispatch('removeFromCart', this.localData)
+    
+    this.$accessor.cart.removeFromCart(this.localData)
   }
 
 }

@@ -42,6 +42,7 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
+import { accessor } from '@/store'
 
 // types
 import { CartItem } from '@/types/cart/Cart'
@@ -69,7 +70,9 @@ export default class Products extends Vue{
 			image: product.image,
 			quantity: quantity
 		}
-		this.$store.state.cartModule.dispatch('addToCart', this.localData)
+
+		this.$accessor.cart.addToCart(this.localData)
+
 	}
 
 }

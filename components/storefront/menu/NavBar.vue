@@ -3,7 +3,7 @@
 		<div class="container mx-auto py-4 flex flex-row justify-between">
 			<LeftLinks />
 			<Logo />
-			<ul v-if="!$store.getters.isAuthenticated" class="mb-4 ml-2">
+			<ul v-if="$accessor.session.user === null" class="mb-4 ml-2">
 				<li>
 					<NuxtLink :to="{ name: 'login' }">Log in</NuxtLink>
 				</li>
@@ -14,6 +14,9 @@
 			<ul v-else class="mb-4 ml-2">
 				<li>
 					<NuxtLink :to="{ name: 'account' }">My Account</NuxtLink>
+				</li>
+				<li>
+					<button @click="logOut">Log out</button>
 				</li>
 			</ul>
 			<RightLinks 
@@ -77,6 +80,20 @@ export default class NavBar extends Vue {
 	}
 	closeDropdown(): void {
 		this.isDropdownOpen = false
+	}
+
+	async logOut(): Promise<void> {
+		const logout = await fetch('http://localhost:8000/api/logout', {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${this.$accessor.session.getToken}`
+            }
+        })
+            .then(res => res.json())
+            .catch(err => console.log(err))
+		
+		console.log(logout)
 	}
 
 	@Emit('showCart')

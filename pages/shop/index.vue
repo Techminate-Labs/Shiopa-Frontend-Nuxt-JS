@@ -31,7 +31,8 @@ export default Vue.extend({
   },
   async asyncData({ $http }: any) {
     const sliders = await $http.$get('http://localhost:8080/sliders')
-    return { sliders }
+    const products = await $http.$get('http://localhost:8080/products')
+    return { sliders, products }
   }
 })
 </script>
