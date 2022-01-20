@@ -29,9 +29,9 @@ export default Vue.extend({
     Filters,
     Products
   },
-  async asyncData({ $http }: any) {
-    const sliders = await $http.$get('http://localhost:8080/sliders')
-    const products = await $http.$get('http://localhost:8080/products')
+  async asyncData({ $axios }: any) {
+    const sliders = await $axios.$get('http://localhost:8080/sliders')
+    const products = await $axios.$get('http://localhost:8080/products')
     return { sliders, products }
   }
 })

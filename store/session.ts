@@ -14,7 +14,8 @@ type RootState = ReturnType<typeof state>
 export const getters = {
 	email: (state: RootState) => state.session.email,
 	fullEmail: (state: RootState) => state.session.email,
-	getToken: (state: RootState) => state.session.bearerToken
+	getToken: (state: RootState) => state.session.bearerToken,
+	getUser: (state: RootState) => state.session.user
 }
 
 export const mutations = mutationTree(state, {

@@ -42,7 +42,7 @@ export default class ProductInfo extends Vue {
 			quantity: quantity
 		}
 		
-		this.$store.dispatch('addToCart', item)
+		this.$accessor.cart.addToCart(item)
 	}
 
 }

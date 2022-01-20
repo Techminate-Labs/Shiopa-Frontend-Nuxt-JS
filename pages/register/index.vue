@@ -15,11 +15,6 @@ export default {
 		return {
 			posts: [] as Array<any>
 		}
-	},
-	async asyncData({ $http }: any) {
-        // const posts = await $http.$get('https://api.nuxtjs.dev/posts')
-
-        // return { posts }
 	}
 }
 </script>

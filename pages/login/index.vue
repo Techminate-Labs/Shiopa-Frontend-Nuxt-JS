@@ -10,7 +10,7 @@ export default {
 	layout: 'portal',
 	components: {
 		LoginClient,
-	},
+	}
 
 }
 </script>

@@ -16,7 +16,7 @@
 			<div class="w-full px-8 flex flex-col justify-center">
 				<div class="w-12 h-1 bg-black rounded mt-2 mb-4 self-center"></div>
 				<p class="text-center text-3xl">Login</p>
-				<form class="flex flex-col pt-2 md:pt-4" @submit.prevent>
+				<form class="flex flex-col pt-2 md:pt-4" @submit.prevent="login">
 					<div class="flex flex-col pt-2">
 						<EmailField 
 							@valueChange="(val) => email = val"
@@ -36,11 +36,10 @@
 					<div class="flex justify-between"><label class="block text-gray-500 font-bold my-4"><input type="checkbox" class="leading-loose text-pink-600"> <span class="py-2 text-sm text-gray-600 leading-snug">Remember Me</span></label> <label class="block text-gray-500 font-bold my-4"><a href="#"
 						class="cursor-pointer tracking-tighter text-black border-b-2 border-gray-200 hover:border-gray-400"><span>Forgot Password?</span></a></label>
 					</div> 
-					<input
-						@click="login"
-						type="submit" 
-						value="Log In" 
+					<button
 						class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 cursor-pointer">
+						Log in
+					</button>
 				</form>
 				<div class="text-center pt-8 pb-12 flex flex-nowrap space-x-2">
 					<p>Don't have an account?</p>
@@ -77,19 +76,10 @@ export default class Register extends Vue {
     }
 
 	public async login(): Promise<any> {
-        const loginUser = await fetch('http://localhost:8000/api/loginCustomer', {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.user) // body data type must match "Content-Type" header
-        })
-            .then(res => res.json())
-            .catch(err => console.log(err))
-		
-		
-		this.$accessor.session.setBearerToken(loginUser.token)
+
+		const loginUser = await this.$axios.$post('/api/loginCustomer', this.user)
+
+		this.$axios.setToken(loginUser.token, 'Bearer')
 		this.$accessor.session.setUser(loginUser.user)
 
 		this.$router.push('/')

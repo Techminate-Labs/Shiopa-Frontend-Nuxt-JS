@@ -78,7 +78,7 @@ export default class categoryProducts extends Vue {
 			image: categoryProduct.image,
 			quantity: quantity
 		}
-		this.$store.dispatch('addToCart', this.localData)
+		this.$accessor.cart.addToCart(this.localData)
 	}
 
 }

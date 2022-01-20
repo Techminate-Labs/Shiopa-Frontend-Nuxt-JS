@@ -3,7 +3,7 @@
 		<div class="container mx-auto py-4 flex flex-row justify-between">
 			<LeftLinks />
 			<Logo />
-			<ul v-if="$accessor.session.user === null" class="mb-4 ml-2">
+			<ul v-if="$accessor.session.getUser === null" class="mb-4 ml-2">
 				<li>
 					<NuxtLink :to="{ name: 'login' }">Log in</NuxtLink>
 				</li>
@@ -83,17 +83,13 @@ export default class NavBar extends Vue {
 	}
 
 	async logOut(): Promise<void> {
-		const logout = await fetch('http://localhost:8000/api/logout', {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${this.$accessor.session.getToken}`
-            }
-        })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+		const logout = await this.$axios.$post('http://localhost:8000/api/logout')
+		this.$axios.setHeader('Accept', 'application/json')
 		
-		console.log(logout)
+		if (!logout.error){
+			this.$accessor.session.setUser(null)
+		}
+	
 	}
 
 	@Emit('showCart')

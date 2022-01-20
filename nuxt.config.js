@@ -39,10 +39,12 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    ['@nuxt/http'],
-    // ['nuxt-vuex-localstorage', { mode: 'debug' }]
-  ],
+  modules: ['@nuxtjs/axios'],
+
+  axios: {
+    baseUrl: 'http://localhost:8000',
+    credentials: true
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
