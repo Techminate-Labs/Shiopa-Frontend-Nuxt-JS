@@ -39,16 +39,19 @@ export const mutations = mutationTree(state, {
 
   addToCart(state: RootState, item: CartItem) {
     const cart: any = state.cart
-	if (cart.items.length) {
-		const exists = cart.items.filter((i: { product_id: Number }) => i.product_id === item.product_id)
-		if (exists.length) {
-		  exists[0].quantity = parseInt(exists[0].quantity) + parseInt(item.quantity as any)
-		} else {
-			cart.items.push(item)
-		}
-	}
+    console.log('add to cart in store')
+    if (cart.items.length) {
+      const exists = cart.items.filter((i: { product_id: Number }) => i.product_id === item.product_id)
+      if (exists.length) {
+        exists[0].quantity = parseInt(exists[0].quantity) + parseInt(item.quantity as any)
+      } else {
+        cart.items.push(item)
+      }
+    } else {
+        cart.items.push(item)
+    }
 	
-	localStorage.setItem('cart', JSON.stringify(state.cart))
+	  localStorage.setItem('cart', JSON.stringify(state.cart))
   },
 
   removeFromCart(state: RootState, item: any) {

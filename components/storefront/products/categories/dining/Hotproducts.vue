@@ -108,7 +108,7 @@ public items!: []
 	image: hotProduct.main_image_url,
 	quantity: quantity
 	}
-	this.$store.dispatch('addToCart', this.localData)
+	this.$accessor.cart.addToCart(this.localData)
 }
 
 }

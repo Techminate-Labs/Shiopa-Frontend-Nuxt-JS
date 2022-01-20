@@ -15,9 +15,9 @@ export default Vue.extend({
     Products,
     Filters
   },
-  async asyncData({ params, $http }: any) {
+  async asyncData({ params, $axios }: any) {
     const category_slug = params.category
-    const products = await $http.$get(`http://localhost:8080/products?category_slug=` + category_slug)
+    const products = await $axios.$get(`http://localhost:8080/products?category_slug=` + category_slug)
     return { products }
   }
 })
