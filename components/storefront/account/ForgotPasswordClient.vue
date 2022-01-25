@@ -37,34 +37,28 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 // components
 import EmailField from '@/components/storefront/fields/EmailField.vue'
-import PasswordField from '@/components/storefront/fields/PasswordField.vue'
 
 @Component({
 	components: {
-		EmailField,
-		PasswordField
+		EmailField
 	}
 })
 export default class Register extends Vue {
 
 	public email: string = ''
-    public password: string = ''
-
-    get user(): Object {
-        return {
-            email: this.email,
-            password: this.password
-        }
-    }
 
 	public async login(): Promise<any> {
 
-		const loginUser = await this.$axios.$post('/api/loginCustomer', this.user)
+		try {
+			const loginUser = await this.$axios.$post('/api/forgot-password', { email: this.email })
 
-		this.$axios.setToken(loginUser.token, 'Bearer')
-		this.$accessor.session.setUser(loginUser.user)
+			console.log(loginUser)
+		} catch (err) {
+			console.log(err)
+		}
 
-		this.$router.push('/')
+
+
 	}
 
 }
