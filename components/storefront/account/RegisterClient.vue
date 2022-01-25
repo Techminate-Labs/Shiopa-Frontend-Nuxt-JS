@@ -16,7 +16,7 @@
             <div class="w-full px-8 md:px-12 lg:px-16 flex flex-col justify-center">
                 <div class="w-12 h-1 bg-black rounded mt-2 mb-4 self-center"></div>
                 <p class="text-center text-3xl">Register</p>
-                <form class="flex flex-col pt-3 md:pt-4" @submit.prevent>
+                <form class="flex flex-col pt-3 md:pt-4" @submit.prevent="register">
                     <div class="flex -mx-3">
                         <div class="w-1/2 px-3 mb-5">
                             <TextField 
@@ -64,11 +64,10 @@
                                 :isRequired="true" />
                         </div>
                     </div>
-                    <input 
-                        @click="register" 
-                        type="submit"
-                        value="Sign in" 
-                        class="bg-black cursor-pointer text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
+                    <button
+						class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 cursor-pointer">
+						Register
+                    </button>
                 </form>
                 <div class="text-center pt-8 pb-12 flex flex-nowrap space-x-2">
                     <p>Do you already have an account?</p>
@@ -87,6 +86,9 @@ import TextField from '@/components/storefront/fields/TextField.vue'
 import PasswordField from '@/components/storefront/fields/PasswordField.vue'
 import EmailField from '@/components/storefront/fields/EmailField.vue'
 
+// types
+import { RegisteredUser } from '@/types/auth/Register'
+
 @Component({
     components: {
         TextField,
@@ -102,7 +104,7 @@ export default class RegisterClient extends Vue {
     public password: string = ''
     public password_confirmation: string = ''
 
-    get user(): Object {
+    get user(): RegisteredUser {
         return {
             name: this.first_name + this.last_name,
             email: this.email,
@@ -112,16 +114,21 @@ export default class RegisterClient extends Vue {
     }
 
     public async register(): Promise<any> {
-        const registerUser = await fetch('http://localhost:8000/api/registerCustomer', {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.user) // body data type must match "Content-Type" header
-        })
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+            await this.$axios.$post('/api/registerCustomer', this.user)
+                .then( (res) => {
+                    console.log(res)
+                    this.$axios.$post('/api/loginCustomer', { email: res.user.email, password: this.user.password })
+                        .then( (res) => {
+                            this.$axios.setToken(res.token, 'Bearer')
+                            this.$accessor.session.setUser(res.user)
+                
+                            this.$router.push('/')
+                        })
+                        .catch(err => console.log(err))
+        
+                } )
+                .catch(err => console.log(err))
+
     }
 }
 </script>
