@@ -2,7 +2,7 @@
   <div class="bg-footerclr">
     <div class="container  text-md text-white flex flex-col md:flex-row justify-between">
       <div class="md:mx-10 flex-grow w-full md:w-auto md:flex-grow-0">
-        <h5 class="mt-3 text-xl">TNBC Analytics</h5>
+        <h5 class="mt-3 text-xl">SHIOPA</h5>
         <ul class="mt-3 text-sm">
           <li>
             <a>
