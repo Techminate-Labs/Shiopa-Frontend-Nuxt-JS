@@ -8,7 +8,7 @@
             "name": "Product 1",
             "slug": "product-1",
             "image": "product-1.png",
-            "price": 20.25,
+            "price": 30.25,
             "stock": 5,
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?",
             "additional_info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam?"
@@ -41,7 +41,7 @@
         },
         {
             "id": 4,
-            "category_id": 2,
+            "category_id": 1,
             "category_slug": "hanging-chair",
             "section": "",
             "name": "Product 4",
