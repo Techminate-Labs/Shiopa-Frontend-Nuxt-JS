@@ -1,5 +1,5 @@
 <template>
-   <div class="px-5 py-5">
+   <div id="single-category" class="px-5 py-5">
       <div class="flex">
      <!-----1st part---->
        <div  class="relative lg:w-4/5 mx-auto flex flex-wrap  mr-4">
@@ -29,10 +29,9 @@
     </div>
 </template>
 
-<script >
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator'
 
+@Component
+export default class SingleCategory extends Vue {}
 </script>
-
-<style>
-
-</style>

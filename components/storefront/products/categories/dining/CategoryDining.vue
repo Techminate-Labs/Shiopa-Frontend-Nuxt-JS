@@ -1,5 +1,5 @@
 <template>
-	<div class="py-10">
+	<section id="category-dining" class="py-10">
 		<!-----1st part---->
 		<div class="relative h-full px-5 col flex flex-col flex-grow">
 			<img class="w-full" src="https://template.hasthemes.com/urdan/urdan/assets/images/bg/bg-1.png"/>
@@ -9,44 +9,12 @@
 				<button class="btnclass">Shop now</button>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script lang="ts">
-import { Prop, Component, Vue } from 'nuxt-property-decorator'
-
-interface Cart {
-	diningCategory_id: number | null,
-	name: string | null,
-	slug: string | null,
-	description: string | null,
-	image: string | null,
-	img: string | null
-}
-
-interface diningCategory {
-	description: string,  
-	get_thumbnail: string,
-	id: number,
-	images: [],
-	name: string,
-	image: string,
-	img: string,
-	slug: string
-}
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
-export default class diningCategories extends Vue{
-
-	@Prop({ required: true }) readonly homeCategories!: diningCategory[]
-	public localData: Cart = {
-	diningCategory_id: null,
-	name: null,
-	description: null,
-	image: null,
-	img: null,
-	slug: null,
-	}
-
-}
+export default class CategoryDining extends Vue {}
 </script>

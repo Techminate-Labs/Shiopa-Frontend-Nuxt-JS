@@ -86,11 +86,14 @@ export default class Register extends Vue {
 	public async login(): Promise<any> {
 
 		const loggedInUser = await this.$axios.$post('/api/loginCustomer', this.user)
+			.then(res => {
+				this.$axios.setToken(res.token, 'Bearer')
+				this.$accessor.session.setUser(res.user)
+		
+				this.$router.push('/')
+			})
+			.catch(err => console.log(err))
 
-		this.$axios.setToken(loggedInUser.token, 'Bearer')
-		this.$accessor.session.setUser(loggedInUser.user)
-
-		this.$router.push('/')
 	}
 
 }
