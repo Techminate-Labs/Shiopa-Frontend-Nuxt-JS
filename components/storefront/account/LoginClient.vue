@@ -13,15 +13,15 @@
 				<span class="px-2">Account</span>
 			</h2>
 			<p class="text-2xl font-bold text-gray-800 text-center mt-3">ACCOUNT</p>
-			<div class="w-full px-8 flex flex-col justify-center">
-				<div class="w-12 h-1 bg-black rounded mt-2 mb-4 self-center"></div>
+			<div class="w-full px-8">
+				<div class="w-12 h-1 bg-black rounded mt-2 mb-4 mx-auto"></div>
 				<p class="text-center text-3xl">Login</p>
 				<form class="flex flex-col pt-2 md:pt-4" @submit.prevent="login">
 					<div class="flex flex-col pt-2">
 						<EmailField 
 							@valueChange="(val) => email = val"
-							title="Last name"
-							name="last_name" 
+							title="Email"
+							name="email" 
 							placeholder="email@example.com" 
 							:isRequired="true" />
 					</div>
@@ -33,8 +33,16 @@
 							placeholder=""
 							:isRequired="true" />
 					</div>
-					<div class="flex justify-between"><label class="block text-gray-500 font-bold my-4"><input type="checkbox" class="leading-loose text-pink-600"> <span class="py-2 text-sm text-gray-600 leading-snug">Remember Me</span></label> <label class="block text-gray-500 font-bold my-4"><a href="#"
-						class="cursor-pointer tracking-tighter text-black border-b-2 border-gray-200 hover:border-gray-400"><span>Forgot Password?</span></a></label>
+					<div class="flex justify-between">
+						<label class="block text-gray-500 font-bold my-4">
+							<input type="checkbox" class="leading-loose text-pink-600">
+							<span class="py-2 text-sm text-gray-600 leading-snug">Remember Me</span>
+						</label> 
+						
+						<NuxtLink :to="{ name: 'forgot-password' }"
+							class="cursor-pointer h-full self-center text-black border-b-2 border-gray-200 hover:border-gray-400">
+								<span>Forgot Password?</span>
+						</NuxtLink>
 					</div> 
 					<button
 						class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 cursor-pointer">
@@ -77,12 +85,15 @@ export default class Register extends Vue {
 
 	public async login(): Promise<any> {
 
-		const loginUser = await this.$axios.$post('/api/loginCustomer', this.user)
+		const loggedInUser = await this.$axios.$post('/api/loginCustomer', this.user)
+			.then(res => {
+				this.$axios.setToken(res.token, 'Bearer')
+				this.$accessor.session.setUser(res.user)
+		
+				this.$router.push('/')
+			})
+			.catch(err => console.log(err))
 
-		this.$axios.setToken(loginUser.token, 'Bearer')
-		this.$accessor.session.setUser(loginUser.user)
-
-		this.$router.push('/')
 	}
 
 }

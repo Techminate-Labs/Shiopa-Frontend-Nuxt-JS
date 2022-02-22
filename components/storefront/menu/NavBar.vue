@@ -3,7 +3,7 @@
 		<div class="container mx-auto py-4 flex flex-row justify-between">
 			<LeftLinks />
 			<Logo />
-			<ul v-if="$accessor.session.getUser === null" class="mb-4 ml-2">
+			<ul v-if="$accessor.session.getUser === null" class="mb-4 ml-2 hidden md:block">
 				<li>
 					<NuxtLink :to="{ name: 'login' }">Log in</NuxtLink>
 				</li>
@@ -11,7 +11,7 @@
 					<NuxtLink :to="{ name: 'register' }">Register</NuxtLink>
 				</li>
 			</ul>
-			<ul v-else class="mb-4 ml-2">
+			<ul v-else class="mb-4 ml-2 hidden md:block">
 				<li>
 					<NuxtLink :to="{ name: 'account' }">My Account</NuxtLink>
 				</li>

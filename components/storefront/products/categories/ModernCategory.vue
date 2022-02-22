@@ -1,5 +1,5 @@
 <template>
-   <div class="px-5 py-5">
+   <div id="modern-categories" class="px-5 py-5">
       <div class="flex">
        <!---new part 2--->
         <div class="px-0 py-5">
@@ -45,9 +45,8 @@
 </template>
 
 <script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator'
 
+@Component
+export default class ModernCategory extends Vue {}
 </script>
-
-<style>
-
-</style>

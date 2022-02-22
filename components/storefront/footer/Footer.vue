@@ -6,7 +6,6 @@
         <ul class="mt-3 text-sm">
           <li>
             <a>
-              
               Github
             </a>
           </li>
@@ -33,7 +32,7 @@
           <li><a href="#">About Us</a></li>
           <li><a href="#">Delivery Information</a></li>
           <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
           <li><a href="#">Customer Service</a></li>  
         </ul>
       </div>
