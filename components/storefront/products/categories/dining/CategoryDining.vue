@@ -1,5 +1,5 @@
 <template>
-	<div class="px-5 py-5">
+	<div class="py-10">
 		<!-----1st part---->
 		<div class="relative h-full px-5 col flex flex-col flex-grow">
 			<img class="w-full" src="https://template.hasthemes.com/urdan/urdan/assets/images/bg/bg-1.png"/>
