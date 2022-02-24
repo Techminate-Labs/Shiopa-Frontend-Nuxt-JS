@@ -71,7 +71,7 @@ import PasswordField from '@/components/storefront/fields/PasswordField.vue'
 		PasswordField
 	}
 })
-export default class Register extends Vue {
+export default class LoginClient extends Vue {
 
 	public email: string = ''
     public password: string = ''

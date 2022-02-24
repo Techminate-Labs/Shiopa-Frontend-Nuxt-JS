@@ -43,7 +43,7 @@ import EmailField from '@/components/storefront/fields/EmailField.vue'
 		EmailField
 	}
 })
-export default class Register extends Vue {
+export default class ForgotPasswordClient extends Vue {
 
 	public email: string = ''
 
