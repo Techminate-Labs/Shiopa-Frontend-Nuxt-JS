@@ -3,25 +3,10 @@
 		<div class="container mx-auto py-4 flex flex-row justify-between">
 			<LeftLinks />
 			<Logo />
-			<ul v-if="$accessor.session.getUser === null" class="mb-4 ml-2 hidden md:block">
-				<li>
-					<NuxtLink :to="{ name: 'login' }">Log in</NuxtLink>
-				</li>
-				<li>
-					<NuxtLink :to="{ name: 'register' }">Register</NuxtLink>
-				</li>
-			</ul>
-			<ul v-else class="mb-4 ml-2 hidden md:block">
-				<li>
-					<NuxtLink :to="{ name: 'account' }">My Account</NuxtLink>
-				</li>
-				<li>
-					<button @click="logOut">Log out</button>
-				</li>
-			</ul>
 			<RightLinks 
 				@showMobileMenu="$emit('showMobileMenu')"
-				@showCart="$emit('showCart')" 
+				@showCart="$emit('showCart')"
+				@showUserMenu="$emit('showUserMenu')"
 				@toggleDropdown="toggleDropdown"
 				/>
 		</div>
@@ -80,16 +65,6 @@ export default class NavBar extends Vue {
 	}
 	closeDropdown(): void {
 		this.isDropdownOpen = false
-	}
-
-	async logOut(): Promise<void> {
-		const logout = await this.$axios.$post('http://localhost:8000/api/logout')
-		this.$axios.setHeader('Accept', 'application/json')
-		
-		if (!logout.error){
-			this.$accessor.session.setUser(null)
-		}
-	
 	}
 
 	@Emit('showCart')

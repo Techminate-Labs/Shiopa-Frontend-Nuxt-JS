@@ -75,7 +75,7 @@
 				<CreateAccount />
 			</div>
 			<div class="col-span-12 md:col-start-8 lg:col-start-9 md:col-end-13">
-				<Order :cart="cart" :checkoutButton="'Checkout'" :url="'#'" />
+				<Order :cart="cart" :checkoutButton="'Checkout'" @handleCheckout="completeOrder" />
 			</div>
 		</div>
 		<!-- shipping address -->
@@ -148,6 +148,26 @@ export default class CheckoutSingle extends Vue {
         total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
     }
     return total
+  }
+
+  public async completeOrder(): Promise<void> {
+	  const options = {
+		  payment_type: 'cash',
+		  amount: 1,
+		  discount: 0,
+		  tax: 0,
+		  payment: 1,
+		  note: null,
+		  delivery_date: null,
+		  order_items: this.cart.items.map((item) => { 
+			  return { id: item.product_id, quantity: item.quantity }
+		  })
+	  }
+
+	  console.log(options)
+
+	  await this.$axios.post('/api/orderCreate', options)
+	  	.then(res => console.log(res))
   }
 
 }

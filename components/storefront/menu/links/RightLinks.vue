@@ -11,6 +11,7 @@
 		</li>
 		<!-- <CartMenuIcon :cartLength="cartTotalLength" /> -->
 		<CartMenuIcon @showCart="$emit('showCart')" :cartLength="$accessor.cart.cartTotalLength" />
+		<UserMenuIcon />
 		<SearchMenuIcon />
 		<MobileMenuIcon @showMobileMenu="$emit('showMobileMenu')" />
 	</ul>
@@ -22,13 +23,15 @@ import Vue from 'vue'
 import CartMenuIcon from '~/components/storefront/menu/actions/CartMenuIcon.vue'
 import SearchMenuIcon from '~/components/storefront/menu/actions/SearchMenuIcon.vue'
 import MobileMenuIcon from '~/components/storefront/menu/actions/MobileMenuIcon.vue'
+import UserMenuIcon from '~/components/storefront/menu/actions/UserMenuIcon.vue'
 
 export default Vue.extend({
 	name: 'RightLinks',
 	components: {
 		CartMenuIcon, 
 		SearchMenuIcon, 
-		MobileMenuIcon 
+		MobileMenuIcon,
+		UserMenuIcon
 	}
 })
 </script>

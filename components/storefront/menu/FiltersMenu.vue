@@ -63,8 +63,9 @@
 	</div>
 </template>
 <script lang="ts">
-import { Vue, Prop } from 'nuxt-property-decorator'
+import { Vue, Prop, Component } from 'nuxt-property-decorator'
 
+@Component
 export default class FiltersMenu extends Vue {
 	@Prop({ required: true }) isDropdownOpen: Boolean
 

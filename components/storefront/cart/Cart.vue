@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-screen fixed w-10/12 md:w-1/2 lg:w-1/4 right-0 top-0 md:right-0 -translate-x-full bg-gray-100 z-50 p-4 overflow-y-auto overflow-x-hidden">
+  <div id="cart" class="flex flex-col h-screen fixed w-10/12 sm:6/12 md:w-4/12 lg:w-3/12 right-0 top-0 md:right-0 -translate-x-full bg-gray-100 z-50 p-4 overflow-y-auto overflow-x-hidden">
     <div class="mb-10">
       <div class="flex p-2" v-for="(item, index) in cart.items" :key="index">
         <div class="m-1">
@@ -18,9 +18,7 @@
     </div>
     <div class="absolute top-0 right-0 pt-6 pr-6">
       <div @click="closeCart" class="flex flex-row flex-nowrap justify-end hover:text-red-700 cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        <Delete />
       </div>
     </div>
     <div class="fixed bottom-6 flex flex-wrap mx-3">
@@ -37,6 +35,9 @@
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator'
 
+// components
+import Delete from '@/assets/icons/Delete.vue'
+
 interface CartObject {
   items: CartItem[]
 }
@@ -49,7 +50,9 @@ interface CartItem {
   quantity: number | null
 }
 
-@Component
+@Component({
+  components: { Delete }
+})
 export default class Cart extends Vue {
 
   public cart: CartObject = {
@@ -67,6 +70,7 @@ export default class Cart extends Vue {
   @Emit('closeCart')
   closeCart(): void {
     console.log('closing cart')
+    console.log(this.$accessor.cart.cart.items)
   }
 
   mounted() {
