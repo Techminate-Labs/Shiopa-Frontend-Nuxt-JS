@@ -30,11 +30,9 @@
 			<a v-if="isConnected" class="bg-black font-semibold hover:bg-gray-800 py-3 px-8 text-sm text-white uppercase w-full">
 				Pay and complete the order
 			</a>
-			<NuxtLink v-else :to="url">
-				<a  class="bg-black font-semibold hover:bg-gray-800 py-3 px-8 text-sm text-white uppercase w-full">
-					Proceed to Checkout
-				</a>
-			</NuxtLink>
+			<button @click="$emit('handleCheckout')" class="bg-black font-semibold hover:bg-gray-800 py-3 px-8 text-sm text-white uppercase w-full">
+				{{ checkoutButton }}
+			</button>
 		</div>
 	</div>
 </template>
@@ -67,7 +65,6 @@ export default class Order extends Vue {
 
 	@Prop({ required: true }) readonly cart!: cartObject
 	@Prop({ required: true }) readonly checkoutButton!: string
-	@Prop({ required: true }) readonly url!: string
 
 	public isConnected = false
 

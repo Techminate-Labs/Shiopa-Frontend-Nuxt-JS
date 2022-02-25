@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-white">
+  <div id="cart-table" class="w-full bg-white">
     <div v-if="cart.items.length">
       <div class="flex justify-between border-b pb-8">
         <h1 class="font-semibold text-2xl">Shopping Cart</h1>
@@ -110,10 +110,13 @@ export default class CartTable extends Vue {
 
   get cartTotal(): Number {
 		let total = 0
-		for (let i = 0; i < this.cart.items.length as boolean; i++) {
-			total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
-		}
-		return Number(total.toFixed(2));
+    if (this.cart.items.length){
+      for (let i = 0; i < this.cart.items.length as boolean; i++) {
+        total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
+      }
+      return Number(total.toFixed(2));
+    }
+    return total
 	}
 
   sort(s: string): void {

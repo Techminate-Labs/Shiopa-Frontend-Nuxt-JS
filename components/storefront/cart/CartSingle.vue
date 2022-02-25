@@ -1,11 +1,11 @@
 <template>
-  <div class="container mx-auto my-10">
+  <div id="cart-single" class="container mx-auto my-10">
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-12 md:col-span-6">
         <CartTable :cart="cart" :columns="columns" />
       </div>
       <div class="col-span-12 md:col-start-8 lg:col-start-9 md:col-end-13">
-        <Order :cart="cart" :checkoutButton="'Go to checkout'" :url="'/checkout'"/>
+        <Order :cart="cart" :checkoutButton="'Go to checkout'" @handleCheckout="redirectToCheckout"/>
       </div>
     </div>
   </div>
@@ -73,6 +73,10 @@ export default class CartSingle extends Vue {
       quantity: item.quantity
     }
     this.$store.dispatch('decQTY', this.localData)
+  }
+
+  public redirectToCheckout(): void {
+    this.$router.push({ name: 'checkout' })
   }
 
 }
