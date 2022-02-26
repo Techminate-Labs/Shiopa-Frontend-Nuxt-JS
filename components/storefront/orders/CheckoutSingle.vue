@@ -136,39 +136,59 @@ interface CartItem {
 })
 export default class CheckoutSingle extends Vue {
 
-  @Prop({ required: true }) readonly cart!: cartObject
+	@Prop({ required: true }) readonly cart!: cartObject
 
 	public showLoginForm: boolean = false
 	public showCouponForm: boolean = false
 	public isShippingDifferent: boolean = false
 
-  get cartTotal(): number {
-    let total = 0
-    for (let i = 0; i < this.cart.items.length as boolean; i++) {
-        total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
-    }
-    return total
-  }
+	public paymentType: string = 'c'
+	public amount: number = 12
+	public discount: number = 0
+	public tax: number = 0
+	public payment: number = 12
+	public note: string = 'ok'
+	public deliveryDate: number = 12
+	// public orderItems: array = this.cart.items.map((item) => { 
+	// 	return { item_id: item.product_id, qty: item.quantity }
+	// })
+	public orderItems: object = [{ "item_id":1,"qty":8},{ "item_id":2,"qty":1},{ "item_id":3,"qty":2}]
 
-  public async completeOrder(): Promise<void> {
-	  const options = {
-		  payment_type: 'cash',
-		  amount: 1,
-		  discount: 0,
-		  tax: 0,
-		  payment: 1,
-		  note: null,
-		  delivery_date: null,
-		  order_items: this.cart.items.map((item) => { 
-			  return { id: item.product_id, quantity: item.quantity }
-		  })
-	  }
+	get cartTotal(): number {
+		let total = 0
+		for (let i = 0; i < this.cart.items.length as boolean; i++) {
+			total += parseInt(this.cart.items[i].quantity as any) * parseInt(this.cart.items[i].price as any);
+		}
+		return total
+	}
 
-	  console.log(options)
+	public async completeOrder(): Promise<void> {
 
-	  await this.$axios.post('/api/orderCreate', options)
-	  	.then(res => console.log(res))
-  }
+		// const fd = new FormData()
+		// fd.append('payment_type', this.paymentType)
+		// fd.append('amount', this.amount.toString())
+		// fd.append('discount', this.discount.toString())
+		// fd.append('tax', this.tax.toString())
+		// fd.append('payment', this.payment.toString())
+		// fd.append('note', this.note)
+		// fd.append('delivery_date', this.deliveryDate.toString())
+		// fd.append('order_items', this.orderItems as any)
 
+		const data = {
+			payment_type: this.paymentType,
+			amount: this.amount,
+			discount: this.discount,
+			tax: this.tax,
+			payment: this.payment,
+			note: this.note,
+			delivery_date: this.deliveryDate,
+			order_items: this.orderItems
+		}
+
+		console.log(this.orderItems)
+
+		await this.$axios.$post('/api/orderCreate', data.toString())
+			.then(res => console.log(res))
+	}
 }
 </script>

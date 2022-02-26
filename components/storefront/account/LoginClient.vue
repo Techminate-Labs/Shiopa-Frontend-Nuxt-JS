@@ -89,6 +89,8 @@ export default class LoginClient extends Vue {
 			.then(res => {
 				this.$axios.setToken(res.token, 'Bearer')
 				this.$accessor.session.setUser(res.user)
+				this.$accessor.session.setBearerToken(res.token)
+				console.log(this.$axios)
 		
 				this.$router.push('/')
 			})

@@ -29,17 +29,16 @@ export const getters = {
 }
 
 export const mutations = mutationTree(state, {
-  initialiseStore(state: RootState) {
-    if (localStorage.getItem('cart')) {
-      state.cart = JSON.parse(localStorage.getItem('cart') as string)
-    } else if (!localStorage.getItem('cart')) {
-      localStorage.setItem('cart', JSON.stringify(state.cart) as string)
-    }
-  },
+  // initialiseStore(state: RootState) {
+  //   if (localStorage.getItem('cart')) {
+  //     state.cart = JSON.parse(localStorage.getItem('cart') as string)
+  //   } else if (!localStorage.getItem('cart')) {
+  //     localStorage.setItem('cart', JSON.stringify(state.cart) as string)
+  //   }
+  // },
 
   addToCart(state: RootState, item: CartItem) {
     const cart: any = state.cart
-    console.log('add to cart in store')
     if (cart.items.length) {
       const exists = cart.items.filter((i: { product_id: Number }) => i.product_id === item.product_id)
       if (exists.length) {
@@ -51,20 +50,20 @@ export const mutations = mutationTree(state, {
         cart.items.push(item)
     }
 	
-	  localStorage.setItem('cart', JSON.stringify(state.cart))
+	  // localStorage.setItem('cart', JSON.stringify(state.cart))
   },
 
   removeFromCart(state: RootState, item: any) {
     const cart: Cart = state.cart
     cart.items = state.cart.items.filter((_item) => _item.product_id !== item.product_id)
-    localStorage.setItem('cart', JSON.stringify(cart))
+    // localStorage.setItem('cart', JSON.stringify(cart))
   },
 
   incQTY(state: RootState, item: CartItem) {
     const cart: Cart = state.cart
     const product: any = cart.items.filter((_item) => _item.product_id === item.product_id)
     product[0].quantity = product[0].quantity + 1;
-    localStorage.setItem('cart', JSON.stringify(cart))
+    // localStorage.setItem('cart', JSON.stringify(cart))
   },
 
   decQTY(state: RootState, item: CartItem) {
@@ -73,7 +72,7 @@ export const mutations = mutationTree(state, {
     if (product.length && product[0].quantity > 0) {
       product[0].quantity = product[0].quantity - 1;
     }
-    localStorage.setItem('cart', JSON.stringify(cart))
+    // localStorage.setItem('cart', JSON.stringify(cart))
   },
 
 })
