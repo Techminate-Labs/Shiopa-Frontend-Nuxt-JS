@@ -2,11 +2,11 @@ import { getAccessorType, mutationTree, actionTree } from 'typed-vuex'
 import { Context } from '@nuxt/types'
 
 export const state = () => ({
-  session: {
-	  	bearerToken: null as String | null,
-		email: null as String | null,
-		user: null as Object | null
-  }
+	session: {
+			bearerToken: null as String | null,
+			email: null as String | null,
+			user: null as Object | null
+	}
 })
 
 type RootState = ReturnType<typeof state>

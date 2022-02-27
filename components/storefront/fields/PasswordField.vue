@@ -1,6 +1,7 @@
 <template>
-	<div>
-		<label :for="name" class="capitalize block text-lg font-medium">{{title}}</label>
+	<label :for="name" class="block text-lg font-medium">
+		<span class="capitalize">{{title}}</span>
+		<span v-show="isRequired" class="float-right text-red-400 text-xs">(required) *</span>
 		<input
 			@input="$emit('valueChange', value)"
 			type="password" 
@@ -10,7 +11,7 @@
 			:required="!!isRequired"
 			v-model="value"
 			/>
-	</div>
+	</label>
 </template>
 
 <script lang="ts">

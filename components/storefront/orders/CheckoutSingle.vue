@@ -69,36 +69,32 @@
 				</section>
 			</div>
 		</div>
-		<div class="grid grid-cols-12 my-0">
+		<form class="grid grid-cols-12 my-0" @submit.prevent="submitForm">
 			<div class="col-span-12 md:col-span-6">
-				<CheckoutFields />
-				<CreateAccount />
+				<h2>Billing information</h2>
+				<CheckoutFields :fields="billingFields" />
+				<CreateAccount v-show="!$accessor.session.getUser" />
 			</div>
 			<div class="col-span-12 md:col-start-8 lg:col-start-9 md:col-end-13">
-				<Order :cart="cart" :checkoutButton="'Checkout'" @handleCheckout="completeOrder" />
+				<Order :cart="cart" :checkoutButton="'Checkout'" />
 			</div>
-		</div>
-		<!-- shipping address -->
-		<div class="flex flex-col flex-nowrap md:grid grid-cols-12 my-0">
-			<form action="#" method="POST" class="col-span-5">
-				<div class="overflow-hidden sm:rounded-md">
-					<h2 class="uppercase text-2xl my-2">Shipping address</h2>
-					<label @click="isShippingDifferent = !isShippingDifferent" class="inline-flex items-center">
-						<input type="checkbox" class="form-checkbox" :checked="!!isShippingDifferent">
-						<span @click="isShippingDifferent = !isShippingDifferent" class="ml-2 cursor-pointer hover:text-gray-800">Ship to a different address?</span>
-					</label>
-					<div v-if="isShippingDifferent" class="w-3/5">
-						<CheckoutFields />
-					</div>
+			<div class="col-span-12">
+				<h2 class="uppercase text-2xl my-2">Shipping address</h2>
+				<label @click="isShippingDifferent = !isShippingDifferent">
+					<input type="checkbox" class="form-checkbox" :checked="!!isShippingDifferent">
+					<span @click="isShippingDifferent = !isShippingDifferent" class="ml-2 cursor-pointer hover:text-gray-800">Ship to a different address?</span>
+				</label>
+				<div v-if="isShippingDifferent" class="w-3/5">
+					<CheckoutFields :fields="shippingFields" />
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
+		<!-- shipping address -->
 		<!-- shipping address -->
 		<!-- text area -->
 		<label class="block py-2">
 			<span class="text-black">Order notes (optional)</span>
 			<textarea 
-				class="form-textarea mt-2 block border-1 border border-gray-900 w-full" 
 				rows="4" 
 				placeholder="Notes about your order or special notes for delivery.">
 			</textarea>
@@ -109,10 +105,16 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
+
+// components
 import Order from '@/components/storefront/orders/Order.vue'
 import CheckoutFields from '@/components/storefront/orders/CheckoutFields.vue'
 import PasswordField from '@/components/storefront/fields/PasswordField.vue'
-import CreateAccount from '~/components/storefront/account/CreateAccount.vue'
+import CreateAccount from '@/components/storefront/account/CreateAccount.vue'
+
+// types
+import TCheckoutFields from '@/types/order/CheckoutFields'
+import { TOrder } from '@/types/order/Order'
 
 interface cartObject {
   items: CartItem[]
@@ -142,17 +144,45 @@ export default class CheckoutSingle extends Vue {
 	public showCouponForm: boolean = false
 	public isShippingDifferent: boolean = false
 
-	public paymentType: string = 'c'
-	public amount: number = 12
-	public discount: number = 0
-	public tax: number = 0
-	public payment: number = 12
-	public note: string = 'ok'
-	public deliveryDate: number = 12
-	// public orderItems: array = this.cart.items.map((item) => { 
-	// 	return { item_id: item.product_id, qty: item.quantity }
-	// })
-	public orderItems: object = [{"item_id":1,"qty":1},{"item_id":2,"qty":1}]
+	public billingFields: TCheckoutFields = {
+		firstName: 'John',
+		lastName: 'Doe',
+		companyName: 'ACME Inc.',
+		streetAddress: '1001 Sunshine Street',
+		optionalInfo: '',
+		city: 'Los Angeles',
+		state: 'CAL',
+		country: 'US',
+		zipCode: 451871,
+		email: 'test@example.com',
+		phone: '+33 6 77 02 66 69'
+	}
+	
+	public shippingFields: TCheckoutFields = {
+		firstName: 'John',
+		lastName: 'Doe',
+		companyName: 'ACME Inc.',
+		streetAddress: '1001 Sunshine Street',
+		optionalInfo: '',
+		city: 'Los Angeles',
+		state: 'CAL',
+		country: 'US',
+		zipCode: 451871,
+		email: 'test@example.com',
+		phone: '+33 6 77 02 66 69'
+	}
+
+	orderData: TOrder = {
+		paymentType: 'cash',
+		amount: 0,
+		discount: 0,
+		tax: 0,
+		payment: 0,
+		note: '',
+		deliveryDate: 0,
+		orderItems: []
+	}
+	// public orderItems: object = [{"item_id":1,"qty":1},{"item_id":2,"qty":1}]
 
 	get cartTotal(): number {
 		let total = 0
@@ -162,33 +192,30 @@ export default class CheckoutSingle extends Vue {
 		return total
 	}
 
-	public async completeOrder(): Promise<void> {
+	public async submitForm(): Promise<void>{
+	
+		// non hardcoded
+		// let orderItems = this.$accessor.cart.cart.items.map((item: any) => { 
+		// 	return { item_id: item.product_id, qty: item.quantity }
+		// })
 
-		// const fd = new FormData()
-		// fd.append('payment_type', this.paymentType)
-		// fd.append('amount', this.amount.toString())
-		// fd.append('discount', this.discount.toString())
-		// fd.append('tax', this.tax.toString())
-		// fd.append('payment', this.payment.toString())
-		// fd.append('note', this.note)
-		// fd.append('delivery_date', this.deliveryDate.toString())
-		// fd.append('order_items', this.orderItems as any)
+		// hardcoded
+		let orderItems = [{"item_id":1,"qty":1},{"item_id":2,"qty":1}]
 
-		const data = {
-			payment_type: this.paymentType,
-			amount: this.amount,
-			discount: this.discount,
-			tax: this.tax,
-			payment: this.payment,
-			note: this.note,
-			delivery_date: this.deliveryDate,
-			order_items: JSON.stringify(this.orderItems)
+		this.orderData = {
+			paymentType: 'cash',
+			amount: this.$accessor.cart.cartTotal,
+			discount: 0,
+			tax: 0,
+			payment: this.$accessor.cart.cartTotal - 0 + 0,
+			note: '',
+			deliveryDate: 12,
+			orderItems: JSON.stringify(orderItems) as any
 		}
 
-		console.log(data)
-
-		await this.$axios.$post('/api/orderCreate', data)
+		await this.$axios.$post('/api/orderCreate', this.orderData)
 			.then(res => console.log(res))
 	}
+
 }
 </script>

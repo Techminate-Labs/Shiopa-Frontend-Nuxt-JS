@@ -18,12 +18,23 @@ export const getters = {
   cartTotalLength(state: RootState): Number {
     let totalLength = 0
     if (state.cart.items){
-      for (let i = 0; i < state.cart.items.length as Boolean; i++) {
+      for (let i = 0; i < state.cart.items.length as boolean; i++) {
         totalLength += parseInt(state.cart.items[i].quantity as any)
       }
       return totalLength
     } else {
       return totalLength
+    }
+  },
+  cartTotal(state: RootState): number {
+    let total = 0
+    if (state.cart.items){
+      for (let i = 0; i < state.cart.items.length as boolean; i++) {
+        total += parseInt(state.cart.items[i].price as any)
+      }
+      return total
+    } else {
+      return total
     }
   }
 }
