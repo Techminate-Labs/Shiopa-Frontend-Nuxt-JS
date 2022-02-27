@@ -152,7 +152,7 @@ export default class CheckoutSingle extends Vue {
 	// public orderItems: array = this.cart.items.map((item) => { 
 	// 	return { item_id: item.product_id, qty: item.quantity }
 	// })
-	public orderItems: object = [{ "item_id":1,"qty":8},{ "item_id":2,"qty":1},{ "item_id":3,"qty":2}]
+	public orderItems: object = [{"item_id":1,"qty":1},{"item_id":2,"qty":1}]
 
 	get cartTotal(): number {
 		let total = 0
@@ -182,12 +182,12 @@ export default class CheckoutSingle extends Vue {
 			payment: this.payment,
 			note: this.note,
 			delivery_date: this.deliveryDate,
-			order_items: this.orderItems
+			order_items: JSON.stringify(this.orderItems)
 		}
 
-		console.log(this.orderItems)
+		console.log(data)
 
-		await this.$axios.$post('/api/orderCreate', data.toString())
+		await this.$axios.$post('/api/orderCreate', data)
 			.then(res => console.log(res))
 	}
 }
