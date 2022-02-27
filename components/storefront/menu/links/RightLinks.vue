@@ -11,7 +11,7 @@
 		</li>
 		<!-- <CartMenuIcon :cartLength="cartTotalLength" /> -->
 		<CartMenuIcon @showCart="$emit('showCart')" :cartLength="$accessor.cart.cartTotalLength" />
-		<UserMenuIcon />
+		<UserMenuIcon class="hidden md:block" />
 		<SearchMenuIcon />
 		<MobileMenuIcon @showMobileMenu="$emit('showMobileMenu')" />
 	</ul>

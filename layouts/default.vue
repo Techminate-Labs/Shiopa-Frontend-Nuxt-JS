@@ -1,28 +1,28 @@
 <template>
-<div >
-	<transition name="left">
-	<MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
-	</transition>
-	<transition name="opacity">
-	<div v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" @click="showMobileMenu = false" class="cursor-pointer bg-gray-900 w-full h-screen opacity-90 fixed z-40"></div>
-	</transition>
-	<NavBar
-	@showMobileMenu="showMobileMenu = true"
-	@showCart="showCart = !showCart"
-	/>
-	<UserMenu />
 	<div>
-	<transition name="right">
-		<Cart v-show="showCart" @closeCart="showCart = false" />
-	</transition>
-	<transition name="opacity">
-		<div v-show="showCart" @closeCart="showCart = false" @click="showCart = false" class="cursor-pointer bg-gray-900 top-0 w-full h-screen opacity-90 fixed z-40"></div>
-	</transition>
+		<transition name="left">
+			<MobileMenu v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" :categories="categories" />
+		</transition>
+		<transition name="opacity">
+			<div v-show="showMobileMenu" @closeMobileMenu="showMobileMenu = false" @click="showMobileMenu = false" class="cursor-pointer bg-gray-900 w-full h-screen opacity-90 fixed z-40"></div>
+		</transition>
+		<NavBar
+			@showMobileMenu="showMobileMenu = true"
+			@showCart="showCart = !showCart"
+		/>
+		<UserMenu />
+		<div>
+			<transition name="right">
+				<Cart v-show="showCart" @closeCart="showCart = false" />
+			</transition>
+			<transition name="opacity">
+				<div v-show="showCart" @closeCart="showCart = false" @click="showCart = false" class="cursor-pointer bg-gray-900 top-0 w-full h-screen opacity-90 fixed z-40"></div>
+			</transition>
+		</div>
+		<Nuxt />
+		
+		<Footer :categories="categories" />
 	</div>
-	<Nuxt />
-	
-	<Footer :categories="categories" />
-</div>
 </template>
 
 <script lang="ts">

@@ -1,6 +1,6 @@
 <template>
-	<div class="container mx-auto py-4 flex flex-row justify-between" :class="isUserMenuOpen ? 'block' : 'hidden'">
-		<nav>
+	<div class="bg-white fixed z-20 mx-auto py-4 shadow-sm w-full hidden" :class="isUserMenuOpen ? 'md:block' : ''">
+		<nav class="container flex flex-row justify-between">
 			<ul class="ml-2 hidden md:block">
 				<li v-show="$accessor.session.getUser === null" class="inline-block hover:text-yellow-600">
 					<NuxtLink :to="{ name: 'login' }">Log in</NuxtLink>
@@ -15,10 +15,10 @@
 					<button @click="logOut">Log out</button>
 				</li>
 			</ul>
+			<button @click="closeUserMenu">
+				<Delete class="hover:text-red-600" />
+			</button>
 		</nav>
-		<button @click="closeUserMenu">
-			<Delete class="hover:text-red-600" />
-		</button>
 	</div>
 </template>
 

@@ -10,8 +10,6 @@
 				@toggleDropdown="toggleDropdown"
 				/>
 		</div>
-		<!-- <FiltersMenu 
-			v-show="open" /> -->
 		<DropdownMenu
 			v-show="isDropdownOpen" 
 			@click="closeDropdown" />
