@@ -4,9 +4,9 @@
       <div class="col-span-12 md:col-span-6">
         <CartTable :cart="cart" :columns="columns" />
       </div>
-      <div class="col-span-12 md:col-start-8 lg:col-start-9 md:col-end-13">
-        <Order :cart="cart" :checkoutButton="'Go to checkout'" @handleCheckout="redirectToCheckout"/>
-      </div>
+      <form @submit.prevent="redirectToCheckout" class="col-span-12 md:col-start-8 lg:col-start-9 md:col-end-13">
+        <Order :cart="cart" :checkoutButton="'Go to checkout'" />
+      </form>
     </div>
   </div>
 </template>
