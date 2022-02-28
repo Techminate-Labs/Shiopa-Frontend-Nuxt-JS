@@ -173,14 +173,14 @@ export default class CheckoutSingle extends Vue {
 	}
 
 	orderData: TOrder = {
-		paymentType: 'cash',
+		payment_type: 'cash',
 		amount: 0,
 		discount: 0,
 		tax: 0,
 		payment: 0,
 		note: '',
-		deliveryDate: 0,
-		orderItems: []
+		delivery_date: 0,
+		order_items: []
 	}
 	// public orderItems: object = [{"item_id":1,"qty":1},{"item_id":2,"qty":1}]
 
@@ -195,22 +195,22 @@ export default class CheckoutSingle extends Vue {
 	public async submitForm(): Promise<void>{
 	
 		// non hardcoded
-		// let orderItems = this.$accessor.cart.cart.items.map((item: any) => { 
-		// 	return { item_id: item.product_id, qty: item.quantity }
-		// })
+		let orderItems = this.$accessor.cart.cart.items.map((item: any) => { 
+			return { item_id: item.product_id, qty: item.quantity }
+		})
 
 		// hardcoded
-		let orderItems = [{"item_id":1,"qty":1},{"item_id":2,"qty":1}]
+		// let orderItems = [{"item_id":1,"qty":1},{"item_id":2,"qty":1}]
 
 		this.orderData = {
-			paymentType: 'cash',
+			payment_type: 'cash',
 			amount: this.$accessor.cart.cartTotal,
 			discount: 0,
 			tax: 0,
 			payment: this.$accessor.cart.cartTotal - 0 + 0,
 			note: '',
-			deliveryDate: 12,
-			orderItems: JSON.stringify(orderItems) as any
+			delivery_date: 12,
+			order_items: JSON.stringify(orderItems) as any
 		}
 
 		await this.$axios.$post('/api/orderCreate', this.orderData)
