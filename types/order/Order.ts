@@ -1,12 +1,12 @@
 export interface TOrder {
-	paymentType: string,
+	payment_type: string,
 	amount: number,
 	discount: number | null,
 	tax: number,
 	payment: number,
 	note: string,
-	deliveryDate: number,
-	orderItems: Array<OrderItems>
+	delivery_date: number,
+	order_items: Array<OrderItems>
 }
 
 interface OrderItems {
