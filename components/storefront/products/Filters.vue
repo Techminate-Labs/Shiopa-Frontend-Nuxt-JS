@@ -155,10 +155,10 @@ export default Vue.extend({
 			categories: [] as Array<Object>
 		}
 	},
-	async fetch() {
-		this.categories = await fetch('http://localhost:8080/categories')
-			.then(res => res.json() as any)
-			.catch(err => console.log(err))
-	}
+	// async fetch() {
+	// 	this.categories = await fetch('http://localhost:8080/categories')
+	// 		.then(res => res.json() as any)
+	// 		.catch(err => console.log(err))
+	// }
 })
 </script>

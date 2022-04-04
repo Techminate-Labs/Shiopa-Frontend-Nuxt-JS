@@ -14,17 +14,6 @@
           </div>
           <div class="z-0 md:absolute md:top-0 w-5/6 bg-gray-100 h-full"></div>
        </div>
-        <!-----End 1st part---->
-        <!-----2nd part---->
-          <!-- <div class="lg:w-1/2 w-full relative">
-            <div class="h-75 col flex flex-col flex-grow"> 
-              <div class="rounded-lg h-64 overflow-hidden z-10 pt-6">
-                <img class="object-cover object-center h-full w-full" src="https://template.hasthemes.com/urdan/urdan/assets/images/banner/banner-5.png">
-              </div>
-            <div class="z-5 px-5 mt-5 absolute lg:w-30 w-full bg-gray-100 h-80"></div>    
-          </div>
-        </div> -->
-        <!-----End 2nd part---->
       </div>
     </div>
 </template>

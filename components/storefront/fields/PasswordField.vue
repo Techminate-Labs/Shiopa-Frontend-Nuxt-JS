@@ -3,6 +3,7 @@
 		<span class="capitalize">{{title}}</span>
 		<span v-show="isRequired" class="float-right text-red-400 text-xs">(required) *</span>
 		<input
+		    class="p-2 text-sm w-full border border-gray-600"
 			@input="$emit('valueChange', value)"
 			type="password" 
 			:id="name" 

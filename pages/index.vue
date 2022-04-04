@@ -52,13 +52,12 @@ export default Vue.extend({
 		}
 	},
 	async asyncData({ $axios }: any) {
-		const sliders = await $axios.$get('http://localhost:8080/sliders')
-		const categories = await $axios.$get('http://localhost:8080/categories')
-		const firstCategory = await $axios.$get('http://localhost:8080/products?category_id=1')
-		const secondCategory = await $axios.$get('http://localhost:8080/products?category_id=2')
-		const latestProducts = await $axios.$get('http://localhost:8080/products?section=latest')
+		const sliders = await $axios.$get('http://127.0.0.1:8000/api/sliderImages')
+		const firstCategory = await $axios.$get('http://127.0.0.1:8000/api/featuredItems')
+		const secondCategory = await $axios.$get('http://127.0.0.1:8000/api/featuredItems')
+		const latestProducts = await $axios.$get('http://127.0.0.1:8000/api/latestItems')
 
-		return { sliders, categories, firstCategory, secondCategory, latestProducts }
+		return { sliders,  firstCategory, secondCategory, latestProducts }
 	}
 })
 </script>
