@@ -2,18 +2,21 @@
 	<div>
 		<Slider :sliders="sliders" />
 		<div class="container mx-auto">
-			<Categories :categories="categories" class="mt-8 mb-20" />
-            <DealOfTheDay />
-			<CategoryProducts :categoryProducts="firstCategory" class="mb-20" />
-			<SingleCategory class="mb-20" />
-			<ModernCategory class="mt-8 mb-20" />
-			<CategoryDining class="mb-20" />
-			<h2>Category 2</h2>
-			<CategoryProducts :categoryProducts="secondCategory" class="mb-20" />
+			<BannerTop :categories="categories" class="mt-8 mb-20" />
+			<h2>Featured Products</h2>
+			<HomeItems :products="latestProducts" class="mb-20" />
+			<h2>Latest Products</h2>
+			<HomeItems :products="latestProducts" class="mb-20" />
+			<!-- <BannerMiddle class="mb-20" /> -->
+			<BestItem class="mt-8 mb-20" />
+			
+			<h2>Discounted Products</h2>
+			<HomeItems :products="latestProducts" class="mb-20" />
+			<h2>Popular Products</h2>
+			<HomeItems :products="latestProducts" class="mb-20" />
+			<BannerBottom class="mb-20" />
 			<h2>Our Brands</h2>
 			<Brands class="mb-20" />
-			<h2>Latest Products</h2>
-			<CategoryProducts :categoryProducts="latestProducts" class="mb-20" />
 		</div>
 	</div>
 </template>
@@ -23,24 +26,22 @@ import Vue from 'vue'
 
 // components
 import Slider from '@/components/storefront/products/Slider.vue'
-import Categories from '@/components/storefront/products/categories/Categories.vue'
-import CategoryDining from '@/components/storefront/products/categories/dining/CategoryDining.vue'
-import ModernCategory from '@/components/storefront/products/categories/ModernCategory.vue'
-import SingleCategory from '@/components/storefront/products/categories/SingleCategory.vue'
-import Brands from '~/components/storefront/products/categories/Brands.vue'
-import CategoryProducts from '@/components/storefront/products/categories/CategoryProducts.vue'
-import DealOfTheDay from '@/components/storefront/products/DealOftheDay.vue'
+import BannerTop from '~/components/storefront/home/banners/BannerTop.vue'
+import BannerBottom from '~/components/storefront/home/banners/BannerBottom.vue'
+import BestItem from '~/components/storefront/home/products/PromoItem.vue'
+import BannerMiddle from '~/components/storefront/home/banners/BannerMiddle.vue'
+import Brands from '~/components/storefront/home/brands/Brands.vue'
+import HomeItems from '~/components/storefront/home/products/HomeItems.vue'
 
 export default Vue.extend({
 	components: {
-		Categories,
-		SingleCategory,
+		BannerTop,
+		BannerMiddle,
 		Slider,
-		ModernCategory,
-		CategoryDining,
+		BestItem,
+		BannerBottom,
 		Brands,
-		CategoryProducts,
-		DealOfTheDay
+		HomeItems
 	},
 	data() {
 		return {
@@ -54,11 +55,9 @@ export default Vue.extend({
 	async asyncData({ $axios }: any) {
 		const sliders = await $axios.$get('http://localhost:8080/sliders')
 		const categories = await $axios.$get('http://localhost:8080/categories')
-		const firstCategory = await $axios.$get('http://localhost:8080/products?category_id=1')
-		const secondCategory = await $axios.$get('http://localhost:8080/products?category_id=2')
 		const latestProducts = await $axios.$get('http://localhost:8080/products?section=latest')
 
-		return { sliders, categories, firstCategory, secondCategory, latestProducts }
+		return { sliders, categories, latestProducts }
 	}
 })
 </script>
