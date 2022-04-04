@@ -6,13 +6,12 @@
 			<NuxtLink :to="{ name: 'category', params: { category: category.slug } }">
 				<div class="z-10 pt-6">
 					<img
-						:src="'/placeholders/' + category.image_url"
-						:alt="category.image_alt"
+						:src="category.image"
 						class="w-full"
 						/>
 				</div>
 				<div class="absolute z-10 float-left mx-4 bottom-4">
-					<h3 class="font-semibold text-2xl">{{category.name}}</h3>
+					<h3 class="font-semibold text-2xl">{{category.name}}.{{category.price}}</h3>
 					<span class="font-medium text-sm hover:underline cursor-pointer">Shop Now</span>
 				</div>
 			</NuxtLink>
@@ -29,7 +28,7 @@
 			}
 		},
 		async fetch() {
-			this.categories = await fetch('http://localhost:8080/categories')
+			this.categories = await fetch('http://127.0.0.1:8000/api/popularItems')
 			.then(res => res.json())
 			.catch(err => console.log(err))
 		},

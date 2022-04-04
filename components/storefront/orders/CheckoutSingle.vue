@@ -96,6 +96,7 @@
 			<span class="text-black">Order notes (optional)</span>
 			<textarea 
 				rows="4" 
+				class="p-2 text-sm w-full border border-gray-600"
 				placeholder="Notes about your order or special notes for delivery.">
 			</textarea>
 		</label>
