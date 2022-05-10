@@ -2,7 +2,7 @@
 	<div>
 		<Slider :sliders="sliders" />
 		<div class="container mx-auto">
-			<BannerTop :categories="categories" class="mt-8 mb-20" />
+			<!-- <BannerTop :categories="categories" class="mt-8 mb-20" /> -->
 			<h2>Featured Products</h2>
 			<HomeItems :products="featuredItems" class="mb-20" />
 			<h2>Latest Products</h2>
@@ -54,12 +54,12 @@ export default Vue.extend({
 	},
 	async asyncData({ $axios }: any) {
 		const sliders = await $axios.$get('/api/sliderImages')
-		const categories = await $axios.$get('http://localhost:8080/categories')
+		// const categories = await $axios.$get('http://localhost:8080/categories')
 		const latestItems = await $axios.$get('/api/latestItems')
 		const popularItems = await $axios.$get('/api/popularItems')
 		const featuredItems = await $axios.$get('/api/featuredItems')
 
-		return { sliders, categories, latestItems, popularItems, featuredItems }
+		return { sliders, latestItems, popularItems, featuredItems }
 	}
 })
 </script>

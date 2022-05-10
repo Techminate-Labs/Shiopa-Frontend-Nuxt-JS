@@ -3,7 +3,7 @@
     <div class="mb-10">
       <div class="flex p-2" v-for="(item, index) in cart.items" :key="index">
         <div class="m-1">
-          <img class="w-20" :src="'/placeholders/' + item.image" />
+          <img class="w-20" :src="item.image" />
         </div>
         <div class="flex flex-col justify-center m-1">
           <p>{{item.name}}</p>

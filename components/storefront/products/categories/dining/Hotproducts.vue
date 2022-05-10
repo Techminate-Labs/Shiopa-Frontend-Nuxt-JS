@@ -4,7 +4,7 @@
 		<div class="flex flex-wrap ">
 			<div v-for="(hotProduct, index) in hotProducts" :key="index" class="relative group xl:w-1/5 md:w-1/2 m-7 w-100">
 			<div class="relative">
-				<img alt="ecommerce" class="h-full rounded w-full object-cover object-center transform transition duration-100 hover:scale-800" :src="'/placeholders/' + hotProduct.image">
+				<img alt="ecommerce" class="h-full rounded w-full object-cover object-center transform transition duration-100 hover:scale-800" :src="hotProduct.image">
 			</div>
 			<div class="flex flex-wrap">
 				<div class="mt-4">
