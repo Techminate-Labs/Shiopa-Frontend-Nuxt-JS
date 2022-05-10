@@ -23,21 +23,21 @@ If you need some help with git, follow this procedure.
 
 ```
 1. clone your forked repo
-Command : git clone your_repository_name 
+Command : `git clone REPOSITORY_NAME`
 2. then setup the original repository that you forked from as upstream
-Command: git remote add upstream original_repository_name
+Command: `git remote add upstream UPSTREAM_REPOSITORY_NAME`
 
 3. Each time you start coding make a fetch request to download the latest codes from original repo and be updated
 Command: 
-git fetch upstream
-git pull upstream master
+`git fetch upstream`
+`git pull upstream master`
 
 Now you're all set.
 
 To push your own codes follow these steps:
-1. git add .
-2. git commit -m "commit name"
-3. git push -u origin your_repo_branch_name
+1. `git add .`
+2. `git commit -m "commit name"`
+3. `git push -u origin REPOSITORY_BRANCH_NAME`
 
 Then go to your repo and make a pull request.
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
@@ -53,7 +53,7 @@ To help new contributors, it is advised to have a clear separation of the parts 
 
 #### Examples
 
-Say we are looking for the **Cart component**.
+Say we are looking for the *Cart component*.
 Since this is a component, it has to be in the `/component` folder.
 
 ```

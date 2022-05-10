@@ -88,28 +88,28 @@ interface hotProduct {
 export default class hotProducts extends Vue{
 
 	@Prop({ required: true }) readonly hotProducts!: hotProduct[]
+	
 	public localData: Cart = {
-	hotProduct_id: null,
-	price: null,
-	name: null,
-	img: null,
-	image: null,
-	quantity: null
-}
-public items!: []
+		hotProduct_id: null,
+		price: null,
+		name: null,
+		img: null,
+		image: null,
+		quantity: null
+	}
+	
+	public items!: []
 
 	public addProductToCart(hotProduct: hotProduct, quantity: number): void {
-	console.log('add to cart clicked')
-	this.localData = {
-	hotProduct_id: hotProduct.id,
-	price: hotProduct.price,
-	name: hotProduct.name,
-	img: hotProduct.main_image_url,
-	image: hotProduct.main_image_url,
-	quantity: quantity
+		this.localData = {
+			hotProduct_id: hotProduct.id,
+			price: hotProduct.price,
+			name: hotProduct.name,
+			img: hotProduct.main_image_url,
+			image: hotProduct.main_image_url,
+			quantity: quantity
+		}
+		this.$accessor.cart.addToCart(this.localData)
 	}
-	this.$accessor.cart.addToCart(this.localData)
-}
-
 }
 </script>

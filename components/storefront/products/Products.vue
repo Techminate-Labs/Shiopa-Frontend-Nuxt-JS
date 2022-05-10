@@ -11,7 +11,10 @@
 								slug: product.slug 
 							}}"
 							class="block relative h-70 rounded overflow-hidden">
-							<img alt="ecommerce" class="object-cover object-center transform hover:scale-105 ease-in-out duration-200 w-full h-full block" :src="'/placeholders/' +product.image">
+							<img 
+								alt="ecommerce"
+								class="object-cover object-center transform hover:scale-105 ease-in-out duration-200 w-full h-full block"
+								:src="product.image">
 						</NuxtLink>
 						<div class="flex flex-wrap">
 							<div class="mt-4">
@@ -42,7 +45,6 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from 'nuxt-property-decorator'
-import { accessor } from '@/store'
 
 // types
 import { CartItem } from '@/types/cart/Cart'

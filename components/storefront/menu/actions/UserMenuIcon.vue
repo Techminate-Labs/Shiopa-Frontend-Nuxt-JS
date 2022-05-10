@@ -15,7 +15,6 @@ export default class UserMenuIcon extends Vue {
 
 	public openUserMenu(): void {
 		this.$accessor.menu.setUserMenu(true)
-		console.log(this.$accessor.menu.isUserMenuOpen)
 	}
 
 }

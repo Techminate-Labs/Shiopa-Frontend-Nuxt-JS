@@ -65,6 +65,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import EmailField from '@/components/storefront/fields/EmailField.vue'
 import PasswordField from '@/components/storefront/fields/PasswordField.vue'
 
+// services
+import AuthService from '@/services/auth/AuthService'
+
 @Component({
 	components: {
 		EmailField,
@@ -85,12 +88,14 @@ export default class LoginClient extends Vue {
 
 	public async login(): Promise<any> {
 
+
+		// const loggedInUser = AuthService.login(this.user)
+
 		const loggedInUser = await this.$axios.$post('/api/loginCustomer', this.user)
 			.then(res => {
 				this.$axios.setToken(res.token, 'Bearer')
 				this.$accessor.session.setUser(res.user)
 				this.$accessor.session.setBearerToken(res.token)
-				console.log(this.$axios)
 		
 				this.$router.push('/')
 			})

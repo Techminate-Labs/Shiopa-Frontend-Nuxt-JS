@@ -69,7 +69,6 @@ export default class Cart extends Vue {
 
   @Emit('closeCart')
   closeCart(): void {
-    console.log('closing cart')
     console.log(this.$accessor.cart.cart.items)
   }
 
