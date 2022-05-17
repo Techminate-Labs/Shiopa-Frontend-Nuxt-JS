@@ -1,30 +1,27 @@
 <template>
 	<section id="brands" class="text-gray-600 body-font">
-		<!----new part--->
-		<div class="py-10">
-			<div class="flex flex-wrap border border-gray-200 px-8 py-5 justify-around items-center">
-				<div class="p-4">
-					<img class="h-50" src="https://template.hasthemes.com/urdan/urdan/assets/images/brand-logo/brand-logo-1.png"/>
-				</div>
-				<div class="p-4">
-					<img class="h-50" src="https://template.hasthemes.com/urdan/urdan/assets/images/brand-logo/brand-logo-2.png"/>
-				</div>
-				<div class="p-4">
-				<img class="h-50" src="https://template.hasthemes.com/urdan/urdan/assets/images/brand-logo/brand-logo-3.png"/>
-				</div>
-				<div class="p-4">
-					<img class="h-50" src="https://template.hasthemes.com/urdan/urdan/assets/images/brand-logo/brand-logo-4.png"/>
-				</div>
-				<div class="p-4">
-					<img class="h-50" src="https://template.hasthemes.com/urdan/urdan/assets/images/brand-logo/brand-logo-5.png"/>
-				</div>
-			</div>
-		</div>
+		<ul class="flex flex-wrap border border-gray-200 p-4 justify-around items-center">
+			<li v-for="(brand, index) in brands" :key="index" class="max-w-sm">
+				<img class="h-50 p-4" :src="brand.image"/>
+			</li>
+		</ul>
 	</section>
 </template>
 
 <script lang="ts">
 import { Vue } from 'nuxt-property-decorator'
 
-export default class Brands extends Vue {}
+export default Vue.extend({
+	name: 'Brands',
+    data() {
+        return {
+            brands: [] as any
+        }
+    },
+	async fetch() {
+        this.brands = await fetch('http://127.0.0.1:8000/api/brandLogoImages')
+            .then(res => res.json())
+            .catch(err => console.log(err))
+    }
+})
 </script>

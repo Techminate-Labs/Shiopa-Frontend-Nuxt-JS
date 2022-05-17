@@ -116,7 +116,6 @@ export default class RegisterClient extends Vue {
     public async register(): Promise<any> {
             await this.$axios.$post('/api/registerCustomer', this.user)
                 .then( (res) => {
-                    console.log(res)
                     this.$axios.$post('/api/loginCustomer', { email: res.user.email, password: this.user.password })
                         .then( (res) => {
                             this.$axios.setToken(res.token, 'Bearer')

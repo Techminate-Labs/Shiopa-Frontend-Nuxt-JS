@@ -3,7 +3,7 @@
 		<figure class="md:max-w-max relative block md:mr-4">
 			<img
 				alt="Photo of the countryside with mist."
-				:src="'/placeholders/' + product.image"
+				:src="product.image"
 				class="z-0 md:max-w-xl"
 			/>
 		</figure>

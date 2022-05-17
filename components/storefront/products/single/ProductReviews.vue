@@ -1,5 +1,5 @@
 <template>
-  <div class="container md:max-w-2xl mx-auto text-center my-8 px-4">
+  <div class="container max-w-sm md:max-w-2xl text-center my-8 p-0">
     <ul v-if="reviews.length">
       <li v-for="(review, index) in reviews" :key="index">
         <div class="flex flex-col text-left my-6">
@@ -14,11 +14,11 @@
         </div>
       </li>  
     </ul>
-    <div v-else class="my-6 px-4">
+    <div v-else class="my-6">
       <p class="text-xl font-bold">There are no reviews yet, be the first one !</p>
     </div>
     <hr>
-    <div class="my-6 text-left px-4">
+    <div class="my-6 text-left">
       <p class="font-bold text-2xl mb-6">Add a review</p>
       <form>
         <div class="flex flex-row flex-wrap justify-between">

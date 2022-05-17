@@ -11,6 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
+// components
 import Slider from '@/components/storefront/products/Slider.vue'
 import Filters from '@/components/storefront/products/Filters.vue'
 import Products from '@/components/storefront/products/Products.vue'
@@ -30,8 +31,10 @@ export default Vue.extend({
     Products
   },
   async asyncData({ $axios }: any) {
-    const sliders = await $axios.$get('http://localhost:8080/sliders')
-    const products = await $axios.$get('http://localhost:8080/products')
+    const sliders = await $axios.$get('/api/sliderImages')
+    const productsResponse = await $axios.$get('/api/itemList')
+    let products = productsResponse.data
+
     return { sliders, products }
   }
 })

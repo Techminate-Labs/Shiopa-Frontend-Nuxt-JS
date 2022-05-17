@@ -50,8 +50,7 @@ export const actions = actionTree(
     },
 
     async nuxtServerInit(_vuexContext, nuxtContext: Context) {
-		console.log('Nuxt server init...')
-		console.log(nuxtContext.req)
+		
 	},
   }
 )

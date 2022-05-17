@@ -88,9 +88,9 @@ export default class LoginClient extends Vue {
 		const loggedInUser = await this.$axios.$post('/api/loginCustomer', this.user)
 			.then(res => {
 				this.$axios.setToken(res.token, 'Bearer')
+				console.log(res)
 				this.$accessor.session.setUser(res.user)
 				this.$accessor.session.setBearerToken(res.token)
-				console.log(this.$axios)
 		
 				this.$router.push('/')
 			})

@@ -14,7 +14,7 @@
 						<img 
 							:alt="product.description" 
 							class="h-full rounded w-full object-cover object-center" 
-							:src="'/placeholders/' + product.image">
+							:src="product.image">
 					</NuxtLink>
 						<div class="opacity-0 w-full group-hover:opacity-100 duration-300 absolute bottom-0 right-0 z-10">
 						<div class="flex justify-end m-2">

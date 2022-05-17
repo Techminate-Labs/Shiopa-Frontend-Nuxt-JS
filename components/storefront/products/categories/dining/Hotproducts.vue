@@ -4,7 +4,7 @@
 		<div class="flex flex-wrap ">
 			<div v-for="(hotProduct, index) in hotProducts" :key="index" class="relative group xl:w-1/5 md:w-1/2 m-7 w-100">
 			<div class="relative">
-				<img alt="ecommerce" class="h-full rounded w-full object-cover object-center transform transition duration-100 hover:scale-800" :src="'/placeholders/' + hotProduct.image">
+				<img alt="ecommerce" class="h-full rounded w-full object-cover object-center transform transition duration-100 hover:scale-800" :src="hotProduct.image">
 			</div>
 			<div class="flex flex-wrap">
 				<div class="mt-4">
@@ -88,28 +88,28 @@ interface hotProduct {
 export default class hotProducts extends Vue{
 
 	@Prop({ required: true }) readonly hotProducts!: hotProduct[]
+	
 	public localData: Cart = {
-	hotProduct_id: null,
-	price: null,
-	name: null,
-	img: null,
-	image: null,
-	quantity: null
-}
-public items!: []
+		hotProduct_id: null,
+		price: null,
+		name: null,
+		img: null,
+		image: null,
+		quantity: null
+	}
+	
+	public items!: []
 
 	public addProductToCart(hotProduct: hotProduct, quantity: number): void {
-	console.log('add to cart clicked')
-	this.localData = {
-	hotProduct_id: hotProduct.id,
-	price: hotProduct.price,
-	name: hotProduct.name,
-	img: hotProduct.main_image_url,
-	image: hotProduct.main_image_url,
-	quantity: quantity
+		this.localData = {
+			hotProduct_id: hotProduct.id,
+			price: hotProduct.price,
+			name: hotProduct.name,
+			img: hotProduct.main_image_url,
+			image: hotProduct.main_image_url,
+			quantity: quantity
+		}
+		this.$accessor.cart.addToCart(this.localData)
 	}
-	this.$accessor.cart.addToCart(this.localData)
-}
-
 }
 </script>

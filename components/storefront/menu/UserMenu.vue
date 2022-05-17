@@ -33,8 +33,6 @@ export default class UserMenu extends Vue {
 
 	public closeUserMenu(): void {
 		this.$accessor.menu.setUserMenu(false)
-		console.log('click')
-		console.log(this.$accessor.menu.isUserMenuOpen)
 	}
 	
 	get isUserMenuOpen(): boolean {

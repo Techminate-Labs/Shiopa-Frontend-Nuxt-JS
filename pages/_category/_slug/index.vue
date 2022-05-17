@@ -39,10 +39,8 @@ export default Vue.extend({
     }
   },
   async asyncData({ params, $axios }: any) {
-    const product_slug = params.slug
-    const _product = await $axios.$get(`http://localhost:8080/products?slug=${product_slug}`)
-    const product = _product[0]
-    return { product }
+    const item_id = params.id
+    const productResponse = await $axios.$get(`/itemGetById/${item_id}`)
   }
 })
 </script>

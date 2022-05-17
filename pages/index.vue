@@ -2,19 +2,25 @@
 	<div>
 		<Slider :sliders="sliders" />
 		<div class="container mx-auto">
-			<BannerTop :categories="categories" class="mt-8 mb-20" />
+			<BannerTop class="mt-8 mb-20" />
+
 			<h2>Featured Products</h2>
-			<HomeItems :products="latestProducts" class="mb-20" />
+			<HomeItems :products="featuredItems" class="mb-20" />
+			
 			<h2>Latest Products</h2>
-			<HomeItems :products="latestProducts" class="mb-20" />
-			<!-- <BannerMiddle class="mb-20" /> -->
+			<HomeItems :products="latestItems" class="mb-20" />
+
+			<BannerMiddle class="mb-20" />
+			
 			<BestItem class="mt-8 mb-20" />
 			
-			<h2>Discounted Products</h2>
-			<HomeItems :products="latestProducts" class="mb-20" />
+			<h2>Category</h2>
+			<HomeItems :products="latestItems" class="mb-20" />
+			
 			<h2>Popular Products</h2>
-			<HomeItems :products="latestProducts" class="mb-20" />
+			<HomeItems :products="popularItems" class="mb-20" />
 			<BannerBottom class="mb-20" />
+			
 			<h2>Our Brands</h2>
 			<Brands class="mb-20" />
 		</div>
@@ -43,21 +49,13 @@ export default Vue.extend({
 		Brands,
 		HomeItems
 	},
-	data() {
-		return {
-			sliders: [] as Array<any>,
-			categories: [] as Array<any>,
-			firstCategory: [] as Array<any>,
-			secondCategory: [] as Array<any>,
-			latestProducts: [] as Array<any>,
-		}
-	},
 	async asyncData({ $axios }: any) {
-		const sliders = await $axios.$get('http://localhost:8080/sliders')
-		const categories = await $axios.$get('http://localhost:8080/categories')
-		const latestProducts = await $axios.$get('http://localhost:8080/products?section=latest')
+		const sliders = await $axios.$get('/api/sliderImages')
+		const latestItems = await $axios.$get('/api/latestItems')
+		const popularItems = await $axios.$get('/api/popularItems')
+		const featuredItems = await $axios.$get('/api/featuredItems')
 
-		return { sliders, categories, latestProducts }
+		return { sliders, latestItems, popularItems, featuredItems }
 	}
 })
 </script>

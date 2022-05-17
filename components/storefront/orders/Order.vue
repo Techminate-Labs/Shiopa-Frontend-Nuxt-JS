@@ -4,7 +4,7 @@
 		<ul>
 			<li class="flex border-b-2 border-gray-100 justify-between py-6" v-for="(item) in cart.items" :key="item.product_id">
 				<div class="w-15">
-					<img class="h-20" :src="'/placeholders/' + item.image" :alt="item.description" />
+					<img class="h-20" :src="item.image" :alt="item.description" />
 				</div>
 				<span class="font-semibold text-sm self-center">{{ item.name }}</span>
 				<span class="font-semibold text-sm self-center">x {{ item.quantity }}</span>

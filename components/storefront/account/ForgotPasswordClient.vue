@@ -51,8 +51,7 @@ export default class ForgotPasswordClient extends Vue {
 
 		try {
 			const loginUser = await this.$axios.$post('/api/forgot-password', { email: this.email })
-
-			console.log(loginUser)
+			
 		} catch (err) {
 			console.log(err)
 		}

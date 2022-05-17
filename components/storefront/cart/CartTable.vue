@@ -25,7 +25,7 @@
           <tr v-for="(item, index) in cart.items" :key="index" class="border-b border-gray-300 bg-gray-50">
             <td class="p-4" data-label="Details">
               <div class="flex flex-row flex-nowrap justify-end sm:justify-start md:block">
-                <img class="object-cover w-20 h-20 order-last sm:order-first ml-2 sm:mr-2 sm:ml-0 md:m-0" :src="'/placeholders/' + item.image" alt="">
+                <img class="object-cover w-20 h-20 order-last sm:order-first ml-2 sm:mr-2 sm:ml-0 md:m-0" :src="item.image" alt="">
                 <div class="flex flex-col justify-between">
                   <span class="text-grey-800 text-xs">{{item.name}}</span>
                 </div>

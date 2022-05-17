@@ -74,7 +74,6 @@ export default class FiltersMenu extends Vue {
 	}
 
 	get checkIfDropdownIsOpen(): Boolean {
-		console.log('checkIfDropdownIsOpen', this.isDropdownOpen)
 		if (this.isDropdownOpen) {
 			return this.isDropdownOpen
 		} else {
