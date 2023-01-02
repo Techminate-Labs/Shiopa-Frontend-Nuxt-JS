@@ -16,7 +16,7 @@
         "@nuxtjs/proxy": "^2.1.0",
         "axios": "^0.21.1",
         "core-js": "^3.9.1",
-        "nuxt": "^2.15.3",
+        "nuxt": "^3.0.0",
         "nuxt-typed-vuex": "^0.2.0",
         "vuex": "^3.6.2",
         "vuex-persistedstate": "^4.1.0"
